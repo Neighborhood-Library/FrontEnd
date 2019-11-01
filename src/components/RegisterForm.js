@@ -22,7 +22,7 @@ export default class RegisterForm extends React.Component {
     return (
       <div className='container'>
         <div className='form-container'>
-          <h1>Sign Up</h1>
+          <h1>Create an Account</h1>
           <form className='form-content' onSubmit={this.handleSubmit}>
             <div className='firstName'>
               <label htmlFor='firstName'>First Name</label>
