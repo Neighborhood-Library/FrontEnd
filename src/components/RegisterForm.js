@@ -6,8 +6,10 @@ export default class RegisterForm extends React.Component {
     lastName: '',
     email: '',
     username: '',
-    password: ''
+    password: '',
+    showPassword: false
   };
+
   handleSubmit = e => {
     e.preventDefault();
   };
@@ -18,11 +20,17 @@ export default class RegisterForm extends React.Component {
     this.setState({ [name]: value }, () => console.log(this.state));
   };
 
+  togglePassword = () => {
+    const { showPassword } = this.state;
+    this.setState({ showPassword: !showPassword });
+  };
+
   render() {
+    const { showPassword } = this.state;
     return (
       <div className='container'>
         <div className='form-container'>
-          <h1>Create an Account</h1>
+          <h1>Sign Up</h1>
           <form className='form-content' onSubmit={this.handleSubmit}>
             <div className='firstName'>
               <label htmlFor='firstName'>First Name</label>
@@ -30,6 +38,7 @@ export default class RegisterForm extends React.Component {
                 type='text'
                 placeholder='First Name'
                 name='firstName'
+                value={this.state.firstName}
                 onChange={e => this.handleChange(e)}
               />
             </div>
@@ -39,6 +48,7 @@ export default class RegisterForm extends React.Component {
                 type='text'
                 placeholder='Last Name'
                 name='lastName'
+                value={this.state.lastName}
                 onChange={this.handleChange}
               />
             </div>
@@ -48,6 +58,7 @@ export default class RegisterForm extends React.Component {
                 type='email'
                 placeholder='Email'
                 name='email'
+                value={this.state.email}
                 onChange={this.handleChange}
               />
             </div>
@@ -57,16 +68,23 @@ export default class RegisterForm extends React.Component {
                 type='text'
                 placeholder='Username'
                 name='username'
+                value={this.state.username}
                 onChange={this.handleChange}
               />
             </div>
             <div className='password'>
               <label htmlFor='password'>Create a Password</label>
               <input
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
                 name='password'
                 onChange={this.handleSubmit}
+              />
+              <i
+                className={`fa ${
+                  showPassword ? 'fa-eye-slash' : 'fa-eye'
+                } password-icon`}
+                onClick={this.togglePassword}
               />
             </div>
             <div className='sumbit-signup'>
