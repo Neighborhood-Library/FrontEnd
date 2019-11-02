@@ -119,10 +119,9 @@ input::placeholder {
 .password-icon {
   position: absolute;
   color: #615e61;
-  top: 32px;
+  top: 33px;
   right: 8px;
   cursor: pointer;
-  font-size: 0.8rem;
 }
 
 /* End Registration css */

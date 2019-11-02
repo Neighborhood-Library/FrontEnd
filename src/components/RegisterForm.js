@@ -82,7 +82,7 @@ export default class RegisterForm extends React.Component {
               />
               <i
                 className={`fa ${
-                  showPassword ? 'fa-eye-slash' : 'fa-eye'
+                  showPassword ? 'fa-eye-slash fa-lg' : 'fa-eye fa-lg'
                 } password-icon`}
                 onClick={this.togglePassword}
               />
