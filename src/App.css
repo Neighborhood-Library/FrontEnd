@@ -2,21 +2,112 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0 5em;
 }
 
-.App-link {
-  color: #09d3ac;
+.title {
+  font-size: 3em;
+  font-weight: 400;
+  color: #6558F5;
 }
+
+::placeholder {
+  color: #C5CED6;
+}
+
+.bookSearch {
+  font-size: 1.5em;
+  padding: 0.25em 0.5em;
+  border: 2px solid #C5CED6;
+  color: #C5CED6;
+  border-radius: 5px 0px 0px 5px;
+  caret-color: #6558F5;
+  outline: none;
+}
+
+.searchBtn {
+  background: none;
+  font-size: 1.5em;
+  border: 2px solid #C5CED6;
+  border-left: none;
+  padding: 0.25em 0.5em;
+  border-radius: 0px 5px 5px 0px;
+  outline: none;
+  color: #6558F5;
+  transition: ease-out 0.25s;
+}
+
+.searchBtn:hover {
+  background: #6558F5;
+  color: white;
+  transition: ease-in 0.25s;
+}
+
+.searchBtn i {
+  transition: ease 0.25s;
+}
+
+.searchBtn i:active {
+  transform: rotateZ(90deg);
+  transition: ease 0.25s;
+}
+
+.actionBtn {
+  font-size: 2em;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.account {
+  color: rgb(143, 141, 165);
+  margin-right: 0.5em;
+  transition: ease 0.15s;
+}
+
+.logout {
+  background: #6558F5;
+  color: white;
+  padding: 0.25em 0.5em;
+  border: 2px solid #6558F5;
+  border-radius: 5px;
+  transition: ease-out 0.25s;
+  transition: ease 0.1s;
+}
+
+.logout:hover {
+  background: white;
+  color: #6558F5;
+  border: 2px solid #6558F5;
+  transition: ease-in 0.25s;
+}
+
+.logout:active,
+.account:active {
+  transform: translateY(5px);
+  transition: ease 0.1s;
+}
+
+@media (max-width: 560px) {
+  .title {
+    margin: 0;
+  }
+
+  .nav {
+    flex-direction: column;
+    padding: 0.5em;
+  }
+
+  .bookSearch {
+    margin: 1em 0;
+  }
+}
+
+/*
+gray #c5ced6
+purple #6558f5
+*/
