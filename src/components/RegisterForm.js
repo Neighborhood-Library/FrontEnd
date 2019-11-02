@@ -12,12 +12,11 @@ export default class RegisterForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state);
   };
 
   handleChange = e => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    this.setState({ [name]: value }, () => console.log(this.state));
+    this.setState({ [e.target.name]: e.target.value }, console.log(this.state));
   };
 
   togglePassword = () => {
@@ -39,7 +38,7 @@ export default class RegisterForm extends React.Component {
                 placeholder='First Name'
                 name='firstName'
                 value={this.state.firstName}
-                onChange={e => this.handleChange(e)}
+                onChange={this.handleChange}
               />
             </div>
             <div className='lastName'>
@@ -78,7 +77,8 @@ export default class RegisterForm extends React.Component {
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
                 name='password'
-                onChange={this.handleSubmit}
+                value={this.state.password}
+                onChange={this.handleChange}
               />
               <i
                 className={`fa ${
