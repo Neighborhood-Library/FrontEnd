@@ -5,7 +5,13 @@ class Header extends React.Component {
   state = {
     bookSearch: ''
   }
-
+  handleChange = e => {
+    // console.log(e.target.value)
+    this.setState({ [e.target.name]: e.target.value })
+  }
+  handleSearch = e => {
+    console.log(this.state.bookSearch)
+  }
   render () {
     return (
       <header className="nav">
@@ -14,8 +20,8 @@ class Header extends React.Component {
           <input
             type="text" className="bookSearch"
             placeholder="Search for book" name="bookSearch"
-            value={this.state.bookSearch}></input>
-          <button className="searchBtn" type="submit"><i className="fas fa-search"></i></button>
+            value={this.state.bookSearch} onChange={this.handleChange}></input>
+          <button className="searchBtn" type="submit" onClick={this.handleSearch}><i className="fas fa-search"></i></button>
         </div>
         <div className="actions">
           <button className="actionBtn account"><i className="far fa-user"></i></button>
