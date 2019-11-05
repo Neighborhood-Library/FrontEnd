@@ -6,11 +6,10 @@ class Header extends React.Component {
     bookSearch: ''
   }
   handleChange = e => {
-    // console.log(e.target.value)
     this.setState({ [e.target.name]: e.target.value })
   }
   handleSearch = e => {
-    console.log(this.state.bookSearch)
+    console.log(`You searched for ${this.state.bookSearch}`)
   }
   render () {
     return (
@@ -24,6 +23,11 @@ class Header extends React.Component {
           <button className="searchBtn" type="submit" onClick={this.handleSearch}><i className="fas fa-search"></i></button>
         </div>
         <div className="actions">
+          <select className="filter">
+            <option defaultChecked>View By:</option>
+            <option>Owned Books</option>
+            <option>Wishlist</option>
+          </select>
           <button className="actionBtn account"><i className="far fa-user"></i></button>
           <button className="actionBtn logout">Log Out</button>
         </div>
