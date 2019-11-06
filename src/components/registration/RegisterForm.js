@@ -1,22 +1,25 @@
 import React from 'react';
+import './RegisterForm.css';
 
+const initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  username: '',
+  password: '',
+  showPassword: false
+};
 export default class RegisterForm extends React.Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    username: '',
-    password: '',
-    showPassword: false
-  };
+  state = initialState;
 
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+    this.setState(initialState);
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value }, console.log(this.state));
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   togglePassword = () => {
@@ -25,7 +28,14 @@ export default class RegisterForm extends React.Component {
   };
 
   render() {
-    const { showPassword } = this.state;
+    const {
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+      showPassword
+    } = this.state;
     return (
       <div className='container'>
         <div className='form-container'>
@@ -37,8 +47,9 @@ export default class RegisterForm extends React.Component {
                 type='text'
                 placeholder='First Name'
                 name='firstName'
-                value={this.state.firstName}
+                value={firstName}
                 onChange={this.handleChange}
+                required
               />
             </div>
             <div className='lastName'>
@@ -47,8 +58,9 @@ export default class RegisterForm extends React.Component {
                 type='text'
                 placeholder='Last Name'
                 name='lastName'
-                value={this.state.lastName}
+                value={lastName}
                 onChange={this.handleChange}
+                required
               />
             </div>
             <div className='email'>
@@ -57,8 +69,9 @@ export default class RegisterForm extends React.Component {
                 type='email'
                 placeholder='Email'
                 name='email'
-                value={this.state.email}
+                value={email}
                 onChange={this.handleChange}
+                required
               />
             </div>
             <div className='username'>
@@ -67,8 +80,9 @@ export default class RegisterForm extends React.Component {
                 type='text'
                 placeholder='Username'
                 name='username'
-                value={this.state.username}
+                value={username}
                 onChange={this.handleChange}
+                required
               />
             </div>
             <div className='password'>
@@ -77,8 +91,9 @@ export default class RegisterForm extends React.Component {
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
                 name='password'
-                value={this.state.password}
+                value={password}
                 onChange={this.handleChange}
+                required
               />
               <i
                 className={`fa ${
@@ -88,9 +103,9 @@ export default class RegisterForm extends React.Component {
               />
             </div>
             <div className='sumbit-signup'>
-              <button type='submit'>Sign Up</button>
+              <button type='submit'>Submit</button>
               <span>
-                Already have an Account? <a href='/'>Log In</a>
+                Already have an Account? <a href='/login'>Log In</a>
               </span>
             </div>
           </form>
