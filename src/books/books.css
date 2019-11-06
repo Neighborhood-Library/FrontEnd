@@ -1,25 +1,35 @@
-.bookDisplay {
+.bookDisplay, .bookCards {
   margin: 1em 5em;
   display: flex;
   flex-wrap: wrap;
   width: auto;
+  justify-content: space-between;
 }
 
 .bookCard {
   height: auto;
   width: 20em;
   margin: 2em;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(101, 88, 245, 0.5);
+  border-radius: 5px;
 }
 
 .coverArt {
   height: auto;
   width: 100%;
+  border-radius: 5px 5px 0 0;
 }
 
 .bookSummary {
   font-size: 15px;
   line-height: 12pt;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 0.5em;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1077px) {
+  .bookDisplay, .bookCards {
+    justify-content: space-evenly;
+  }
 }

@@ -103,7 +103,7 @@
   border-radius: 5px;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 730px) {
   .title {
     margin: 0;
   }

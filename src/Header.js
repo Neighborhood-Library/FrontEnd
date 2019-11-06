@@ -24,9 +24,9 @@ class Header extends React.Component {
         </div>
         <div className="actions">
           <select className="filter">
-            <option defaultChecked>View By:</option>
-            <option>Owned Books</option>
-            <option>Wishlist</option>
+            <option defaultChecked className="viewFilterOptions">View By:</option>
+            <option className="viewFilterOptions">Owned Books</option>
+            <option className="viewFilterOptions">Wishlist</option>
           </select>
           <button className="actionBtn account"><i className="far fa-user"></i></button>
           <button className="actionBtn logout">Log Out</button>

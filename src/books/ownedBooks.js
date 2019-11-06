@@ -1,11 +1,11 @@
 import React from 'react'
 import './books.css'
-// import Book from './Book.js'
+import Book from './Book.js'
 
 const OwnedBooks = () => {
   return (
-    // <Book />
-    <h2>books will go here</h2>
+    <Book />
+    // {/* <h2>books will go here</h2> */}
   )
 }
 
