@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './RegisterForm.css';
 
 const initialState = {
@@ -104,9 +105,9 @@ export default class RegisterForm extends React.Component {
             </div>
             <div className='sumbit-signup'>
               <button type='submit'>Submit</button>
-              <span>
-                Already have an Account? <a href='/login'>Log In</a>
-              </span>
+              <Link className='loginLink' to='/login'>
+                Already have an Account? Log in
+              </Link>
             </div>
           </form>
         </div>

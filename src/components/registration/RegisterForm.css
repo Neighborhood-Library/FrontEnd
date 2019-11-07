@@ -104,9 +104,10 @@ input::placeholder {
   border-radius: 3px;
 }
 
-.sumbit-signup span {
+.sumbit-signup .loginLink {
   font-size: 0.7rem;
   font-weight: 300;
+  text-decoration: none;
 }
 
 .sumbit-signup a {
@@ -115,7 +116,7 @@ input::placeholder {
 
 .password-icon {
   position: absolute;
-  color: #777377;
+  color: #797779;
   top: 33px;
   right: 8px;
   cursor: pointer;

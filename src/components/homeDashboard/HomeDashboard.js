@@ -1,11 +1,10 @@
 import React from 'react';
+import './HomeDashboard.css';
 
-export default class HomeDashboard extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>HomeDashboard</h1>
-      </div>
-    );
-  }
-}
+const HomeDashboard = () => (
+  <div>
+    <h1>myVivlio Home Dashboard</h1>
+  </div>
+);
+
+export default HomeDashboard;
