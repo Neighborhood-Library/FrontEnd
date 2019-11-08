@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import App from './App';
 import './index.css';
-// import rootReducer from './reducers'; --> or will we use combineReducers?
+// import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
 
 // include rootReducer, after reducers created
