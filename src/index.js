@@ -2,10 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import { createStore } from 'redux'
-import { combineReducers, Provider } from 'react-redux'
+import {
+  createStore,
+  combineReducers
+  } from 'redux'
+import { Provider } from 'react-redux'
 import bookReducer from './reducers/bookReducer.js'
 import userReducer from './reducers/userReducer.js'
+// import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const allReducers = combineReducers({
   books: bookReducer,
@@ -24,4 +28,4 @@ const action = {
   }
 }
 store.dispatch(action)
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'))
+ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'))

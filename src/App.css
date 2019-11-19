@@ -64,13 +64,7 @@
   outline: none;
 }
 
-.account {
-  color: rgb(143, 141, 165);
-  margin-right: 0.5em;
-  transition: ease 0.15s;
-}
-
-.logout {
+.menu {
   background: #6558F5;
   color: white;
   font-size: 1.6em;
@@ -79,20 +73,21 @@
   border-radius: 5px;
   transition: ease-out 0.25s;
   transition: ease 0.1s;
+  outline: none;
 }
 
-.logout:hover {
+.menu:hover {
   background: white;
   color: #6558F5;
   border: 2px solid #6558F5;
   transition: ease-in 0.25s;
 }
 
-.logout:active,
-.account:active {
+.menu:active {
   transform: translateY(5px);
   transition: ease 0.1s;
 }
+
 .filter {
   padding: 0.25em 0.5em;
   font-size: 1.5em;
