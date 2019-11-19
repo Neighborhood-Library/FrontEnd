@@ -1,20 +1,24 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import Login from "./components/login/Login";
 import './App.css';
-import HomeDashboard from './components/homeDashboard/HomeDashboard';
-import LoginForm from './components/login/LoginForm';
-import RegisterForm from './components/registration/RegisterForm';
+import {BrowserRouter as Switch,Route} from 'react-router-dom';
+import Admin from './components/login/Admin'
+import Logout from './components/login/Logout'
 
-function App() {
-  return (
-    <div className='App'>
-      <Switch>
-        <Route exact path='/' component={HomeDashboard} />
-        <Route path='/login' component={LoginForm} />
-        <Route path='/register' component={RegisterForm} />
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="main-container">
+        <h1 className="app-title">MyVivlio</h1>
+        <Switch>
+          <Route exact path='/' component={Login} />
+          <Route path="/admin" component={Admin}/>
+          <Route path="/logout" component={Logout}/>
+        </Switch>
+      </div>
+    );
+  }
 }
+
 
 export default App;
