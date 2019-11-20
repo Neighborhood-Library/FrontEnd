@@ -44,6 +44,12 @@ class Header extends React.Component {
           <button className="menu" onClick={this.handleMenu}>
             <i className="fas fa-bars"></i>
           </button>
+          <ul className={!this.state.menuIsOpen ? "menuClosed": "menuOpen"}>
+          {/** these links will be NavLinks once I figure out how to use it **/}
+            <li>My Account</li>
+            <li>Settings</li>
+            <li>Log Out</li>
+          </ul>
         </div>
 
       </header>

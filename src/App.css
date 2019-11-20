@@ -97,6 +97,30 @@
   border: 2px #6558F5 solid;
   border-radius: 5px;
 }
+.menuClosed {
+  display: none;
+}
+.menuOpen {
+  display: block;
+  z-index: 5;
+  position: absolute;
+  font-size: 1.8em;
+  list-style-type: none;
+  background: #FFF;
+  padding: 0.25em 1.5em;
+  border-radius: 5px;
+  border: 1px solid #6558F5;
+  right: 0;
+  margin-top: 0.125em;
+}
+.menuOpen li {
+  color: #6558F5;
+  text-align: center;
+  width: inherit;
+}
+.menuOpen li:hover {
+  background: #C5CED6
+}
 
 @media (max-width: 730px) {
   .title {
@@ -110,6 +134,9 @@
 
   .bookSearch {
     margin: 1em 0;
+  }
+  .menuOpen {
+    position: relative;
   }
 }
 

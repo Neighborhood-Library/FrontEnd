@@ -12,6 +12,7 @@ class App extends Component {
     return (
         <div className="App">
           <Header />
+          {/* <OwnedBooks /> */}
           {/* <Route path="/"></Route>
           <Route path="/OwnedBooks" Component={OwnedBooks}></Route>
           <Route path="/Wishlist" Component={Wishlist}></Route> */}
