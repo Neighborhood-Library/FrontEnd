@@ -1,5 +1,5 @@
 import React from 'react';
-import vivlio from './vivlio.jpg';
+import vivlio from '../../vivlio.jpg';
 import './landing.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faUserFriends } from '@fortawesome/free-solid-svg-icons';
