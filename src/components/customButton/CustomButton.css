@@ -11,6 +11,8 @@
   font-weight: 500;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .register-button {
@@ -20,6 +22,20 @@
 }
 
 .register-button:hover {
+  color: #6cb0e2;
+  background-color: #fff;
+  border: 2px solid #6cb0e2;
+  border-radius: 3px;
+}
+
+.google-button {
+  background-color: #6cb0e2;
+  text-decoration: none;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.google-button:hover {
   color: #6cb0e2;
   background-color: #fff;
   border: 2px solid #6cb0e2;
