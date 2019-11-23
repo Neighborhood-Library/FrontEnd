@@ -1,6 +1,8 @@
 import React from 'react';
 import vivlio from '../../vivlio.jpg';
 import './landing.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookOpen, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 export const backgroundStyle = {
   backgroundImage: `url(${vivlio})`,
@@ -27,7 +29,16 @@ export const LandingPage = () => {
         <h1 className="cta">A new way to <br />share books.</h1>
         <button className="signup-btn">Sign Up</button>
       </div>
-
+      <footer className="landing-footer">
+        <div className="icon-group">
+          <FontAwesomeIcon className="icon" icon={faBookOpen} />
+          <p>Share your own collection <br />or borrow from others</p>
+        </div>
+        <div className="icon-group">
+          <FontAwesomeIcon className="icon" icon={faUserFriends} />
+          <p>Join a vibrant community of book <br />enthuisists in your local area</p>
+        </div>
+      </footer>
     </div>
   )
 }
