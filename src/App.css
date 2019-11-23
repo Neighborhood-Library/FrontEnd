@@ -83,7 +83,7 @@
   transition: ease-in 0.25s;
 }
 
-.menu:active {
+.menu:active, .logout:active {
   transform: translateY(5px);
   transition: ease 0.1s;
 }
@@ -117,11 +117,21 @@
   color: #6558F5;
   text-align: center;
   width: inherit;
+  margin: 0.125em auto;
 }
-.menuOpen li:hover {
-  background: #C5CED6
+.menuOpen li:hover, .logout:hover {
+  cursor: pointer;
 }
-
+.logout {
+  background: #6558F5;
+  color: white;
+  border: none;
+  padding: 0.25em 1em;
+  font-size: 1em;
+  border-radius: 5px;
+  outline: none;
+  transition: ease 0.1s;
+}
 @media (max-width: 730px) {
   .title {
     margin: 0;

@@ -4,6 +4,7 @@ import Header from './Header.js'
 // import OwnedBooks from './books/ownedBooks.js'
 // import Wishlist from './books/wishlist'
 // import { Route } from 'react-router-dom'
+import Books from "./books/Books";
 
 import { connect } from 'react-redux'
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
     return (
         <div className="App">
           <Header />
+          <Books />
           {/* <OwnedBooks /> */}
           {/* <Route path="/"></Route>
           <Route path="/OwnedBooks" Component={OwnedBooks}></Route>
