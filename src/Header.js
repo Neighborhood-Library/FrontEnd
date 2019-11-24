@@ -13,7 +13,6 @@ class Header extends React.Component {
     this.setState({
       menuIsOpen: !this.state.menuIsOpen
     })
-    console.log(this.state.menuIsOpen)
   }
   render () {
     return (

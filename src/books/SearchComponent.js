@@ -8,7 +8,7 @@ const Search = (props) => {
         <input
           type="text" className="bookSearch"
           placeholder="Search for book" name="bookSearch"
-          value={props.searchInput} onChange={props.handeInput}></input>
+          value={props.searchInput} onChange={props.handleInput}></input>
         <button className="searchBtn" type="submit"><i className="fas fa-search"></i></button>
       </form>
     </div>
