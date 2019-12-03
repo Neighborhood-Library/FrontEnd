@@ -4,12 +4,12 @@ import './CustomButton.css';
 const CustomButton = ({
   children,
   isRegister,
-  signinWithGoogle,
+  loginWithGoogle,
   ...otherProps
 }) => (
   <button
     className={`${isRegister ? 'register-button' : ''}${
-      signinWithGoogle ? 'google-button' : ''
+      loginWithGoogle ? 'google-button' : ''
     } custom-button`}
     {...otherProps}
   >

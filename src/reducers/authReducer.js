@@ -1,19 +1,38 @@
-import { REGISTER_SUCCESS } from '../actions/types';
+import {
+  REGISTER_FAILURE,
+  REGISTER_START,
+  REGISTER_SUCCESS
+} from '../actions/types';
 
 const initialState = {
-  users: [],
   error: '',
-  registerUser: false
+  registerUser: false,
+  success: false
 };
 
 const authReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
+    case REGISTER_START:
+      return {
+        ...state,
+        error: null,
+        registerUser: true,
+        success: false
+      };
     case REGISTER_SUCCESS:
       return {
         ...state,
-        registerUser: true,
-        users: action.payload
+        error: null,
+        registerUser: false,
+        success: true
+      };
+    case REGISTER_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        registerUser: null,
+        success: false
       };
 
     default:

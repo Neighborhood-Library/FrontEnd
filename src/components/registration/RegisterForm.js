@@ -18,6 +18,12 @@ class RegisterForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+    const newUser = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.register(newUser, this.props.history);
     this.setState({
       firstName: '',
       lastName: '',
@@ -26,7 +32,6 @@ class RegisterForm extends React.Component {
       password: '',
       showPassword: false
     });
-    this.props.history.push('/login');
   };
 
   handleChange = e => {
@@ -147,7 +152,7 @@ class RegisterForm extends React.Component {
               </span>
               <span className='or'>- OR -</span>
               <div className='google-button'>
-                <CustomButton type='submit' signinWithGoogle>
+                <CustomButton type='submit' loginWithGoogle>
                   <a href='https://muovivlio.herokuapp.com/auth/google'>
                     Login With Google
                   </a>
@@ -160,5 +165,8 @@ class RegisterForm extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  registerUser: state.registerUser
+});
 
-export default connect(null, { register })(RegisterForm);
+export default connect(mapStateToProps, { register })(RegisterForm);
