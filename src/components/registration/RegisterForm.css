@@ -103,6 +103,7 @@ input::placeholder {
 }
 
 .or {
-  padding: 4%;
+  margin-top: 12px;
+  padding: 2%;
   font-size: 0.8rem;
 }

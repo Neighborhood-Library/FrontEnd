@@ -29,15 +29,15 @@
 }
 
 .google-button {
-  background-color: #6cb0e2;
+  background-color: #fbbc05;
   text-decoration: none;
   color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 1px solid #fbbc05;
+  border-radius: 3px;
 }
 
 .google-button:hover {
-  color: #6cb0e2;
   background-color: #fff;
-  border: 2px solid #6cb0e2;
+  border: 1px solid #fbbc05;
   border-radius: 3px;
 }
