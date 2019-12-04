@@ -1,11 +1,9 @@
 import React from 'react';
-import vivlio from '../../vivlio.jpg';
 import './landing.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 export const backgroundStyle = {
-  backgroundImage: `url(${vivlio})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
@@ -22,9 +20,7 @@ export const backgroundStyle = {
 
 export const LandingPage = () => {
   return (
-    <div>
-      <div style={ backgroundStyle }>
-      </div>
+    <div className="landing-background">
       <div className="landing-content">
         <h1 className="cta">A new way to <br />share books.</h1>
         <button className="signup-btn">Sign Up</button>
