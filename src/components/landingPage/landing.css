@@ -76,6 +76,7 @@
   justify-content: center;
   width: 35%;
   align-items: center;
+  border: 1px solid black;
 }
 
 p {
