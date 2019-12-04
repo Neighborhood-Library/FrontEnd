@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import {Redirect} from "react-router-dom"
 import "./Login.css"
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 
 
 export default class Login extends Component {
@@ -70,12 +70,9 @@ export default class Login extends Component {
           />
           <button class="button" type='submit'>Login</button>
         </form>
-        <GoogleLogin
-    clientId="147772547485-7pbeoqmt963pkfoahf1hapshu6kvd9ip.apps.googleusercontent.com"
-    onSuccess={this.responseGoogle}
-    onFailure={this.responseGoogle}
-    cookiePolicy={'single_host_origin'}
-  />
+        <button>
+          <a href="https://muovivlio.herokuapp.com/auth/google">Sign In With Google</a>
+        </button>
         </div>
         <p>Forgot your password? <a class="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
         

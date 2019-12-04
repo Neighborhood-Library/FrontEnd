@@ -1,11 +1,18 @@
 import React from 'react';
+import {BrowserRouter as Switch,Route} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchUser } from './actions/index';
 import Login from "./components/login/Login";
 import './App.css';
-import {BrowserRouter as Switch,Route} from 'react-router-dom';
 import Admin from './components/login/Admin'
 import Logout from './components/login/Logout'
 
 class App extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchUser()
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -21,4 +28,5 @@ class App extends React.Component {
 }
 
 
-export default App;
+
+export default connect(null, {fetchUser })(App);
