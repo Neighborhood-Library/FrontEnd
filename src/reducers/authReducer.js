@@ -8,29 +8,30 @@ import {
 
 const initialState = {
     users: [],
-    logginIn: false
+    loggedIn: false
   };
   
 
 function authReducer(state = initialState, action) {
+  console.log(action)
     switch (action.type) {
       case LOGIN_START:
         return {
           ...state,
-          loggingIn: true,
+          loggedIn: true,
           error: null
         };
       case LOGIN_SUCCESS:
         return {
           ...state,
-          loggingIn: false,
+          loggedIn: false,
           token: action.payload
         };
   
       case LOGIN_FAILURE:
         return {
           ...state,
-          loggingIn:false,
+          loggedIn:false,
           error:action.payload
         }
         default:

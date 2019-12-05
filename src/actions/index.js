@@ -10,19 +10,16 @@ export const fetchUser = () => async dispatch => {
 
 export const login = (credentials, history) => dispatch => {
   const creds = {
-    user_email: credentials.email,
+    user_name: credentials.username,
     user_credential: credentials.password
 
   };
   dispatch({ type: LOGIN_START });
   axios
-    .post('https://muovivlio.herokuapp.com/api/users/', creds)
+    .post('https://muovivlio.herokuapp.com/auth/login', creds)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
-      if (res.data.token) {
-        localStorage.setItem('token', res.data.token);
         history.push('/homepage');
-      }
       return true;
     })
     .catch(err => {

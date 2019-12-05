@@ -1,49 +1,43 @@
-import React,{Component} from "react";
+import React from "react";
 import {Redirect} from "react-router-dom"
-import "./Login.css"
+import "./Login.css";
+import {login} from "../../actions/index";
+import {connect} from "react-redux";
 // import { GoogleLogin } from 'react-google-login';
 
 
-export default class Login extends Component {
-  constructor(props){
-    super(props)
-    let loggedIn = false
+class Login extends React.Component {
   
-  this.state = {
+  state = {
     username: '',
     password: '',
-    loggedIn
-  }
-  this.onChange = this.onChange.bind(this)
-  this.submitForm = this.submitForm.bind(this)
-  this.responseGoogle = this.responseGoogle.bind(this);
-}
-  onChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-  async responseGoogle(res) {
-    await this.props.oauthGoogle(res.accessToken);
-    if (!this.props.errorMessage) {
-      this.props.history.push('/admin');
-    }
-  }
+    loggedIn : false
+  };
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  submitForm = e => {
+    e.preventDefault();
 
-  submitForm(e){
-    e.preventDefault()
-    const {username,password} = this.state
-    if (username === "A" && password === "B"){
-      localStorage.setItem("token", "kjsdofiajsiofjsoifjiodsf")
-      this.setState({
-        loggedIn:true
-      })
-    }
-  }
+    this.props.login(this.state);
+    this.props.history.push('/homepage');
+  };
+  
+
+  // submitForm(e){
+  //   e.preventDefault()
+  //   const {username,password} = this.state
+  //   if (username === "A" && password === "B"){
+  //     localStorage.setItem("token", "kjsdofiajsiofjsoifjiodsf")
+  //     this.setState({
+  //       loggedIn:true
+  //     })
+  //   }
+  // }
 
   render() {
     if(this.state.loggedIn){
-      return <Redirect to="/admin"/>
+      return <Redirect to="/homepage"/>
     }
     return (
       <div id="absoluteCenteredDiv">
@@ -80,4 +74,8 @@ export default class Login extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  loggedIn: state.loggedIn
+});
 
+export default connect(mapStateToProps, { login })(Login);
