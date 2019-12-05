@@ -26,7 +26,6 @@ function App() {
         <Route path='/homepage' component={HomeDashboard} />
         <Route path='/login' component={LoginForm} />
         <Route path='/register' component={RegisterForm} />
-        <Route path='/borrow' component={BorrowerDashboard} />
       </Switch>
     </div>
   );
