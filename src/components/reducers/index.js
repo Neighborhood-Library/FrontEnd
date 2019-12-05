@@ -1,12 +1,14 @@
 import {
+    UPDATE_TITLE,
     FETCH_BOOK,
     ADDING_BOOK_SUCC,
     ADDING_BOOK_FAIL,
     DELETING_BOOK
-} from '../actions';
+} from '../../actions';
 import { isNull } from 'util';
 
 const initialState = {
+    title: "This Is {Insert Name} Book List",
     book: [],
     fetchingBook: false,
     addingBook: false,
@@ -17,6 +19,11 @@ const initialState = {
 
 function reducer( state = initialState, action) {
     switch (action.type) {
+        case UPDATE_TITLE: 
+            return {
+                ...state,
+                title: action.payload
+            };
         case FETCH_BOOK: 
             return {
                 ...state,
@@ -26,8 +33,7 @@ function reducer( state = initialState, action) {
         case ADDING_BOOK_SUCC:
             return {
                 ...state,
-                error:'',
-                error: null
+                error:isNull
             }
         case ADDING_BOOK_FAIL:
             return {

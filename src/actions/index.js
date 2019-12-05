@@ -10,7 +10,7 @@ export const getBook = () => {
     axios
         .get('http://www.meuvivlio.com/api/borrower-wishlist')
         .then(res => dispatch({ type: ADDING_BOOK_SUCC, payload: res.data}))
-        .catch(err => dispatch({ type: ADDING_BOOK_FAIL, payload: err }))
+        .catch(err => dispatch({ type: ADDING_BOOK_FAIL, payload: err }));
 }
 export const deleteBook = () => dispatch => {
     dispatch({ type: DELETING_BOOK });
