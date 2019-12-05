@@ -85,6 +85,10 @@ $tablet: 800px;
   z-index: 98;
   background: #ABA2A4;
   opacity: 0.7;
+
+  @media (max-width: $phone) {
+  height: 5rem;
+  }
 }
 
 .icon {
@@ -95,6 +99,9 @@ $tablet: 800px;
   padding: 2%;
   border-radius: 50%;
   margin-top: 3.2%;
+  @media (max-width: $phone) {
+  padding: 5%;
+}
 }
 
 .icon-group {
@@ -104,6 +111,10 @@ $tablet: 800px;
   width: 35%;
   align-items: center;
   border: 1px solid black;
+  @media (max-width: $phone) {
+  width: 47%;
+  padding-bottom: 0;
+}
 }
 
 p {
@@ -113,4 +124,8 @@ p {
   margin-bottom: 0;
   text-align: justify;
   color: white;
+  @media (max-width: $phone) {
+  font-size: .8rem;
+  margin-top: 0;
+}
 }
