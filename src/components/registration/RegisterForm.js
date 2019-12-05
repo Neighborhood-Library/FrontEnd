@@ -23,7 +23,7 @@ class RegisterForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.register(newUser, this.state);
+    this.props.register(newUser, this.state, this.props.history);
 
     this.setState({
       firstName: '',

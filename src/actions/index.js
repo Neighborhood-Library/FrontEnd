@@ -12,7 +12,7 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const register = (credentials, history) => dispatch => {
+export const register = (credentials, history, func) => dispatch => {
   const creds = {
     user_name: credentials.username,
     user_email: credentials.email,
@@ -29,7 +29,7 @@ export const register = (credentials, history) => dispatch => {
     .post('https://muovivlio.herokuapp.com/auth/register', creds)
     .then(res => {
       dispatch({ type: REGISTER_SUCCESS });
-      history.push('/login');
+      func.push('/login');
       console.log(res);
       return true;
     })
