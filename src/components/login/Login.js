@@ -76,6 +76,7 @@ class Login extends React.Component {
 }
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn
+  
 });
 
 export default connect(mapStateToProps, { login })(Login);
