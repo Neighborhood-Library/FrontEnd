@@ -1,22 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { register } from '../../actions/index';
+import CustomButton from '../customButton/CustomButton';
 import './RegisterForm.css';
 
-const initialState = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  username: '',
-  password: '',
-  showPassword: false
-};
-export default class RegisterForm extends React.Component {
-  state = initialState;
+class RegisterForm extends React.Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    username: '',
+    password: '',
+    showPassword: false
+  };
 
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    this.setState(initialState);
+    const newUser = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.register(newUser, this.state, this.props.history);
+
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      username: '',
+      password: '',
+      showPassword: false
+    });
   };
 
   handleChange = e => {
@@ -27,6 +43,28 @@ export default class RegisterForm extends React.Component {
     const { showPassword } = this.state;
     this.setState({ showPassword: !showPassword });
   };
+  // This needs to be moved to the dashboard or navbar/header component
+  //this is logic to basically check to see if logged in, and
+  //display the corresponding button based on the state
+  //wire the component/s it goes in to connect and {authreducer}
+  // renderContent() {
+  //   switch (this.props.authReducer) {
+  //     case null:
+  //       return;
+  //     case false:
+  //       return (
+  //         <button>
+  //           <a href='/auth/google'>Login With Google</a>
+  //         </button>
+  //       );
+  //     default:
+  //       return (
+  //         <button>
+  //           <a href='/auth/logout'>Logout</a>
+  //         </button>
+  //       );
+  //   }
+  // }
 
   render() {
     const {
@@ -103,11 +141,24 @@ export default class RegisterForm extends React.Component {
                 onClick={this.togglePassword}
               />
             </div>
-            <div className='sumbit-signup'>
-              <button type='submit'>Submit</button>
-              <Link className='loginLink' to='/login'>
-                Already have an Account? Log in
-              </Link>
+            <div className='register'>
+              <CustomButton type='submit' isRegister>
+                Submit
+              </CustomButton>
+              <span className='login-link'>
+                Already have an Account?{' '}
+                <Link className='login-link' to='/login'>
+                  Log in
+                </Link>
+              </span>
+              <span className='or'> Or Continue with </span>
+              <div className='google-button'>
+                <CustomButton type='submit' loginWithGoogle>
+                  <a href='https://muovivlio.herokuapp.com/auth/google'>
+                    Google
+                  </a>
+                </CustomButton>
+              </div>
             </div>
           </form>
         </div>
@@ -115,3 +166,8 @@ export default class RegisterForm extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  registerUser: state.registerUser
+});
+
+export default connect(mapStateToProps, { register })(RegisterForm);

@@ -7,11 +7,10 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import App from './App';
 import './index.css';
-// import rootReducer from './reducers';
-import * as serviceWorker from './serviceWorker';
+import rootReducer from './reducers';
+// import * as serviceWorker from './serviceWorker';
 
-// include rootReducer, after reducers created
-const store = createStore(applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, {}, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
@@ -25,4 +24,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// serviceWorker.unregister();
