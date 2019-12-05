@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7b5d57b0-d9c2-4437-9911-b713cad4ddeb/deploy-status)](https://app.netlify.com/sites/neighborhood-library-labspt5/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
