@@ -5,6 +5,7 @@ import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import LoginForm from './components/login/LoginForm';
 import RegisterForm from './components/registration/RegisterForm';
 import { LandingPage } from './components/landingPage/LandingPage';
+import { connect } from 'react-redux'
 
 function App() {
   return (
@@ -27,7 +28,6 @@ function App() {
   );
 }
 
-}
 const mapStateToProps = state => ({
   books: state.books,
   user: state.user
