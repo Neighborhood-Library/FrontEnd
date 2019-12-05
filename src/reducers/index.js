@@ -1,6 +1,5 @@
 import {
     FETCH_BOOK,
-    CREATE_BOOK,
     ADDING_BOOK_SUCC,
     ADDING_BOOK_FAIL,
     DELETING_BOOK
@@ -13,7 +12,7 @@ const initialState = {
     addingBook: false,
     updatingBook: false,
     deletingBook: false,
-    error: null
+    error: isNull
 };
 
 function reducer( state = initialState, action) {
@@ -24,12 +23,6 @@ function reducer( state = initialState, action) {
                 error:'',
                 addingBook: false
             };
-        case CREATE_BOOK:
-            return {
-                ...state,
-                error:'',
-                addingBook: true
-            }
         case ADDING_BOOK_SUCC:
             return {
                 ...state,

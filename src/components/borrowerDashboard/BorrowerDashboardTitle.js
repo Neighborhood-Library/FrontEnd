@@ -1,6 +1,7 @@
 import React from 'react';
 import './BorrowerDashboard.css';
 import FilterResults from "react-filter-search";
+import { Component } from 'react';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends Component {
     return (
       <div>
         <input type= "text" value={value} onChange={this.handleChange} />
-        <SearchResults 
+        <FilterResults 
           value={value}
           data={data}
           renderResults={results => (
