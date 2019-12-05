@@ -26,13 +26,11 @@ export const register = (credentials, history) => dispatch => {
   };
   dispatch({ type: REGISTER_START });
   axios
-    .post('https://muovivlio.herokuapp.com/api/users/', creds)
+    .post('https://muovivlio.herokuapp.com/auth/register', creds)
     .then(res => {
       dispatch({ type: REGISTER_SUCCESS });
-      if (res.data.token) {
-        localStorage.setItem('token', res.data.token);
-        history.push('/login');
-      }
+      history.push('/login');
+      console.log(res);
       return true;
     })
     .catch(err => {

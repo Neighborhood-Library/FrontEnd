@@ -1,4 +1,3 @@
-
 header {
   display: flex;
   padding: 20px 15px;
@@ -15,7 +14,6 @@ header {
   justify-content: flex-end;
   align-items: flex-end;
   width: 100%;
-
 }
 
 .app-nav a {
@@ -27,7 +25,7 @@ header {
 }
 
 .app-nav .login-btn {
-  background: #6BAFE1;
+  background: #6bafe1;
   padding: 7px 25px;
   border-radius: 5px;
 }
@@ -39,3 +37,8 @@ header {
   padding: 0;
   font-size: 1rem;
 }
+
+/*
+gray #c5ced6
+purple #6558f5
+*/
