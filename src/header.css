@@ -148,3 +148,9 @@
     outline: none;
     transition: ease 0.1s;
   }
+
+  @media (max-width: 730px) {
+    .title {
+      margin: 0;
+    }
+  }
