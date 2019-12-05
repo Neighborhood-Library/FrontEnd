@@ -1,12 +1,14 @@
 import React from 'react';
 import './LenderDashboard.css';
 
-export default class LenderDashboard extends React.Component {
+class LenderDashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1>Lender Dashboard</h1>
+        <h1>My Vivlio Collection</h1>
       </div>
     );
   }
 }
+
+export default LenderDashboard;
