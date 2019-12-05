@@ -1,55 +1,56 @@
 import React from 'react';
 import './BorrowerDashboard.css';
-import FilterResults from "react-filter-search";
-import { Component } from 'react';
+import { connect } from "react-redux";
+import { updateTitle } from "../actions";
 
-class App extends Component {
-  constructor(props) {
-    super(props); 
-    this.state = {
-      data: [ ],
-      value: ' '
+class Title extends React.Component {
+    state= {
+        newTitle: this.props.title,
+        editing: false
     };
-  }
-  componentWillMount() {
-    fetch('http://https://neighborhood-library-labspt5.netlify.com/borrowers')
-      .then(response => response.json())
-      .then(json => this.setState({ data: json }));
-  }
-  handleChange = event => {
-    const { value } = event.target;
-    this.setState({ value });
-  };
-  render() {
-    const { data, value } = this.state;
-    return (
-      <div>
-        <input type= "text" value={value} onChange={this.handleChange} />
-        <FilterResults 
-          value={value}
-          data={data}
-          renderResults={results => (
-            <div>
-              {results.map(el => (
-                <div>
-                  <span>{el.name}</span>
-                  <span>{el.title}</span>
-                </div>
-            ))}
-            </div>
-          )}
-        />
-      </div>
-    )
-  }
-}
+    handleChanges = e => {
+        this.setState ({ [e.target.name]: e.target.value })
+    };
+    updateTitle = e => {
+        e.preventDefault();
+        this.props.updateTitle(this.state.newTitle);
+        this.setState({ editing: false });
+    };
 
-export default class BorrowerDashboard extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Borrower Dashboard</h1>
-      </div>
-    );
-  }
+    render(){
+        return (
+            <div>
+                {!this.state.editing ? (
+                    <h1>
+                        {this.props.title}{''}
+                        <i 
+                            className= "far fa-edit"
+                            onClick={() => this.setState({ editing: true})}
+                        />
+                    </h1>
+                ): (
+                    <div>
+                        <input 
+                            className= "put-title"
+                            type= "text"
+                            name="newTitle"
+                            value={this.state.newTitle}
+                            onChange={this.handleChanges}
+                        />
+                        <button onClick={this.updateTitle}>Change this</button>
+                    </div>
+                )}
+            </div>
+        );
+    }
 }
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+        title: state.title
+    };
+};
+export default connect(
+    mapStateToProps,
+    { updateTitle }
+)(Title);
