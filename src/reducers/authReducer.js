@@ -25,14 +25,13 @@ export function loginAuthReducer(state = initialState, action) {
       case LOGIN_START:
         return {
           ...state,
-          loggedIn: true,
+          loggedIn: false,
           error: null
         };
       case LOGIN_SUCCESS:
         return {
           ...state,
-          loggedIn: false,
-          token: action.payload
+          loggedIn: true
         };
   
       case LOGIN_FAILURE:

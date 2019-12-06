@@ -24,10 +24,11 @@ header {
   font-size: 1rem;
 }
 
-.app-nav .login-btn {
+.login-btn {
   background: #6bafe1;
   padding: 7px 25px;
   border-radius: 5px;
+  list-style-type: none;
 }
 
 .logo {

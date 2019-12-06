@@ -18,8 +18,7 @@ class Login extends React.Component {
   };
   submitForm = e => {
     e.preventDefault();
-    this.props.login(this.state);
-    this.props.history.push('/homepage');
+    this.props.login(this.state,this.props.history);
   };
   
 

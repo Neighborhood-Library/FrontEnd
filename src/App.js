@@ -10,7 +10,21 @@ import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login.js'
 import RegisterForm from './components/registration/RegisterForm';
 
+
+
+
 function App(props) {
+  function renderContent() {
+   if (props.loggedIn) {
+    return (
+      <li><a href="https://muovivlio.herokuapp.com/auth/logout">Logout</a></li>
+      ) }else {
+            return (
+                <li><a href="/login">Login </a></li>
+            )
+            
+            }}
+
   return (
     <div className='App'>
       <header>
@@ -18,9 +32,11 @@ function App(props) {
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
           <Link to='/shelf'>Shelf</Link>
-          <Link className='login-btn' to='/login'>
+          {/* <Link className='login-btn' to='/login'>
           {props.loggedIn ? 'Logout': "Login"}
-          </Link>
+          </Link> */}
+          <ul className="login-btn">{renderContent()}</ul>
+          
         </nav>
       </header>
       <Switch>
