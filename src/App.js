@@ -7,6 +7,7 @@ import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import LoginForm from './components/login/LoginForm';
 import RegisterForm from './components/registration/RegisterForm';
+import Books from "./books/Books.js";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/homepage' component={HomeDashboard} />
         <Route path='/login' component={LoginForm} />
         <Route path='/register' component={RegisterForm} />
+        <Route path='/books' component={Books} />
       </Switch>
     </div>
   );

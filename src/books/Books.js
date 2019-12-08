@@ -3,12 +3,15 @@ import './books.css'
 import Search from './SearchComponent.js'
 import axios from 'axios'
 import BookList from './BookList.js'
+import '../header.css'
+
 class Books extends Component {
   constructor(props) {
     super(props);
       this.state = {
         books: [],
-        searchInput: ''
+        searchInput: '',
+        ownedBooks: []
       }
 
   }
