@@ -1,13 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Route, Switch, Link } from 'react-router-dom';
-import './App.scss';
-=======
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
-import './App.css';
->>>>>>> f11e5d7c0bff35826dd55c4f97ab1ff99d093748
+import './App.scss';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import LoginForm from './components/login/LoginForm';

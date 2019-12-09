@@ -33,7 +33,7 @@ $tablet: 800px;
 
 
   @media (max-width: $phone) {
-  height: 35rem;
+  height: 80vh;
   align-items: center;
   }
 }
@@ -42,7 +42,7 @@ $tablet: 800px;
 .cta {
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   padding-bottom: 2%;
   width: 20%;
   margin-left: 5%;
@@ -87,7 +87,10 @@ $tablet: 800px;
   opacity: 0.7;
 
   @media (max-width: $phone) {
-  height: 5rem;
+  flex-direction: column;
+  align-items: center;
+  height: 20vh;
+  border: 1px solid red;
   }
 }
 
