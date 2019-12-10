@@ -41,13 +41,12 @@ $tablet: 800px;
 .cta {
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   padding-bottom: 2%;
   width: 20%;
-  margin-top: 10%;
+  margin-top: 7.5%;
   margin-left: 5%;
   text-align: justify;
-  border: 1px solid red;
 
   @media (max-width: $phone) {
     width: 100%;
