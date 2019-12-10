@@ -44,11 +44,7 @@ class Title extends React.Component {
     );
   }
 }
-<div class="Navbar_Wrapper">
-  <div class="Navbar_Left"></div>
-  <div class="Navbar_Right"></div>
-  <div class="Navbar_SearchbarBtn"
-</div>
+
 const mapStateToProps = state => {
   console.log(state);
   return {
