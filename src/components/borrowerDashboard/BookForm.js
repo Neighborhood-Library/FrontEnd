@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Book from "./Book";
-import { getBooks, addBook, deleteBook } from "../actions/index";
+import { getBooks, addBook, deleteBook } from "./actions/index";
 
 class BookForm extends Component {
     state = {

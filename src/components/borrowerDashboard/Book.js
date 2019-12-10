@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
-import {deleteBook} from "../actions/index";
+import {deleteBook} from "./actions/index";
 
 class Book extends Component  {
     render() {
