@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { register } from '../../actions/index';
 import CustomButton from '../customButton/CustomButton';
-import './RegisterForm.css';
+import './RegisterForm.scss';
 
 class RegisterForm extends React.Component {
   state = {
@@ -43,28 +43,6 @@ class RegisterForm extends React.Component {
     const { showPassword } = this.state;
     this.setState({ showPassword: !showPassword });
   };
-  // This needs to be moved to the dashboard or navbar/header component
-  //this is logic to basically check to see if logged in, and
-  //display the corresponding button based on the state
-  //wire the component/s it goes in to connect and {authreducer}
-  // renderContent() {
-  //   switch (this.props.authReducer) {
-  //     case null:
-  //       return;
-  //     case false:
-  //       return (
-  //         <button>
-  //           <a href='/auth/google'>Login With Google</a>
-  //         </button>
-  //       );
-  //     default:
-  //       return (
-  //         <button>
-  //           <a href='/auth/logout'>Logout</a>
-  //         </button>
-  //       );
-  //   }
-  // }
 
   render() {
     const {
@@ -78,11 +56,14 @@ class RegisterForm extends React.Component {
     return (
       <div className='container'>
         <div className='form-container'>
-          <h1>Sign Up</h1>
+          <h1 className='sign-up-title'>Sign Up</h1>
           <form className='form-content' onSubmit={this.handleSubmit}>
             <div className='firstName'>
-              <label htmlFor='firstName'>First Name</label>
+              <label className='reg-label' htmlFor='firstName'>
+                First Name
+              </label>
               <input
+                className='reg-input'
                 type='text'
                 placeholder='First Name'
                 name='firstName'
@@ -92,8 +73,11 @@ class RegisterForm extends React.Component {
               />
             </div>
             <div className='lastName'>
-              <label htmlFor='lastName'>Last Name</label>
+              <label className='reg-label' htmlFor='lastName'>
+                Last Name
+              </label>
               <input
+                className='reg-input'
                 type='text'
                 placeholder='Last Name'
                 name='lastName'
@@ -103,8 +87,11 @@ class RegisterForm extends React.Component {
               />
             </div>
             <div className='email'>
-              <label htmlFor='email'>Email</label>
+              <label className='reg-label' htmlFor='email'>
+                Email
+              </label>
               <input
+                className='reg-input'
                 type='email'
                 placeholder='Email'
                 name='email'
@@ -113,9 +100,12 @@ class RegisterForm extends React.Component {
                 required
               />
             </div>
-            <div className='username'>
-              <label htmlFor='username'>Create a Username</label>
+            <div className='user-name'>
+              <label className='reg-label' htmlFor='username'>
+                Create a Username
+              </label>
               <input
+                className='reg-input'
                 type='text'
                 placeholder='Username'
                 name='username'
@@ -125,8 +115,11 @@ class RegisterForm extends React.Component {
               />
             </div>
             <div className='password'>
-              <label htmlFor='password'>Create a Password</label>
+              <label className='reg-label' htmlFor='password'>
+                Create a Password
+              </label>
               <input
+                className='reg-input'
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
                 name='password'
