@@ -1,16 +1,55 @@
 import {
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
+} from '../actions/types';
+
+import  {
   REGISTER_FAILURE,
   REGISTER_START,
   REGISTER_SUCCESS
 } from '../actions/types';
 
 const initialState = {
-  error: '',
-  registerUser: false,
-  success: false
-};
+    users: [],
+    loggedIn: false,
+    error: '',
+    registerUser: false,
+    success: false
+  };
+  
 
-const authReducer = (state = initialState, action) => {
+export function loginAuthReducer(state = initialState, action) {
+  console.log(action)
+    switch (action.type) {
+      case LOGIN_START:
+        return {
+          ...state,
+          loggedIn: false,
+          error: null
+        };
+      case LOGIN_SUCCESS:
+        return {
+          ...state,
+          loggedIn: true
+        };
+  
+      case LOGIN_FAILURE:
+        return {
+          ...state,
+          loggedIn:false,
+          error:action.payload
+        }
+        default:
+            return state;
+    }
+}
+ 
+
+
+
+
+export function registerAuthReducer  (state = initialState, action) {
   console.log(action);
   switch (action.type) {
     case REGISTER_START:
@@ -40,4 +79,3 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-export default authReducer;
