@@ -44,7 +44,7 @@ $tablet: 800px;
   font-size: 4.5rem;
   padding-bottom: 2%;
   width: 20%;
-  margin-top: 7.5%;
+  margin-top: 5%;
   margin-left: 5%;
   text-align: justify;
 
@@ -64,6 +64,7 @@ $tablet: 800px;
   width: 8%;
   padding: .7rem;
   margin-left: 5%;
+  cursor: pointer;
 
   @media (max-width: $phone) {
    width: 20%;
