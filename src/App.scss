@@ -1,0 +1,60 @@
+$phone: 500px;
+$tablet: 800px;
+
+header {
+  display: flex;
+  padding: 20px 15px;
+
+  @media (max-width: $phone) {
+    text-align: center;
+    border: 1px solid red;
+    position: relative;
+    z-index: 98;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 98;
+    margin: 0;
+    padding: 7px 0;
+    font-size: 1.8rem;
+    width: 75%;
+
+    @media (max-width: $phone) {
+      display: none;
+    }
+  }
+}
+
+.app-nav {
+    position: relative;
+    z-index: 98;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 25%;
+
+    @media (max-width: $phone) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 7px 20px;
+    font-weight: 300;
+    font-size: 1.8rem;
+
+    @media (max-width: $phone) {
+    
+    }
+  }
+
+  .login-btn {
+    background: #6BAFE1;
+    padding: 7px 25px;
+    border-radius: 5px;
+  }
+}

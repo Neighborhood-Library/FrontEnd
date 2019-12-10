@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
-import './App.css';
-// import Admin from './components/login/Admin'
-// import Logout from './components/login/Logout'
+import './App.scss';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login.js'
