@@ -1,8 +1,11 @@
-import { combineReducers } from 'redux';
-import authReducer from './authReducer.js';
-import oAuthReducer from './oAuthReducer.js';
+import { combineReducers } from "redux";
+import oAuthReducer from "./oAuthReducer.js";
+import {loginAuthReducer,registerAuthReducer} from "./authReducer.js" 
 
-export default combineReducers({
-  authReducer,
-  oAuthReducer
+const reducer = combineReducers({
+ oAuthReducer,
+ loginAuthReducer,
+ registerAuthReducer
 });
+
+export default reducer;
