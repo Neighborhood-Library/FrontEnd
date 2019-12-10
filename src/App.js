@@ -7,6 +7,7 @@ import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login.js'
 import RegisterForm from './components/registration/RegisterForm';
+import Books from "./books/Books.js";
 
 
 
@@ -42,6 +43,7 @@ function App(props) {
         <Route path='/homepage' component={HomeDashboard} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={RegisterForm} />
+        <Route path='/books' component={Books} />
       </Switch>
     </div>
   );
