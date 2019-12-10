@@ -1,6 +1,6 @@
 import React from 'react'
 import './books.css'
-import '../App.css'
+import '../App.scss'
 
 const Book = props => {
   return (

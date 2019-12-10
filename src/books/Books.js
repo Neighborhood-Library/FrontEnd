@@ -3,7 +3,7 @@ import './books.css'
 import Search from './SearchComponent.js'
 import axios from 'axios'
 import BookList from './BookList.js'
-import '../header.css'
+import '../header.scss'
 
 class Books extends Component {
   constructor(props) {
