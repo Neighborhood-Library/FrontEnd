@@ -23,7 +23,6 @@ $tablet: 800px;
 }
 
 .landing-content {
-  border: 1px solid black;
   position: relative;
   z-index: 98;
   height: 85vh;
@@ -33,7 +32,7 @@ $tablet: 800px;
 
 
   @media (max-width: $phone) {
-  height: 70vh;
+  height: 60vh;
   align-items: center;
   }
 }
@@ -45,8 +44,10 @@ $tablet: 800px;
   font-size: 3.5rem;
   padding-bottom: 2%;
   width: 20%;
+  margin-top: 10%;
   margin-left: 5%;
   text-align: justify;
+  border: 1px solid red;
 
   @media (max-width: $phone) {
     width: 100%;
@@ -89,7 +90,7 @@ $tablet: 800px;
   @media (max-width: $phone) {
   flex-direction: column;
   align-items: center;
-  height: 30vh;
+  height: 35vh;
   border: 1px solid red;
   }
 }
@@ -97,14 +98,18 @@ $tablet: 800px;
 .icon {
   position: relative;
   z-index: 98;
-  font-size: 2.8rem;
+  font-size: 5.8rem;
   background: white;
+  margin-right: 4%;
   padding: 2%;
   border-radius: 50%;
   margin-top: 3.2%;
   @media (max-width: $phone) {
-  padding: 5%;
-}
+  border: 1px solid red;
+  padding: 10%;
+  font-size: .2rem;
+
+  }
 }
 
 .icon-group {
@@ -113,23 +118,21 @@ $tablet: 800px;
   justify-content: center;
   width: 35%;
   align-items: center;
-  border: 1px solid black;
   @media (max-width: $phone) {
   width: 47%;
   padding-bottom: 0;
   flex-direction: column;
 }
-}
 
 p {
   font-size: 1rem;
-  margin-left: 4%;
-  margin-top: 3.5%;
-  margin-bottom: 0;
   text-align: justify;
+  margin-top: 3.5%;
   color: white;
+  font-size: 2rem;
   @media (max-width: $phone) {
   font-size: .8rem;
   margin-top: 0;
+  }
 }
 }
