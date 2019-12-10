@@ -1,4 +1,4 @@
-import React, { Cmponent } from "react";
+import React, { Component } from "react";
 import {connect} from "react-redux";
 import {deleteBook} from "../actions/index";
 
@@ -31,4 +31,4 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     {deleteBook}
-)(Book)
+    )(Book)
