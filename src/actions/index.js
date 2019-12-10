@@ -20,10 +20,11 @@ export const login = (credentials, history) => dispatch => {
   };
   dispatch({ type: LOGIN_START });
   axios
-    .post('https://muovivlio.herokuapp.com/auth/login', creds)
+    .post('https://muovivlio.herokuapp.com/auth/login', creds, {withCredentials: true})
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
-        // history.push('/homepage');
+        history.push('/homepage');
+        console.log(res)
       return true;
     })
     .catch(err => {
