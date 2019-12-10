@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Book from "./Book";
-import { getBook, addBook, deleteBook } from "../actions/index";
+import { getBooks, addBook, deleteBook } from "../actions/index";
 
 class BookForm extends Component {
     state = {
@@ -12,7 +12,7 @@ class BookForm extends Component {
         }
     };
     componentDidMount(){
-        this.props.getBook();
+        this.props.getBooks();
     };
     changeHandler = e => {
         this.setState({
@@ -83,11 +83,11 @@ class BookForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        book:state.book
+        book:state.books
     }
 }
 
 export default connect(
     mapStateToProps,
-    {getBook, addBook, deleteBook}
+    {getBooks, addBook, deleteBook}
 )(BookForm);
