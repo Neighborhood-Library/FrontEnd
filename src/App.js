@@ -15,12 +15,13 @@ function App() {
         <div className='logo'>logo</div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
-          <Link to='/shelf'>Shelf</Link>
+          <Link to='/borrow'>Borrow</Link>
           <Link className='login-btn' to='/login'>
             Login
           </Link>
         </nav>
       </header>
+      <h2> Share the Experience of Your Books With Others</h2>
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route path='/homepage' component={HomeDashboard} />
