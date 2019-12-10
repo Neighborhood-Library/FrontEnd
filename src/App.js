@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
-import './App.css';
+import './App.scss';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import LoginForm from './components/login/LoginForm';
