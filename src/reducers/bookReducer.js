@@ -4,7 +4,7 @@ import {
   ADDING_BOOK_SUCC,
   ADDING_BOOK_FAIL,
   DELETE_BOOK
-} from '../actions';
+} from '../components/borrowerDashboard/actions';
 
 const initialState = {
   books: [],
