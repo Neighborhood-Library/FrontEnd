@@ -36,6 +36,9 @@ class Books extends Component {
       })
       .catch(err => console.log(err))
   }
+  addToVivlio = title => {
+    console.log(`you clicked on ${title}`)
+  }
 
   render() {
     return (
@@ -43,7 +46,7 @@ class Books extends Component {
         <Search
           handleInput={this.handleInput} handleSearch={this.handleSearch}
           searchInput={this.searchInput}/>
-        <BookList books={this.state.books}/>
+        <BookList books={this.state.books} addToVivlio={this.addToVivlio}/>
       </div>
     )
   }
