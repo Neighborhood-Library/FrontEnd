@@ -1,5 +1,6 @@
 import React from 'react'
 import './books.css'
+import '../App.scss'
 
 const Book = props => {
   return (
@@ -9,6 +10,7 @@ const Book = props => {
       <h4 className="author">{props.author}</h4>
       <p className="bookSummary">{props.publishedDate}</p>
       <a href={props.toLink}>Learn More</a>
+      <button className="addBtn" onClick={props.addToVivlio}>Add to MyVivlio</button>
     </div>
   )
 }

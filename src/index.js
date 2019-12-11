@@ -10,7 +10,8 @@ import './index.css';
 import rootReducer from './reducers';
 // import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer, {}, applyMiddleware(thunk, logger));
+// include rootReducer, after reducers created
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>

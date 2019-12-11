@@ -73,7 +73,10 @@ class BookForm extends Component {
                         name='author'
                     />
                     <button className="md-button" type="submit">
-                        Add Book
+                        Borrow Book
+                    </button>
+                    <button className="md-button" type="submit">
+                        Delete Book
                     </button>
                 </form>
             </div>
