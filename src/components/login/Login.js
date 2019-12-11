@@ -39,7 +39,7 @@ class Login extends React.Component {
     }
     return (
       <div id="absoluteCenteredDiv">
-        <h1> Login </h1>
+        <h1 className="login">Login</h1>
         <div class="box">
         <form onSubmit={this.submitForm}>
           <input
