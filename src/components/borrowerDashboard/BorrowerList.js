@@ -5,10 +5,10 @@ import { addBook, toggleDone } from "../actions";
 
 class List extends React.Component {
     state = {
-        newTodo: ""
+        newBook: ""
     };
     handleChanges = e => {
-        this.setState({ newTodo: e.target.value});
+        this.setState({ newBook: e.target.value});
     };
     addTask = e => {
         e.preventDefault();
