@@ -43,7 +43,7 @@ class Login extends React.Component {
         <div class="box">
         <form onSubmit={this.submitForm}>
           <input
-           class="username"
+            class="username"
             onChange={this.onChange}
             name='username'
             type='text'
@@ -52,7 +52,7 @@ class Login extends React.Component {
             required
           />
           <input
-           class="username"
+            class="username"
             onChange={this.onChange}
             name='password'
             type='password'
