@@ -37,7 +37,8 @@ class BookForm extends Component {
         return (
             <div className = "App">
                 <div>
-                    {this.props.book.map(book => {
+                {/* condition ? exprIfTrue : exprIfFalse */}
+                    {this.props.book.length > 0 ? this.props.book.map (book => {
                         return (
                             <Book 
                                 name={book.name}
@@ -47,7 +48,7 @@ class BookForm extends Component {
                                 deleteBook={this.deleteBook}
                             />
                         );
-                    })}
+                    }) : <h3>The Vivlio that your looking for is not here</h3> } 
                 </div>
                 <form onSubmit={this.submitHandler}>
                     <h2>Stack Up On Books!</h2>
@@ -86,7 +87,7 @@ class BookForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        book:state.books
+        book:state.books || []
     }
 }
 
