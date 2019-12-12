@@ -28,7 +28,9 @@ function App(props) {
   return (
     <div className='App'>
       <header>
-        <div className='logo'>logo</div>
+        <div className='logo-cont'>
+          <img src="./img/myvivlio-logo.png" alt="logo" className="logo"/>
+        </div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
           <Link to='/borrow'>Borrow</Link>

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../scss/About.scss';
 
 const About = () => {
   const team = [
