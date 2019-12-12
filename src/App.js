@@ -34,6 +34,7 @@ function App(props) {
           {/* <Link className='login-btn' to='/login'>
           {props.loggedIn ? 'Logout': "Login"}
           </Link> */}
+          <Link to='/books'>Books</Link>
           <ul className="login-btn">{renderContent()}</ul>
           
         </nav>
