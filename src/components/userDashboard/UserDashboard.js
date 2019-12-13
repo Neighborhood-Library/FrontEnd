@@ -1,20 +1,45 @@
 import React from 'react';
-import BookItem from '../bookItem/BookItem';
-import './LenderDashboard.scss';
+import { connect } from 'react-redux';
+import {
+  borrowBookDashboard,
+  lendBookDashboard
+} from '../../actions/bookActions';
+import BorrowBooks from './BorrowBooks';
+import LendBooks from './LendBooks';
+import './UserDashboard.scss';
 
-class LenderDashboard extends React.Component {
+class UserDashboard extends React.Component {
   state = {
     book: []
+  };
+
+  componentDidMount = async () => {
+    await this.props.lendBookDashboard();
+    this.props.borrowBookDashboard();
   };
 
   render() {
     return (
       <div>
         <h1>My Vivlio Collection</h1>
-        <BookItem book={this.state.book} />
+        <hr />
+        <LendBooks books={this.props.lenderCollection} />
+        <h1>My Wishlist</h1>
+        <hr />
+        <section>
+          <BorrowBooks books={this.props.wishlistBooks} />
+        </section>
       </div>
     );
   }
 }
 
-export default LenderDashboard;
+const mapStateToProps = state => ({
+  wishlistBooks: state.borrowerReducer.wishList,
+  lenderCollection: state.lenderReducer.collection
+});
+
+export default connect(mapStateToProps, {
+  lendBookDashboard,
+  borrowBookDashboard
+})(UserDashboard);
