@@ -10,6 +10,7 @@ import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login.js';
 import RegisterForm from './components/registration/RegisterForm';
 import UserDashboard from './components/userDashboard/UserDashboard';
+require('dotenv').config();
 
 function App(props) {
   function renderContent() {

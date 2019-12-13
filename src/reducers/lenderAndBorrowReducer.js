@@ -41,15 +41,18 @@ export function borrowerReducer(state = initialBorrowerState, action) {
       };
     case BORROW_DASH_START:
       return {
+        ...state,
         dashIsRetrieving: action.payload
       };
     case BORROW_DASH_SUCCESS:
       return {
+        ...state,
         dashIsRetrieving: false,
         wishList: action.payload
       };
     case BORROW_DASH_FAILURE:
       return {
+        ...state,
         dashIsRetrieving: false,
         dashError: action.payload
       };
@@ -76,15 +79,18 @@ export function lenderReducer(state = initialLenderState, action) {
       };
     case LEND_DASH_START:
       return {
+        ...state,
         dashIsRetrieving: action.payload
       };
     case LEND_DASH_SUCCESS:
       return {
+        ...state,
         dashIsRetrieving: false,
         collection: action.payload
       };
     case LEND_DASH_FAILURE:
       return {
+        ...state,
         dashIsRetrieving: false,
         dashError: action.payload
       };

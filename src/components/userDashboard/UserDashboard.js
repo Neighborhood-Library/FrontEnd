@@ -7,7 +7,8 @@ import './UserDashboard.scss';
 
 class UserDashboard extends React.Component {
   state = {
-    book: []
+    book: [],
+    activeTab: ''
   };
 
   componentWillMount = async () => {
@@ -18,7 +19,7 @@ class UserDashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1>My Vivlio Collection</h1>
+        <h1>User Dashboard</h1>
         <hr />
         <LendBooks books={this.props.lenderCollection} />
         <h1>My Wishlist</h1>
