@@ -40,10 +40,10 @@ class Login extends React.Component {
     return (
       <div id="absoluteCenteredDiv">
         <h1> Login </h1>
-        <div class="box">
+        <div className="box">
         <form onSubmit={this.submitForm}>
           <input
-            class="username"
+            className="username"
             onChange={this.onChange}
             name='username'
             type='text'
@@ -52,7 +52,7 @@ class Login extends React.Component {
             required
           />
           <input
-            class="username"
+            className="username"
             onChange={this.onChange}
             name='password'
             type='password'
@@ -60,13 +60,13 @@ class Login extends React.Component {
             value={this.state.password}
             required
           />
-          <button class="button" type='submit'>Login</button>
+          <button className="button" type='submit'>Login</button>
         </form>
         <button>
           <a href="https://muovivlio.herokuapp.com/auth/google">Sign In With Google</a>
         </button>
         </div>
-        <p>Forgot your password? <a class="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
+        <p>Forgot your password? <a className="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
         
       </div>
     );

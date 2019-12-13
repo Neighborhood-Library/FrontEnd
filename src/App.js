@@ -28,7 +28,11 @@ function App(props) {
         <div className='logo'>logo</div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
-          <Link to='/borrow'>Borrow</Link>
+          <Link to='/shelf'>Shelf</Link>
+          {/* <Link className='login-btn' to='/login'>
+          {props.loggedIn ? 'Logout': "Login"}
+          </Link> */}
+          <Link to='/books'>Books</Link>
           <Link className='login-btn' to='/login'>
           {renderContent()}
           </Link>
