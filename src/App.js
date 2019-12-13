@@ -3,26 +3,29 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
 import './App.scss';
+import Books from './books/Books.js';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
-import Login from './components/login/Login.js'
+import Login from './components/login/Login.js';
 import RegisterForm from './components/registration/RegisterForm';
-import Books from "./books/Books.js";
-
-
-
+import UserDashboard from './components/userDashboard/UserDashboard';
 
 function App(props) {
   function renderContent() {
-   if (props.loggedIn) {
-    return (
-      <li><a href="https://muovivlio.herokuapp.com/auth/logout">Logout</a></li>
-      ) }else {
-            return (
-                <li><a href="/login">Login </a></li>
-            )
-            
-            }}
+    if (props.loggedIn) {
+      return (
+        <li>
+          <a href='https://muovivlio.herokuapp.com/auth/logout'>Logout</a>
+        </li>
+      );
+    } else {
+      return (
+        <li>
+          <a href='/login'>Login </a>
+        </li>
+      );
+    }
+  }
 
   return (
     <div className='App'>
@@ -34,8 +37,7 @@ function App(props) {
           {/* <Link className='login-btn' to='/login'>
           {props.loggedIn ? 'Logout': "Login"}
           </Link> */}
-          <ul className="login-btn">{renderContent()}</ul>
-          
+          <ul className='login-btn'>{renderContent()}</ul>
         </nav>
       </header>
       <Switch>
@@ -44,12 +46,13 @@ function App(props) {
         <Route path='/login' component={Login} />
         <Route path='/register' component={RegisterForm} />
         <Route path='/books' component={Books} />
+        <Route path='/dashboard' component={UserDashboard} />
       </Switch>
     </div>
   );
 }
-const mapStateToProps = (state ) => {
-  return {loggedIn: state.loginAuthReducer.loggedIn}
-}
+const mapStateToProps = state => {
+  return { loggedIn: state.loginAuthReducer.loggedIn };
+};
 
 export default connect(mapStateToProps, { fetchUser })(App);
