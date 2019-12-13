@@ -1,56 +1,56 @@
-import { BORROW_BOOK_FAILURE, BORROW_BOOK_SUCCESS, BORROW_BOOK_START } from "../actions/bookActions.js";
-import { LEND_BOOK_FAILURE, LEND_BOOK_SUCCESS, LEND_BOOK_START } from "../actions/bookActions.js";
+import {
+  FETCH_BOOK,
+  CREATE_BOOK,
+  ADDING_BOOK_SUCC,
+  ADDING_BOOK_FAIL,
+  DELETE_BOOK
+} from '../components/borrowerDashboard/actions';
 
-const initialBorrowerState = {
-  'borrower-wishlist': [],
-  adding: false,
-  error: {}
-}
+const initialState = {
+  books: [],
+  fetchingBooks: false,
+  addingBook: false,
+  updatingBook: false,
+  deletingBook: false,
+  error: null
+};
 
-const initialLenderState = {
-  'lender-collection': [],
-  adding: false,
-  error: {}
-}
-
-export function borrowerReducer(state = initialBorrowerState, action) {
-  switch(action.type) {
-    case BORROW_BOOK_START:
+function reducer( state = initialState, action) {
+  switch (action.type) {
+    case FETCH_BOOK:
       return {
-        adding: action.payload
+        ...state,
+        error: '',
+        addingBook: false
+      };
+    case CREATE_BOOK:
+      return {
+        ...state, 
+        error: '',
+        addingBook: true
       }
-    case BORROW_BOOK_SUCCESS:
+    case ADDING_BOOK_SUCC:
       return {
-        adding: false,
-        'borrower-wishlist': [...'borrower-wishlist', action.payload]
+        ...state,
+        error: '',
+        books: action.payload,
+        // eslint-disable-next-line no-dupe-keys
+        error: null
+      }
+    case ADDING_BOOK_FAIL:
+      return {
+        ...state,
+        addingBook: false,
+        error: action.payload
+      }
+    case DELETE_BOOK: 
+    return {
+      ...state,
+      books: state.books.filter(book => book.id !== action.payload)
     }
-    case BORROW_BOOK_FAILURE:
-      return {
-        adding: false,
-        error: action.payload
-      }
     default:
-    return 'state'
+      return state;
   }
 }
 
-export function lenderReducer(state = initialLenderState, action) {
-  switch(action.type) {
-    case LEND_BOOK_START:
-      return {
-        adding: action.payload,
-      }
-    case LEND_BOOK_SUCCESS:
-      return {
-        adding: false,
-        'lender-collection': [...'lender-collection', action.payload]
-      }
-    case LEND_BOOK_FAILURE:
-      return {
-        adding: false,
-        error: action.payload
-      }
-    default:
-    return 'state'
-  }
-}
+export default reducer;

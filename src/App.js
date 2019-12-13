@@ -8,13 +8,11 @@ import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login.js'
 import RegisterForm from './components/registration/RegisterForm';
 import Books from "./books/Books.js";
-
-
-
+import BookForm from './components/borrowerDashboard/BookForm';
 
 function App(props) {
   function renderContent() {
-   if (props.loggedIn) {
+  if (props.loggedIn) {
     return (
       <li><a href="https://muovivlio.herokuapp.com/auth/logout">Logout</a></li>
       ) }else {
@@ -35,15 +33,19 @@ function App(props) {
           {props.loggedIn ? 'Logout': "Login"}
           </Link> */}
           <Link to='/books'>Books</Link>
-          <ul className="login-btn">{renderContent()}</ul>
+          <Link className='login-btn' to='/login'>
+          {renderContent()}
+          </Link>
           
         </nav>
       </header>
+      <h2> Share the Experience of Your Books With Others</h2>
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route path='/homepage' component={HomeDashboard} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={RegisterForm} />
+        <Route path='/borrow' component={BookForm} />
         <Route path='/books' component={Books} />
       </Switch>
     </div>
