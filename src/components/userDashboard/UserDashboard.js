@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  borrowBookDashboard,
-  lendBookDashboard
-} from '../../actions/bookActions';
+import { borrowBookDashboard, lendBookDashboard } from '../../actions/bookActions';
 import BorrowBooks from './BorrowBooks';
 import LendBooks from './LendBooks';
 import './UserDashboard.scss';
@@ -13,9 +10,9 @@ class UserDashboard extends React.Component {
     book: []
   };
 
-  componentDidMount = async () => {
+  componentWillMount = async () => {
+    await this.props.borrowBookDashboard();
     await this.props.lendBookDashboard();
-    this.props.borrowBookDashboard();
   };
 
   render() {

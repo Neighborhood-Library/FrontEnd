@@ -1,36 +1,27 @@
 import {
-  BORROW_BOOK_FAILURE,
-  BORROW_BOOK_START,
-  BORROW_BOOK_SUCCESS,
-  BORROW_DASH_FAILURE,
-  BORROW_DASH_START,
-  BORROW_DASH_SUCCESS,
-  //LEND_BOOK is for posting books to lender-collection and LEND_DASH is for gets to display in dashboard
-  LEND_BOOK_FAILURE,
-  LEND_BOOK_START,
-  LEND_BOOK_SUCCESS,
-  LEND_DASH_FAILURE,
-  LEND_DASH_START,
-  LEND_DASH_SUCCESS
+BORROW_BOOK_FAILURE, BORROW_BOOK_START, BORROW_BOOK_SUCCESS, BORROW_DASH_FAILURE, BORROW_DASH_START, BORROW_DASH_SUCCESS,
+    //LEND_BOOK is for posting books to lender-collection and LEND_DASH is for gets to display in dashboard
+    LEND_BOOK_FAILURE, LEND_BOOK_START, LEND_BOOK_SUCCESS, LEND_DASH_FAILURE, LEND_DASH_START, LEND_DASH_SUCCESS
 } from '../actions/bookActions.js';
 
 const initialBorrowerState = {
-  'borrower-wishlist': [],
   adding: false,
   error: {},
   dashIsRetrieving: false,
   dashError: {},
   wishList: []
 };
+//   'borrower-wishlist': [],
 
 const initialLenderState = {
-  'lender-collection': [],
   adding: false,
   error: {},
   dashIsRetrieving: false,
   dashError: {},
   collection: []
 };
+
+// 'lender-collection': [],
 
 export function borrowerReducer(state = initialBorrowerState, action) {
   switch (action.type) {
@@ -63,7 +54,7 @@ export function borrowerReducer(state = initialBorrowerState, action) {
         dashError: action.payload
       };
     default:
-      return 'state';
+      return state;
   }
 }
 
@@ -98,6 +89,6 @@ export function lenderReducer(state = initialLenderState, action) {
         dashError: action.payload
       };
     default:
-      return 'state';
+      return state;
   }
 }
