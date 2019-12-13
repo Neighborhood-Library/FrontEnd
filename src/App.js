@@ -4,6 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
 import './App.scss';
 import Books from './books/Books.js';
+import BookForm from './components/borrowerDashboard/BookForm';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login.js';
@@ -37,14 +38,19 @@ function App(props) {
           {/* <Link className='login-btn' to='/login'>
           {props.loggedIn ? 'Logout': "Login"}
           </Link> */}
-          <ul className='login-btn'>{renderContent()}</ul>
+          <Link to='/books'>Books</Link>
+          <Link className='login-btn' to='/login'>
+            {renderContent()}
+          </Link>
         </nav>
       </header>
+      <h2> Share the Experience of Your Books With Others</h2>
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route path='/homepage' component={HomeDashboard} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={RegisterForm} />
+        <Route path='/borrow' component={BookForm} />
         <Route path='/books' component={Books} />
         <Route path='/dashboard' component={UserDashboard} />
       </Switch>

@@ -1,52 +1,54 @@
 import {
-  REMOVE_BOOK,
-  REMOVE_BOOK_FAILURE,
-  REMOVE_BOOK_SUCCESS,
-  TOGGLE_AVAILABILITY
-} from '../actions/types';
+  ADDING_BOOK_FAIL,
+  ADDING_BOOK_SUCC,
+  CREATE_BOOK,
+  DELETE_BOOK,
+  FETCH_BOOK
+} from '../components/borrowerDashboard/actions';
 
 const initialState = {
-  book: [],
-  toggleAvailability: false,
-  error: '',
-  removingBook: false,
-  success: false
+  books: [],
+  fetchingBooks: false,
+  addingBook: false,
+  updatingBook: false,
+  deletingBook: false,
+  error: null
 };
 
-export function bookReducer(state = initialState, action) {
-  console.log(action);
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case TOGGLE_AVAILABILITY:
+    case FETCH_BOOK:
       return {
         ...state,
-        error: null,
-        toggleAvailability: true
+        error: '',
+        addingBook: false
       };
-    case REMOVE_BOOK:
+    case CREATE_BOOK:
       return {
         ...state,
-        error: null,
-        removingBook: true,
-        success: false
+        error: '',
+        addingBook: true
       };
-    case REMOVE_BOOK_SUCCESS:
+    case ADDING_BOOK_SUCC:
       return {
         ...state,
-        book: action.payload,
-        removingBook: false,
-        error: null,
-        success: true
+        error: '',
+        books: action.payload,
+        // eslint-disable-next-line no-dupe-keys
+        error: null
       };
-    case REMOVE_BOOK_FAILURE:
+    case ADDING_BOOK_FAIL:
       return {
         ...state,
-        error: action.payload,
-        removingBook: false,
-        success: false
+        addingBook: false,
+        error: action.payload
       };
-
+    case DELETE_BOOK:
+      return {
+        ...state,
+        books: state.books.filter(book => book.id !== action.payload)
+      };
     default:
       return state;
   }
 }
-export default bookReducer;
