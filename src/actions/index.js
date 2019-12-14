@@ -20,7 +20,7 @@ export const login = (credentials, history) => dispatch => {
   };
   dispatch({ type: LOGIN_START });
   axios
-    .post('https://muovivlio.herokuapp.com/auth/login', creds, {withCredentials: true})
+    .post('https://muovivlio.herokuapp.com/auth/login', creds)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
         history.push('/dashboard');
