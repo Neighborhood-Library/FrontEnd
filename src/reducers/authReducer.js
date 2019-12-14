@@ -20,7 +20,6 @@ const initialState = {
   
 
 export function loginAuthReducer(state = initialState, action) {
-  console.log(action)
     switch (action.type) {
       case LOGIN_START:
         return {
@@ -49,8 +48,7 @@ export function loginAuthReducer(state = initialState, action) {
 
 
 
-export function registerAuthReducer  (state = initialState, action) {
-  console.log(action);
+export function registerAuthReducer(state = initialState, action) {
   switch (action.type) {
     case REGISTER_START:
       return {

@@ -33,7 +33,9 @@ function App(props) {
     <div className='App'>
       <header>
         <div className='logo-cont'>
-          <img src="./img/myvivlio-logo.png" alt="logo" className="logo"/>
+          <Link to="/">
+            <img src="./img/myvivlio-logo.png" alt="logo" className="logo"/>
+          </Link>
         </div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
