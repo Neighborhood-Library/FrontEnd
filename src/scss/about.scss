@@ -1,0 +1,37 @@
+.page-wrap {
+  width: 60%;
+  margin: 0 auto;
+}
+
+hr {
+  margin-bottom: 30px;
+}
+
+.team-cont {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  div {
+    max-width: 200px;
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+      padding-right: 15px;
+    }
+
+    p {
+      padding-bottom: 20px;
+    }
+
+    a {
+      font-size: 1.6rem;
+      color: $sec-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

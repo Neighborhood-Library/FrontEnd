@@ -3,7 +3,10 @@ $tablet: 800px;
 
 header {
   display: flex;
-  padding: 20px 15px;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 10px 15%;
+  margin-bottom: 30px;
 
   @media (max-width: $phone) {
     text-align: center;
@@ -12,28 +15,26 @@ header {
     z-index: 98;
   }
 
-  .logo {
+  .logo-cont {
     position: relative;
-    z-index: 98;
     margin: 0;
-    padding: 7px 0;
-    font-size: 1.8rem;
-    width: 75%;
     text-align: left;
 
     @media (max-width: $phone) {
       display: none;
     }
   }
+
+  .logo {
+    width: 70px;
+  }
 }
 
 .app-nav {
     position: relative;
-    z-index: 98;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 25%;
+    justify-content: flex-end;
+    align-items: center;
 
     @media (max-width: $phone) {
       flex-direction: column;

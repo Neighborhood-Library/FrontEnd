@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
 import './App.scss';
-
+import './scss/index.scss';
 import Books from './books/Books.js';
 import BookForm from './components/borrowerDashboard/BookForm';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
+import AboutPage from './pages/About';
+import ContactPage from './pages/Contact';
 import Login from './components/login/Login.js';
 import RegisterForm from './components/registration/RegisterForm';
 import UserDashboard from './components/userDashboard/UserDashboard';
@@ -30,18 +32,19 @@ function App(props) {
   return (
     <div className='App'>
       <header>
-        <div className='logo'>logo</div>
+        <div className='logo-cont'>
+          <Link to="/">
+            <img src="./img/myvivlio-logo.png" alt="logo" className="logo"/>
+          </Link>
+        </div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
           <Link to='/dashboard'>Shelf</Link>
-          {/* <Link className='login-btn' to='/login'>
-          {props.loggedIn ? 'Logout': "Login"}
-          </Link> */}
           <Link to='/books'>Books</Link>
           {renderContent()}
         </nav>
       </header>
-      <h2> Share the Experience of Your Books With Others</h2>
+      <h2>Share the Experience of Your Books With Others</h2>
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route path='/homepage' component={HomeDashboard} />
@@ -49,6 +52,8 @@ function App(props) {
         <Route path='/register' component={RegisterForm} />
         <Route path='/borrow' component={BookForm} />
         <Route path='/books' component={Books} />
+        <Route path='/about' component={AboutPage} />
+        <Route path='/contact' component={ContactPage} />
         <Route path='/dashboard' component={UserDashboard} />
       </Switch>
     </div>

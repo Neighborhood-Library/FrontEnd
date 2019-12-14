@@ -13,25 +13,15 @@ class Login extends React.Component {
     password: '',
     loggedIn : false
   };
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  
   submitForm = e => {
     e.preventDefault();
     this.props.login(this.state,this.props.history);
   };
-  
-
-  // submitForm(e){
-  //   e.preventDefault()
-  //   const {username,password} = this.state
-  //   if (username === "A" && password === "B"){
-  //     localStorage.setItem("token", "kjsdofiajsiofjsoifjiodsf")
-  //     this.setState({
-  //       loggedIn:true
-  //     })
-  //   }
-  // }
 
   render() {
     if(this.state.loggedIn){
