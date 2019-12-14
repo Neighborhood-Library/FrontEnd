@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { borrowBookDashboard, lendBookDashboard } from '../../actions/bookActions';
-import BorrowBooks from './BorrowBooks';
-import LendBooks from './LendBooks';
+import BooksList from './BooksList';
 import './UserDashboard.scss';
 
 class UserDashboard extends React.Component {
@@ -18,15 +17,13 @@ class UserDashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <h1>User Dashboard</h1>
         <hr />
-        <LendBooks books={this.props.lenderCollection} />
+        <BooksList books={this.props.lenderCollection} />
         <h1>My Wishlist</h1>
         <hr />
-        <section>
-          <BorrowBooks books={this.props.wishlistBooks} />
-        </section>
+        <BooksList books={this.props.wishlistBooks} />
       </div>
     );
   }

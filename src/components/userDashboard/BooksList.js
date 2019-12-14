@@ -1,8 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-const LendBooks = props => {
-  console.log(props.books);
+const BooksList = props => {
   return (
     <section>
       {
@@ -17,4 +16,4 @@ const LendBooks = props => {
   );
 };
 
-export default LendBooks;
+export default BooksList;

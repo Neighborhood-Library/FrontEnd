@@ -1,0 +1,9 @@
+.dashboard {
+  width: 60%;
+  margin: 0 auto;
+
+  section {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
