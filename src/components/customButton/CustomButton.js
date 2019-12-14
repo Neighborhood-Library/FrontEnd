@@ -5,12 +5,15 @@ const CustomButton = ({
   children,
   isRegister,
   loginWithGoogle,
+  availability,
+  removeBook,
   ...otherProps
 }) => (
   <button
     className={`${isRegister ? 'register-button' : ''}${
       loginWithGoogle ? 'google-button' : ''
-    } custom-button`}
+    }${availability ? 'availability-button' : ''} 
+    ${removeBook ? 'remove-button' : ''}custom-button`}
     {...otherProps}
   >
     {children}

@@ -13,25 +13,15 @@ class Login extends React.Component {
     password: '',
     loggedIn : false
   };
+
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  
   submitForm = e => {
     e.preventDefault();
     this.props.login(this.state,this.props.history);
   };
-  
-
-  // submitForm(e){
-  //   e.preventDefault()
-  //   const {username,password} = this.state
-  //   if (username === "A" && password === "B"){
-  //     localStorage.setItem("token", "kjsdofiajsiofjsoifjiodsf")
-  //     this.setState({
-  //       loggedIn:true
-  //     })
-  //   }
-  // }
 
   render() {
     if(this.state.loggedIn){
@@ -39,11 +29,11 @@ class Login extends React.Component {
     }
     return (
       <div id="absoluteCenteredDiv">
-        <h1 className="login">Login</h1>
-        <div class="box">
+        <h1 className='login-title'> Login </h1>
+        <div className="box">
         <form onSubmit={this.submitForm}>
           <input
-            class="username"
+            className="username"
             onChange={this.onChange}
             name='username'
             type='text'
@@ -52,7 +42,7 @@ class Login extends React.Component {
             required
           />
           <input
-            class="username"
+            className="username"
             onChange={this.onChange}
             name='password'
             type='password'
@@ -60,13 +50,13 @@ class Login extends React.Component {
             value={this.state.password}
             required
           />
-          <button class="button" type='submit'>Login</button>
+          <button className="button" type='submit'>Login</button>
         </form>
         <button>
           <a href="https://muovivlio.herokuapp.com/auth/google">Sign In With Google</a>
         </button>
         </div>
-        <p>Forgot your password? <a class="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
+        <p className='forgot-password'>Forgot your password? <a className="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
         
       </div>
     );

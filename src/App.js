@@ -4,20 +4,24 @@ import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
 import './App.scss';
 import './scss/index.scss';
+import Books from './books/Books.js';
+import BookForm from './components/borrowerDashboard/BookForm';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
-import Login from './components/login/Login.js'
+import Login from './components/login/Login.js';
 import RegisterForm from './components/registration/RegisterForm';
-import Books from "./books/Books.js";
-import BookForm from './components/borrowerDashboard/BookForm';
+import UserDashboard from './components/userDashboard/UserDashboard';
+// import PrivateRoute from './middleware/PrivateRoute';
+
+require('dotenv').config();
 
 function App(props) {
   function renderContent() {
     if (props.loggedIn) {
       return (
-        <li><a href="https://muovivlio.herokuapp.com/auth/logout">Logout</a></li>
+        <a href="https://muovivlio.herokuapp.com/auth/logout">Logout</a>
     )} else {
       return (
           <Link className='login-btn' to='/login'>Login</Link>
@@ -33,10 +37,9 @@ function App(props) {
         </div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
-          <Link to='/borrow'>Borrow</Link>
-          {/* <Link className='login-btn' to='/login'> */}
+          <Link to='/dashboard'>Shelf</Link>
+          <Link to='/books'>Books</Link>
           {renderContent()}
-          {/* </Link> */}
         </nav>
       </header>
       <h2>Share the Experience of Your Books With Others</h2>
@@ -49,12 +52,13 @@ function App(props) {
         <Route path='/books' component={Books} />
         <Route path='/about' component={AboutPage} />
         <Route path='/contact' component={ContactPage} />
+        <Route path='/dashboard' component={UserDashboard} />
       </Switch>
     </div>
   );
 }
-const mapStateToProps = (state) => {
-  return {loggedIn: state.loginAuthReducer.loggedIn}
-}
+const mapStateToProps = state => {
+  return { loggedIn: state.loginAuthReducer.loggedIn };
+};
 
 export default connect(mapStateToProps, { fetchUser })(App);
