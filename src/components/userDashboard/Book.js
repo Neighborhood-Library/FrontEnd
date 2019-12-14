@@ -14,7 +14,6 @@ class Book extends React.Component {
     await Axios
       .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}`)
       .then(res => {
-        console.log(res.data)
         this.setState({ info: res.data })
       })
       .catch(err => console.log(err.body));
