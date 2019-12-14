@@ -16,11 +16,10 @@ class Books extends Component {
 
   }
   handleInput = e => {
-    e.preventDefault()
-    console.log(`You searched for ${this.state.searchInput}`)
+    e.preventDefault();
     this.setState({
       searchInput: e.target.value
-    })
+    });
   }
 
   handleSearch = e => {

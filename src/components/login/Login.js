@@ -39,7 +39,7 @@ class Login extends React.Component {
     }
     return (
       <div id="absoluteCenteredDiv">
-        <h1> Login </h1>
+        <h1 className='login-title'> Login </h1>
         <div className="box">
         <form onSubmit={this.submitForm}>
           <input
@@ -66,7 +66,7 @@ class Login extends React.Component {
           <a href="https://muovivlio.herokuapp.com/auth/google">Sign In With Google</a>
         </button>
         </div>
-        <p>Forgot your password? <a className="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
+        <p className='forgot-password'>Forgot your password? <a className="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
         
       </div>
     );

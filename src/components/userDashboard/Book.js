@@ -10,10 +10,11 @@ class Book extends React.Component {
     }
   }
 
-  componentWillMount = () => {
-    Axios
-      .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}?key=${process.env.REACT_APP_googleBooksAPIKey}`)
+  componentWillMount = async () => {
+    await Axios
+      .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}`)
       .then(res => {
+        console.log(res.data)
         this.setState({ info: res.data })
       })
       .catch(err => console.log(err.body));
@@ -33,7 +34,7 @@ class Book extends React.Component {
             src={this.state.info.volumeInfo.imageLinks !== undefined ? this.state.info.volumeInfo.imageLinks.thumbnail : ''}
           />
           <h2 className='bookTitle'>{this.state.info.volumeInfo.title}</h2>
-          <h4 className='author'>{this.state.info.volumeInfo.authors[0]}</h4>
+          <h4 className='author'>{this.state.info.volumeInfo.authors ? this.state.info.volumeInfo.authors[0] : 'N/A' }</h4>
           <p className='bookSummary'>{this.state.info.volumeInfo.publishedDate.split('-')[0]}</p>
           <a href={this.props.toLink}>Learn More</a>
         </div>

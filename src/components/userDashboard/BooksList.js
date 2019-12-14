@@ -9,7 +9,7 @@ const BooksList = props => {
           <p>No books found</p>
         :
           props.books.map(book => {
-            return <Book book={book} />;
+            return <Book key={book.id} book={book} />;
           })
       }
     </section>

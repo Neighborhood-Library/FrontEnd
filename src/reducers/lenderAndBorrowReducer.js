@@ -65,15 +65,18 @@ export function lenderReducer(state = initialLenderState, action) {
   switch (action.type) {
     case LEND_BOOK_START:
       return {
+        ...state,
         adding: action.payload
       };
     case LEND_BOOK_SUCCESS:
       return {
+        ...state,
         adding: false,
         'lender-collection': [...'lender-collection', action.payload]
       };
     case LEND_BOOK_FAILURE:
       return {
+        ...state,
         adding: false,
         error: action.payload
       };
