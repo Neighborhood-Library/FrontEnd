@@ -23,7 +23,7 @@ export const login = (credentials, history) => dispatch => {
     .post('https://muovivlio.herokuapp.com/auth/login', creds, {withCredentials: true})
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
-        history.push('/homepage');
+        history.push('/dashboard');
         console.log(res)
       return true;
     })
