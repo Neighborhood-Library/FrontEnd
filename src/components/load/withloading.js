@@ -1,9 +1,8 @@
 import React from "react";
-import Login from "../login/Login";
 
-function WithLoading(Login) {
-    return function WithLoadingLogin({ isLoading, ...props }) {
-        if (!isLoading) return (<Login {...props} />);
+function WithLoading(Component) {
+    return function WithLoadingComponent({ isLoading, ...props }) {
+        if (!isLoading) return (<Component {...props} />);
         return (<p>Be Hold, fetching books takes some time :)</p>);
     }
 }
