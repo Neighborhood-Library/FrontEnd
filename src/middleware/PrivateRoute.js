@@ -41,7 +41,7 @@ class PrivateRoute extends React.Component {
     }
   }
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'http://localhost:5000/auth/current_user';
     // https://muovivlio.herokuapp.com/auth/current_user
 
@@ -57,26 +57,10 @@ class PrivateRoute extends React.Component {
   }
 
   render() {
-    async function getUser() {
-      const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'http://localhost:5000/auth/current_user';
-      // https://muovivlio.herokuapp.com/auth/current_user
-  
-      return await axios
-        .get(URL, { withCredentials: true })
-        .then(res => {
-          // this.setState({ auth: true });
-          return true;
-        })
-        .catch(err => {
-          // this.setState({ auth: false });
-          return false;
-        });
-    }
-
     return(
       <>
         {
-          getUser ? (
+          this.state.auth ? (
             <Route props render={() => <props.Component />} />
           ) : (
             <Route render={() => <Redirect to="/login" />} />
