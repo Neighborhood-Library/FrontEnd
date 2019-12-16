@@ -13,7 +13,7 @@ import ContactPage from './pages/Contact';
 import Login from './components/login/Login.js';
 import RegisterForm from './components/registration/RegisterForm';
 import UserDashboard from './components/userDashboard/UserDashboard';
-// import PrivateRoute from './middleware/PrivateRoute';
+import PrivateRoute from './middleware/PrivateRoute';
 
 require('dotenv').config();
 
@@ -54,7 +54,7 @@ function App(props) {
         <Route path='/books' component={Books} />
         <Route path='/about' component={AboutPage} />
         <Route path='/contact' component={ContactPage} />
-        <Route path='/dashboard' component={UserDashboard} />
+        <PrivateRoute path='/dashboard' component={UserDashboard} />
       </Switch>
     </div>
   );
