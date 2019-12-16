@@ -33,41 +33,66 @@ import axios from 'axios';
 //   // )
 // };
 
-class PrivateRoute extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      auth: undefined
-    }
-  }
+const getUser = async () => {
+  const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
 
-  componentWillMount = async () => {
-    const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
-
-    await axios
-      .get(URL, { withCredentials: true })
-      .then(res => {
-        this.setState({ auth: true });
-        return;
-      })
-      .catch(err => {
-        this.setState({ auth: false });
-      });
-  }
-
-  render() {
-    return(
-      <>
-        {
-          this.state.auth ? (
-            <Route props render={() => <props.Component />} />
-          ) : (
-            <Route render={() => <Redirect to="/login" />} />
-          )
-        }
-      </>
-    )
-  }
+  await axios
+    .get(URL, { withCredentials: true })
+    .then(res => {
+      return true;
+    })
+    .catch(err => {
+      return false;
+    });
 }
+
+console.log(getUser());
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    getUser() ? (
+      <Component {...props}/>
+    ) : (
+      <Redirect to='/login' />
+    )
+  )}/>
+)
+
+// class PrivateRoute extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       auth: undefined
+//     }
+//   }
+
+//   componentWillMount = async () => {
+//     const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
+
+//     await axios
+//       .get(URL, { withCredentials: true })
+//       .then(res => {
+//         this.setState({ auth: true });
+//         return;
+//       })
+//       .catch(err => {
+//         this.setState({ auth: false });
+//       });
+//   }
+
+//   render() {
+//     return(
+//       <>
+//         {
+//           this.state.auth ? (
+//             <Route props render={() => <props.Component />} />
+//           ) : (
+//             <Route render={() => <Redirect to="/login" />} />
+//           )
+//         }
+//       </>
+//     )
+//   }
+// }
 
 export default PrivateRoute;
