@@ -6,11 +6,11 @@ class PrivateRoute extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      auth: undefined
+      auth: false
     }
   }
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
 
     await axios
