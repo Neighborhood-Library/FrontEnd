@@ -56,7 +56,7 @@ class Login extends React.Component {
           <a href="https://muovivlio.herokuapp.com/auth/google">Sign In With Google</a>
         </button>
         </div>
-        <p className='forgot-password'>Forgot your password? <a className="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
+        <p className='forgot-password'>Forgot your password? <a className="fpwd" href="#">Click Here!</a></p>
         
       </div>
     );
