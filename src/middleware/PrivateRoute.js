@@ -42,8 +42,7 @@ class PrivateRoute extends React.Component {
   }
 
   componentWillMount = async () => {
-    const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'http://localhost:5000/auth/current_user';
-    // https://muovivlio.herokuapp.com/auth/current_user
+    const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
 
     await axios
       .get(URL, { withCredentials: true })
