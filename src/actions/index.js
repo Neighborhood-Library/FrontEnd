@@ -24,8 +24,8 @@ export const login = (credentials, history) => dispatch => {
     .post(`${URL}/auth/login`, creds)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
-        history.push('/dashboard');
-        console.log(res)
+      // history.push('/dashboard');
+      console.log(res);
       return true;
     })
     .catch(err => {
