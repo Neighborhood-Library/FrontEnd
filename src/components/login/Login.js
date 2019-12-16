@@ -10,8 +10,7 @@ class Login extends React.Component {
   
   state = {
     username: '',
-    password: '',
-    loggedIn : false
+    password: ''
   };
 
   onChange = e => {
@@ -25,7 +24,7 @@ class Login extends React.Component {
 
   render() {
     if(this.state.loggedIn){
-      return <Redirect to="/homepage"/>
+      return <Redirect to="/dashboard"/>
     }
     return (
       <div id="absoluteCenteredDiv">
@@ -64,7 +63,6 @@ class Login extends React.Component {
 }
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn
-  
 });
 
 export default connect(mapStateToProps, { login })(Login);
