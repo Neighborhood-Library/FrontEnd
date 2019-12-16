@@ -21,7 +21,7 @@ export const login = (credentials, history) => dispatch => {
 
   dispatch({ type: LOGIN_START });
   axios
-    .post(`${URL}/auth/login`, creds)
+    .post(`${URL}/auth/login`, creds, {withCredentials: true})
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
       // history.push('/dashboard');
