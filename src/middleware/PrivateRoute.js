@@ -6,7 +6,7 @@ class PrivateRoute extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      auth: false
+      auth: true
     }
   }
 
