@@ -39,6 +39,7 @@ function App(props) {
         </div>
         <nav className='app-nav'>
           <Link to='/about'>About</Link>
+          <Link to='/contact'>Contact</Link>
           <Link to='/dashboard'>Shelf</Link>
           <Link to='/books'>Books</Link>
           {renderContent()}
