@@ -16,8 +16,8 @@ $tablet: 800px;
   z-index: -1;
 
   @media (max-width: $phone) {
-  min-width: 50%;
-  background-position: center top;
+    min-width: 50%;
+    background-position: center top;
   }
 }
 
@@ -29,17 +29,15 @@ $tablet: 800px;
   flex-direction: column;
   justify-content: center;
 
-
   @media (max-width: $phone) {
-  height: 60vh;
-  align-items: center;
+    height: 60vh;
+    align-items: center;
   }
 }
 
-
 .cta {
   font-family: 'Quicksand', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 4.5rem;
   padding-bottom: 2%;
   width: 20%;
@@ -56,24 +54,23 @@ $tablet: 800px;
 }
 
 .signup-btn {
-  background: #6BAFE1;
-  color: #D5E6F2;
+  background: #6bafe1;
+  color: #d5e6f2;
   border: none;
   border-radius: 7%;
   width: 8%;
-  padding: .7rem;
+  padding: 0.7rem;
   margin-left: 5%;
   cursor: pointer;
 
   @media (max-width: $phone) {
-   width: 20%;
-   text-align: center;
-   margin-left: 0;
+    width: 20%;
+    text-align: center;
+    margin-left: 0;
   }
 }
 
 .landing-footer {
-
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -83,14 +80,14 @@ $tablet: 800px;
   text-align: center;
   justify-content: center;
   z-index: 98;
-  background: #ABA2A4;
+  background: #aba2a4;
   opacity: 0.7;
 
   @media (max-width: $phone) {
-  flex-direction: column;
-  align-items: center;
-  height: 35vh;
-  border: 1px solid red;
+    flex-direction: column;
+    align-items: center;
+    height: 35vh;
+    border: 1px solid red;
   }
 }
 
@@ -104,10 +101,9 @@ $tablet: 800px;
   border-radius: 50%;
   margin-top: 3.2%;
   @media (max-width: $phone) {
-  border: 1px solid red;
-  padding: 10%;
-  font-size: .2rem;
-
+    border: 1px solid red;
+    padding: 10%;
+    font-size: 0.2rem;
   }
 }
 
@@ -118,20 +114,20 @@ $tablet: 800px;
   width: 35%;
   align-items: center;
   @media (max-width: $phone) {
-  width: 47%;
-  padding-bottom: 0;
-  flex-direction: column;
-}
-
-p {
-  font-size: 1rem;
-  text-align: justify;
-  margin-top: 3.5%;
-  color: white;
-  font-size: 2rem;
-  @media (max-width: $phone) {
-  font-size: .8rem;
-  margin-top: 0;
+    width: 47%;
+    padding-bottom: 0;
+    flex-direction: column;
   }
-}
+
+  p {
+    font-size: 1rem;
+    text-align: justify;
+    margin-top: 3.5%;
+    color: white;
+    font-size: 2rem;
+    @media (max-width: $phone) {
+      font-size: 0.8rem;
+      margin-top: 0;
+    }
+  }
 }

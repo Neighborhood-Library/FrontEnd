@@ -9,8 +9,8 @@ export const LandingPage = () => {
     <div className='landing-background'>
       <div className='landing-content'>
         <h1 className='cta'>
-          A new way to <br />
-          share books.
+          A New Way to <br />
+          Share Books
         </h1>
         <button className='signup-btn'>
           <Link to='/register'>Sign Up</Link>

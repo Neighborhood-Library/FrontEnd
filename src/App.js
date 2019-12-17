@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser } from './actions';
 import './App.scss';
-import './scss/index.scss';
 import Books from './books/Books.js';
 import BookForm from './components/borrowerDashboard/BookForm';
 import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
-import AboutPage from './pages/About';
-import ContactPage from './pages/Contact';
 import Login from './components/login/Login.js';
 import RegisterForm from './components/registration/RegisterForm';
 import UserDashboard from './components/userDashboard/UserDashboard';
+import AboutPage from './pages/About';
+import ContactPage from './pages/Contact';
+import './scss/index.scss';
 // import PrivateRoute from './middleware/PrivateRoute';
 
 require('dotenv').config();
@@ -20,12 +20,13 @@ require('dotenv').config();
 function App(props) {
   function renderContent() {
     if (props.loggedIn) {
+      return <a href='https://muovivlio.herokuapp.com/auth/logout'>Logout</a>;
+    } else {
       return (
-        <a href="https://muovivlio.herokuapp.com/auth/logout">Logout</a>
-    )} else {
-      return (
-          <Link className='login-btn' to='/login'>Login</Link>
-      )
+        <Link className='login-btn' to='/login'>
+          Login
+        </Link>
+      );
     }
   }
 
@@ -33,8 +34,8 @@ function App(props) {
     <div className='App'>
       <header>
         <div className='logo-cont'>
-          <Link to="/">
-            <img src="./img/myvivlio-logo.png" alt="logo" className="logo"/>
+          <Link to='/'>
+            <img src='./img/myvivlio-logo.png' alt='logo' className='logo' />
           </Link>
         </div>
         <nav className='app-nav'>
@@ -44,7 +45,9 @@ function App(props) {
           {renderContent()}
         </nav>
       </header>
-      <h2>Share the Experience of Your Books With Others</h2>
+      <h2 className='appTitle'>
+        Share the Experience of Your Books With Others
+      </h2>
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route path='/homepage' component={HomeDashboard} />

@@ -17,6 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
+  background-color: #c5c5c2;
 }
 
 code {
@@ -27,7 +28,12 @@ code {
 html {
   font-size: 62.5%;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 p {

@@ -7,13 +7,17 @@ const CustomButton = ({
   loginWithGoogle,
   availability,
   removeBook,
+  isBorrowBook,
+  isLendBook,
   ...otherProps
 }) => (
   <button
-    className={`${isRegister ? 'register-button' : ''}${
-      loginWithGoogle ? 'google-button' : ''
-    }${availability ? 'availability-button' : ''} 
-    ${removeBook ? 'remove-button' : ''}custom-button`}
+    className={`${isRegister ? 'register-button' : ''}
+    ${loginWithGoogle ? 'google-button' : ''}${
+      availability ? 'availability-button' : ''
+    } 
+    ${removeBook ? 'remove-button' : ''} ${isBorrowBook ? 'borrowBookBtn' : ''}
+    ${isLendBook ? 'lendBookBtn' : ''} custom-button`}
     {...otherProps}
   >
     {children}
