@@ -52,6 +52,9 @@ header {
     padding: 7px 20px;
     font-weight: 300;
     font-size: 1.8rem;
+    &:hover {
+      text-decoration: underline;
+    }
 
     @media (max-width: $phone) {
     }

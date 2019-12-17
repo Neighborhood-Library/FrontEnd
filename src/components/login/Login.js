@@ -8,8 +8,7 @@ import './Login.css';
 class Login extends React.Component {
   state = {
     username: '',
-    password: '',
-    loggedIn: false
+    password: ''
   };
 
   onChange = e => {
@@ -22,8 +21,8 @@ class Login extends React.Component {
   };
 
   render() {
-    if (this.state.loggedIn) {
-      return <Redirect to='/homepage' />;
+    if (this.props.loggedIn) {
+      return <Redirect to='/dashboard' />;
     }
     return (
       <div id='absoluteCenteredDiv'>
@@ -60,7 +59,7 @@ class Login extends React.Component {
         </div>
         <p className='forgot-password'>
           Forgot your password?{' '}
-          <a className='fpwd' href=' // eslint-disable-next-line#'>
+          <a className='fpwd' href='#'>
             Click Here!
           </a>
         </p>
