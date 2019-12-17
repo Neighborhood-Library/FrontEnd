@@ -5,7 +5,7 @@ const BooksList = props => {
   return (
     <section>
       {
-        props.books.length === 0 ?
+        props.books === undefined || props.books.length === 0 ?
           <p>No books found</p>
         :
           props.books.map(book => {

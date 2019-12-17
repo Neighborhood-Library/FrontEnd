@@ -60,7 +60,7 @@ class App extends React.Component {
   }
 
   logOutHandler = async () => {
-    await Axios.get('http://localhost:5000/auth/logout', {withCredentials: true});
+    await Axios.get(`${process.env.REACT_APP_REQ_URL}/auth/logout`, {withCredentials: true});
   }
 
   render() {

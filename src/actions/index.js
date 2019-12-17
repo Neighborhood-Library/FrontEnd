@@ -4,10 +4,8 @@ import {FETCH_USER,FETCH_USER_FAILURE,LOGIN_START,LOGIN_FAILURE,LOGIN_SUCCESS,RE
   REGISTER_START,
   REGISTER_SUCCESS} from './types';
 
-const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000' : 'https://muovivlio.herokuapp.com';
-
 export const fetchUser = () => async dispatch => {
-  const user = await axios.get(`${URL}/auth/current_user`, {withCredentials: true});
+  const user = await axios.get(`${process.env.REACT_APP_REQ_URL}/auth/current_user`, {withCredentials: true});
 
   if (user) {
     dispatch({ type: FETCH_USER, payload: user.data });
@@ -25,7 +23,7 @@ export const login = (credentials, history) => dispatch => {
 
   dispatch({ type: LOGIN_START });
   axios
-    .post(`${URL}/auth/login`, creds, {withCredentials: true})
+    .post(`${process.env.REACT_APP_REQ_URL}/auth/login`, creds, {withCredentials: true})
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
       // history.push('/dashboard');
@@ -46,7 +44,7 @@ export const register = (credentials, history, func) => dispatch => {
   };
   dispatch({ type: REGISTER_START });
   axios
-    .post(`${URL}/auth/register`, creds)
+    .post(`${process.env.REACT_APP_REQ_URL}/auth/register`, creds)
     .then(res => {
       dispatch({ type: REGISTER_SUCCESS });
       func.push('/login');
