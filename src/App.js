@@ -14,13 +14,42 @@ import PrivateRoute from './middleware/PrivateRoute';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import './scss/index.scss';
+import Axios from 'axios';
 
 require('dotenv').config();
 
-function App(props) {
-  function renderContent() {
-    if (props.loggedIn) {
-      return <a href='https://muovivlio.herokuapp.com/auth/logout'>Logout</a>;
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount = async () => {
+    this.props.fetchUser();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.loggedIn !== prevProps.loggedIn) {
+      this.props.fetchUser();
+    }
+  }
+
+  renderContent() {
+    // const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
+
+    // const res = async () => {
+    //   await axios
+    //   .get(URL, { withCredentials: true })
+    //   .then(res => {
+    //     this.setState({ auth: true });
+    //     return true;
+    //   })
+    //   .catch(err => {
+    //     return false;
+    //   });
+    // }
+
+    if (this.props.loggedIn) {
+      return <a className='login-btn' onClick={this.logOutHandler}>Logout</a>;
     } else {
       return (
         <Link className='login-btn' to='/login'>
@@ -30,38 +59,44 @@ function App(props) {
     }
   }
 
-  return (
-    <div className='App'>
-      <header>
-        <div className='logo-cont'>
-          <Link to='/'>
-            <img src='./img/myvivlio-logo.png' alt='logo' className='logo' />
-          </Link>
-        </div>
-        <nav className='app-nav'>
-          <Link to='/about'>About</Link>
-          <Link to='/contact'>Contact</Link>
-          <Link to='/dashboard'>Shelf</Link>
-          <Link to='/books'>Books</Link>
-          {renderContent()}
-        </nav>
-      </header>
-      <h2 className='appTitle'>
-        Share the Experience of Your Books With Others
-      </h2>
-      <Switch>
-        <Route exact path='/' component={LandingPage} />
-        <Route path='/homepage' component={HomeDashboard} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={RegisterForm} />
-        <Route path='/borrow' component={BookForm} />
-        <Route path='/books' component={Books} />
-        <Route path='/about' component={AboutPage} />
-        <Route path='/contact' component={ContactPage} />
-        <PrivateRoute path='/dashboard' component={UserDashboard} />
-      </Switch>
-    </div>
-  );
+  logOutHandler = async () => {
+    await Axios.get('http://localhost:5000/auth/logout', {withCredentials: true});
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <header>
+          <div className='logo-cont'>
+            <Link to='/'>
+              <img src='./img/myvivlio-logo.png' alt='logo' className='logo' />
+            </Link>
+          </div>
+          <nav className='app-nav'>
+            <Link to='/about'>About</Link>
+            <Link to='/contact'>Contact</Link>
+            <Link to='/dashboard'>Shelf</Link>
+            <Link to='/books'>Books</Link>
+            {this.renderContent()}
+          </nav>
+        </header>
+        <h2 className='appTitle'>
+          Share the Experience of Your Books With Others
+        </h2>
+        <Switch>
+          <Route exact path='/' component={LandingPage} />
+          <Route path='/homepage' component={HomeDashboard} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={RegisterForm} />
+          <Route path='/borrow' component={BookForm} />
+          <Route path='/books' component={Books} />
+          <Route path='/about' component={AboutPage} />
+          <Route path='/contact' component={ContactPage} />
+          <PrivateRoute path='/dashboard' component={UserDashboard} />
+        </Switch>
+      </div>
+    );
+  }
 }
 const mapStateToProps = state => {
   return { loggedIn: state.loginAuthReducer.loggedIn };

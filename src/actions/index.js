@@ -1,15 +1,19 @@
 import axios from 'axios';
 
-import {FETCH_USER,LOGIN_START,LOGIN_FAILURE,LOGIN_SUCCESS,REGISTER_FAILURE,
+import {FETCH_USER,FETCH_USER_FAILURE,LOGIN_START,LOGIN_FAILURE,LOGIN_SUCCESS,REGISTER_FAILURE,
   REGISTER_START,
   REGISTER_SUCCESS} from './types';
 
 const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000' : 'https://muovivlio.herokuapp.com';
 
 export const fetchUser = () => async dispatch => {
-  const user = await axios.get(`${URL}/auth/current_user`);
+  const user = await axios.get(`${URL}/auth/current_user`, {withCredentials: true});
 
-  dispatch({type: FETCH_USER, payload: user.data});
+  if (user) {
+    dispatch({ type: FETCH_USER, payload: user.data });
+  } else {
+    dispatch({ type: FETCH_USER_FAILURE });
+  }
 }
 
 export const login = (credentials, history) => dispatch => {

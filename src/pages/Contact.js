@@ -3,42 +3,42 @@ import React from 'react';
 const Contact = () => {
   return (
     <form>
-      <div clas="container-fluid">
-        <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputFirst">First Name</label>
-            <input type="text" class="form-control" id="inputFirst"></input>
+      <div className="container-fluid">
+        <div className="form-row">
+        <div className="form-group col-md-6">
+            <label htmlFor="inputFirst">First Name</label>
+            <input type="text" className="form-control" id="inputFirst"></input>
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputLast">Last Name</label>
-            <input type="text" class="form-control" id="inputLast"></input>
+          <div className="form-group col-md-6">
+            <label htmlFor="inputLast">Last Name</label>
+            <input type="text" className="form-control" id="inputLast"></input>
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4"></input>
+          <div className="form-group col-md-6">
+            <label htmlFor="inputEmail4">Email</label>
+            <input type="email" className="form-control" id="inputEmail4"></input>
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputSocial">Social "Instagram/Snapchat"</label>
-            <input type="text" class="form-control" id="inputSocial"></input>
+          <div className="form-group col-md-6">
+            <label htmlFor="inputSocial">Social "Instagram/Snapchat"</label>
+            <input type="text" className="form-control" id="inputSocial"></input>
           </div>
         </div>
-          <div class="form-group col-md-12">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Middle-Earth "></input>
+          <div className="form-group col-md-12">
+            <label htmlFor="inputAddress">Address</label>
+            <input type="text" className="form-control" id="inputAddress" placeholder="Middle-Earth "></input>
           </div>
-          <div class="form-group col-md-12">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
+          <div className="form-group col-md-12">
+            <label htmlFor="inputAddress2">Address 2</label>
+            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
           </div>
-          <div class="form-row col-md-12">
-            <div class="form-group col-md-6">
-              <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity"></input>
+          <div className="form-row col-md-12">
+            <div className="form-group col-md-6">
+              <label htmlFor="inputCity">City</label>
+              <input type="text" className="form-control" id="inputCity"></input>
             </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Do you live here</option>
+          <div className="form-group col-md-4">
+            <label htmlFor="inputState">State</label>
+            <select id="inputState" className="form-control">
+              <option defaultValue>Do you live here</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -92,19 +92,19 @@ const Contact = () => {
               <option value="WY">Wyoming</option>
             </select>
           </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip"></input>
+          <div className="form-group col-md-2">
+            <label htmlFor="inputZip">Zip</label>
+            <input type="text" className="form-control" id="inputZip"></input>
           </div>
         </div>
-        <div class="form-group">
-          <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck"></input>
-          <label class="form-check-label" for="gridCheck"> Check Me Out
+        <div className="form-group">
+          <div className="form-check">
+          <input className="form-check-input" type="checkbox" id="gridCheck"></input>
+          <label className="form-check-label" htmlFor="gridCheck"> Check Me Out
           </label>
           </div>
         </div>
-      <button type="submit" class="btn btn-primary">Book This
+      <button type="submit" className="btn btn-primary">Book This
       </button>
     </div>
     </form>
