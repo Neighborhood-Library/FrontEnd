@@ -59,7 +59,7 @@ class Login extends React.Component {
         </div>
         <p className='forgot-password'>
           Forgot your password?{' '}
-          <a className='fpwd' href='#'>
+          <a className='fpwd' href='/#'>
             Click Here!
           </a>
         </p>
