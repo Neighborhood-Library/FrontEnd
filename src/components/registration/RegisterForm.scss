@@ -5,14 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  margin-top: 20px;
+  background-color: #c5c5c2;
+  margin-top: 15px;
 
   .form-container {
     width: 27%;
     display: flex;
     flex-direction: column;
-    padding: 4% 4%;
+    padding: 2% 3%;
     border: 1px solid grey;
     border-radius: 3px;
     background-color: #ffffff;
@@ -30,12 +30,13 @@
     font-weight: 200;
     text-align: center;
     padding-bottom: 10%;
+    text-transform: uppercase;
   }
   .reg-label {
     text-align: start;
     font-size: 1.2rem;
     font-weight: 300;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     letter-spacing: 0.03rem;
   }
 
@@ -44,15 +45,16 @@
     outline: none;
     padding: 8px 8px;
     border: 1px solid lightgray;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 0.04rem;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 
     .reg-input::placeholder {
       font-size: 1rem;
       letter-spacing: 0.04rem;
       font-weight: 200;
+      color: lightgray;
     }
   }
 
@@ -63,7 +65,7 @@
   .password {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   .firstName,
@@ -86,7 +88,7 @@
   }
 
   .login-link {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 300;
     text-decoration: none;
     margin-top: 0.3rem;
@@ -103,6 +105,6 @@
   .or {
     margin-top: 12px;
     padding: 2%;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.scss';
+import CustomButton from '../components/customButton/CustomButton';
 import './books.css';
 
 class Book extends React.Component {
@@ -25,12 +26,23 @@ class Book extends React.Component {
           src={this.props.coverArt}
         ></img>
         <h2 className='bookTitle'>{this.props.title}</h2>
-        <h4 className='author'>{this.props.author}</h4>
-        <p className='bookSummary'>{this.props.publishedDate}</p>
-        <a href={this.props.toLink}>Learn More</a>
+        <h4 className='author'>By: {this.props.author}</h4>
+        <p className='bookSummary'>Published: {this.props.publishedDate}</p>
+        <a className='learnMore' href={this.props.toLink}>
+          Learn More
+        </a>
         {/* <button className="addBtn" onClick={props.addToVivlio}>Add to MyVivlio</button> */}
-        <button onClick={this.callBorrowBook}>Borrow book</button>
-        <button onClick={this.callLendBook}>Lend book</button>
+        <div className='borrowBookBtn'>
+          <CustomButton isBorrowBook onClick={this.callBorrowBook}>
+            Borrow book
+          </CustomButton>
+        </div>
+        <div className='btnDivider'>OR</div>
+        <div className='lendBookBtn'>
+          <CustomButton isLendBook onClick={this.callLendBook}>
+            Lend book
+          </CustomButton>
+        </div>
       </div>
     );
   }
