@@ -10,8 +10,7 @@ class Login extends React.Component {
   
   state = {
     username: '',
-    password: '',
-    loggedIn : false
+    password: ''
   };
 
   onChange = e => {
@@ -24,8 +23,8 @@ class Login extends React.Component {
   };
 
   render() {
-    if(this.state.loggedIn){
-      return <Redirect to="/homepage"/>
+    if(this.props.loggedIn){
+      return <Redirect to="/dashboard"/>
     }
     return (
       <div id="absoluteCenteredDiv">
@@ -56,7 +55,7 @@ class Login extends React.Component {
           <a href="https://muovivlio.herokuapp.com/auth/google">Sign In With Google</a>
         </button>
         </div>
-        <p className='forgot-password'>Forgot your password? <a className="fpwd" href=" // eslint-disable-next-line#">Click Here!</a></p>
+        <p className='forgot-password'>Forgot your password? <a className="fpwd" href="#">Click Here!</a></p>
         
       </div>
     );
@@ -64,7 +63,6 @@ class Login extends React.Component {
 }
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn
-  
 });
 
 export default connect(mapStateToProps, { login })(Login);
