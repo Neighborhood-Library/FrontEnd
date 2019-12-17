@@ -61,7 +61,7 @@ const About = () => {
         </p>
         <br></br>
         <p> 
-        Libraries are "places of <b>Freedom</b>” — <strong>Freedom</strong> to choose, <strong>Freedom</strong> to discover, <strong>Freedom</strong> to question — <strong>Freedom</strong> to borrow! In a world where very little is ever truly ‘free’, libraries are champions of <strong>Freedom</strong>." In this app, we provide a <b><em>Simple and Feature-Rich</em></b> solution for lending and borrowing books to/from fellow users.
+        Libraries are "places of <b>Freedom</b>” — <strong>Freedom</strong> to Choose, <strong>Freedom</strong> to Discover, <strong>Freedom</strong> to Question — <strong>Freedom</strong> to Borrow! In a world where very little is ever truly ‘free’, libraries are champions of <strong>Freedom</strong>." In this app, we provide a <b><em>Simple and Feature-Rich</em></b> solution for lending and borrowing books to/from fellow users.
         </p>
       </section>
       <section>
