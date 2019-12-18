@@ -21,6 +21,9 @@ require('dotenv').config();
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      logOut: false
+    }
   }
 
   componentDidMount = async () => {
@@ -28,27 +31,13 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.loggedIn !== prevProps.loggedIn) {
+    if (this.props !== prevProps) {
       this.props.fetchUser();
     }
   }
 
   renderContent() {
-    // const URL = process.env.REACT_APP_ENV === 'testing' ? 'http://localhost:5000/auth/current_user' : 'https://muovivlio.herokuapp.com/auth/current_user';
-
-    // const res = async () => {
-    //   await axios
-    //   .get(URL, { withCredentials: true })
-    //   .then(res => {
-    //     this.setState({ auth: true });
-    //     return true;
-    //   })
-    //   .catch(err => {
-    //     return false;
-    //   });
-    // }
-
-    if (this.props.loggedIn) {
+    if (this.props.loggedIn && this.state.logOut !== true) {
       return <a className='login-btn' onClick={this.logOutHandler}>Logout</a>;
     } else {
       return (
@@ -60,7 +49,12 @@ class App extends React.Component {
   }
 
   logOutHandler = async () => {
-    await Axios.get(`${process.env.REACT_APP_REQ_URL}/auth/logout`, {withCredentials: true});
+    await Axios
+      .get(`${process.env.REACT_APP_REQ_URL}/auth/logout`,
+      {withCredentials: true})
+      .then(res => {
+        this.props.history.push('/login');
+      });
   }
 
   render() {

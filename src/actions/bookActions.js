@@ -96,20 +96,22 @@ export const lendBookDashboard = () => async dispatch => {
 
   const currUserID = await getCurrUser();
 
-  await axios
-    .get(
-      `${process.env.REACT_APP_REQ_URL}/api/lender-collection/${currUserID}`,
-      {
-        withCredentials: true
-      }
-    )
-    .then(res => {
-      dispatch({ type: LEND_DASH_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      console.log(err);
-      dispatch({ type: LEND_DASH_FAILURE, payload: err.body });
-    });
+  if (currUserID) {
+    await axios
+      .get(
+        `${process.env.REACT_APP_REQ_URL}/api/lender-collection/${currUserID}`,
+        {
+          withCredentials: true
+        }
+      )
+      .then(res => {
+        dispatch({ type: LEND_DASH_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: LEND_DASH_FAILURE, payload: err.body });
+      });
+  }
 };
 
 export const borrowBookDashboard = () => async dispatch => {
@@ -117,20 +119,22 @@ export const borrowBookDashboard = () => async dispatch => {
 
   const currUserID = await getCurrUser();
 
-  console.log(currUserID);
+  if (currUserID) {
+    await axios
+      .get(
+        `${process.env.REACT_APP_REQ_URL}/api/borrower-wishlist/${currUserID}`,
+        {
+          withCredentials: true
+        }
+      )
+      .then(res => {
+        dispatch({ type: BORROW_DASH_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
+      });
+  }
+  dispatch({ type: BORROW_DASH_START, payload: false });
 
-  await axios
-    .get(
-      `${process.env.REACT_APP_REQ_URL}/api/borrower-wishlist/${currUserID}`,
-      {
-        withCredentials: true
-      }
-    )
-    .then(res => {
-      dispatch({ type: BORROW_DASH_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      console.log(err);
-      dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
-    });
 };

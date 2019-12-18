@@ -10,7 +10,7 @@ class Book extends React.Component {
     }
   }
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     await Axios
       .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}`)
       .then(res => {
@@ -20,7 +20,7 @@ class Book extends React.Component {
   }
 
   render() {
-    if (this.state.info == null) {
+    if (this.state.info === null) {
       return (
         <p>Loading book...</p>
       )
