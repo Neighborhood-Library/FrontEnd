@@ -15,9 +15,10 @@ class Login extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitForm = e => {
+  submitForm = async e => {
     e.preventDefault();
-    this.props.login(this.state, this.props.history);
+    await this.props.login(this.state);
+    this.props.history.push('/dashboard');
   };
 
   render() {

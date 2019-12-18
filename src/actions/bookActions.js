@@ -21,7 +21,7 @@ export const removeBook = bookID => dispatch => {
     type: REMOVE_BOOK
   });
   axios
-    .delete(`https://muovivlio.herokuapp.com/api/lender_collection/${bookID}`)
+    .delete(`${process.env.REACT_APP_REQ_URL}/api/lender_collection/${bookID}`)
     .then(res => dispatch({ type: REMOVE_BOOK_SUCCESS, payload: res.data }))
     .catch(err => {
       dispatch({ type: REMOVE_BOOK_FAILURE, payload: err });
@@ -47,7 +47,7 @@ export const borrowBook = book => async dispatch => {
   dispatch({ type: BORROW_BOOK_START, payload: true });
 
   await axios
-    .post('https://muovivlio.herokuapp.com/api/borrower-wishlist/', book, {
+    .post(`${process.env.REACT_APP_REQ_URL}/api/borrower-wishlist/`, book, {
       withCredentials: true
     })
     .then(res => {
@@ -64,7 +64,7 @@ export const lendBook = book => async dispatch => {
   dispatch({ type: LEND_BOOK_START, payload: true });
 
   await axios
-    .post('https://muovivlio.herokuapp.com/api/lender-collection/', book, {
+    .post(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/`, book, {
       withCredentials: true
     })
     .then(res => {
@@ -79,7 +79,7 @@ export const lendBook = book => async dispatch => {
 // Gets current user information from cookie
 const getCurrUser = async () => {
   return await axios
-    .get('https://muovivlio.herokuapp.com/auth/current_user', {
+    .get(`${process.env.REACT_APP_REQ_URL}/auth/current_user`, {
       withCredentials: true
     })
     .then(res => {
@@ -96,20 +96,22 @@ export const lendBookDashboard = () => async dispatch => {
 
   const currUserID = await getCurrUser();
 
-  await axios
-    .get(
-      `https://muovivlio.herokuapp.com/api/lender-collection/${currUserID}`,
-      {
-        withCredentials: true
-      }
-    )
-    .then(res => {
-      dispatch({ type: LEND_DASH_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      console.log(err);
-      dispatch({ type: LEND_DASH_FAILURE, payload: err.body });
-    });
+  if (currUserID) {
+    await axios
+      .get(
+        `${process.env.REACT_APP_REQ_URL}/api/lender-collection/${currUserID}`,
+        {
+          withCredentials: true
+        }
+      )
+      .then(res => {
+        dispatch({ type: LEND_DASH_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: LEND_DASH_FAILURE, payload: err.body });
+      });
+  }
 };
 
 export const borrowBookDashboard = () => async dispatch => {
@@ -117,18 +119,22 @@ export const borrowBookDashboard = () => async dispatch => {
 
   const currUserID = await getCurrUser();
 
-  await axios
-    .get(
-      `https://muovivlio.herokuapp.com/api/borrower-wishlist/${currUserID}`,
-      {
-        withCredentials: true
-      }
-    )
-    .then(res => {
-      dispatch({ type: BORROW_DASH_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      console.log(err);
-      dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
-    });
+  if (currUserID) {
+    await axios
+      .get(
+        `${process.env.REACT_APP_REQ_URL}/api/borrower-wishlist/${currUserID}`,
+        {
+          withCredentials: true
+        }
+      )
+      .then(res => {
+        dispatch({ type: BORROW_DASH_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
+      });
+  }
+  dispatch({ type: BORROW_DASH_START, payload: false });
+
 };

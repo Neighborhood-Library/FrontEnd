@@ -10,7 +10,7 @@ class UserDashboard extends React.Component {
     activeTab: ''
   };
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     await this.props.borrowBookDashboard();
     await this.props.lendBookDashboard();
   };

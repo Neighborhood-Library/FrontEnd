@@ -18,7 +18,7 @@ class BookList extends React.Component {
   
   getCurrUser = async () => {
     return await axios
-    .get('https://muovivlio.herokuapp.com/auth/current_user', {
+    .get(`${process.env.REACT_APP_REQ_URL}/auth/current_user`, {
       withCredentials: true
     })
     .then(res => {
@@ -32,7 +32,7 @@ class BookList extends React.Component {
   // limits borrowed books to 5
   checkBorrowStatus = async (userID) => {
     return await axios
-      .get(`https://muovivlio.herokuapp.com/api/borrower-wishlist/${userID}`, {
+      .get(`${process.env.REACT_APP_REQ_URL}/api/borrower-wishlist/${userID}`, {
         withCredentials: true
       })
       .then(res => {
@@ -48,7 +48,7 @@ class BookList extends React.Component {
   // limits lendable books to 5
   checkLendStatus = async (userID) => {
     return await axios
-      .get(`https://muovivlio.herokuapp.com/api/lender-collection/${userID}`, {
+      .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${userID}`, {
         withCredentials: true
       })
       .then(res => {
