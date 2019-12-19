@@ -26,12 +26,11 @@ class PrivateRoute extends React.Component {
 
   
   render() {
-    console.log(this.props);
     return(
       <>
         {
           this.state.auth ? (
-            <Route props render={() => <this.props.component />} />
+            <Route render={() => <this.props.component checkCookie={this.props.checkCookie} />} />
           ) : (
             <Route render={() => <Redirect to="/login" />} />
           )

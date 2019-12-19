@@ -5,17 +5,20 @@ import {FETCH_USER,FETCH_USER_FAILURE,LOGIN_START,LOGIN_FAILURE,LOGIN_SUCCESS,RE
   REGISTER_SUCCESS} from './types';
 
 export const fetchUser = () => async dispatch => {
-  await axios
+  return await axios
     .get(`${process.env.REACT_APP_REQ_URL}/auth/current_user`,
       {withCredentials: true})
     .then(res => {
       if (res.user) {
         dispatch({ type: FETCH_USER, payload: res.user.data });
+        return true;
       }
       dispatch({ type: FETCH_USER });
+      return false;
     })
     .catch(err => {
       dispatch({ type: FETCH_USER_FAILURE });
+      return false;
     });
 }
 

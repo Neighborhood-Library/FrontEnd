@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
-import { fetchUser } from './actions';
+import { fetchUser, login } from './actions/index';
 import './App.scss';
 import Books from './books/Books.js';
 import BookForm from './components/borrowerDashboard/BookForm';
@@ -27,18 +27,28 @@ class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    this.props.fetchUser();
+    this.checkCookie();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate = async (prevProps) => {
     if (this.props !== prevProps) {
-      this.props.fetchUser();
+      this.checkCookie();
     }
   }
 
+  checkCookie = async () => {
+    const userData = await this.props.fetchUser();
+
+    console.log(userData);
+
+      if (userData) {
+        this.setState({ logOut: true });
+      } 
+  }
+
   renderContent() {
-    if (this.props.loggedIn && this.state.logOut !== true) {
-      return <a className='login-btn' onClick={this.logOutHandler}>Logout</a>;
+    if (this.state.logOut === true) {
+      return <button className='login-btn' onClick={this.logOutHandler}>Logout</button>;
     } else {
       return (
         <Link className='login-btn' to='/login'>
@@ -48,11 +58,23 @@ class App extends React.Component {
     }
   }
 
+  logInHandler = async (e, info) => {
+    e.preventDefault();
+    await this.props.login(info)
+      .then(res => {
+        this.setState({ logOut: true });
+      })
+      .catch(err => {
+        this.props.history.push('/login');
+      });
+  }
+
   logOutHandler = async () => {
     await Axios
       .get(`${process.env.REACT_APP_REQ_URL}/auth/logout`,
       {withCredentials: true})
       .then(res => {
+        this.setState({ logOut: false });
         this.props.history.push('/login');
       });
   }
@@ -63,7 +85,7 @@ class App extends React.Component {
         <header>
           <div className='logo-cont'>
             <Link to='/'>
-              <img src='./img/myvivlio-logo.png' alt='logo' className='logo' />
+              <img src='/img/myvivlio-logo.png' alt='logo' className='logo' />
             </Link>
           </div>
           <nav className='app-nav'>
@@ -80,13 +102,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route path='/homepage' component={HomeDashboard} />
-          <Route path='/login' component={Login} />
+          <Route path='/login' render={() => <Login logInHandler={this.logInHandler} history={this.props.history} />} />
           <Route path='/register' component={RegisterForm} />
           <Route path='/borrow' component={BookForm} />
           <Route path='/books' component={Books} />
           <Route path='/about' component={AboutPage} />
           <Route path='/contact' component={ContactPage} />
-          <PrivateRoute path='/dashboard' component={UserDashboard} />
+          <PrivateRoute path='/dashboard' checkCookie={this.checkCookie} component={UserDashboard} />
         </Switch>
       </div>
     );
@@ -96,4 +118,4 @@ const mapStateToProps = state => {
   return { loggedIn: state.loginAuthReducer.loggedIn };
 };
 
-export default connect(mapStateToProps, { fetchUser })(App);
+export default connect(mapStateToProps, { fetchUser, login })(App);
