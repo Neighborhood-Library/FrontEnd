@@ -53,15 +53,9 @@ $tablet: 800px;
   }
 }
 
-.signup-btn {
-  background: #6bafe1;
-  color: #d5e6f2;
-  border: none;
-  border-radius: 7%;
-  width: 8%;
-  padding: 0.7rem;
+.sign-up {
   margin-left: 5%;
-  cursor: pointer;
+  width: 1%;
 
   @media (max-width: $phone) {
     width: 20%;
