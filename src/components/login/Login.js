@@ -6,10 +6,13 @@ import './Login.css';
 // import { GoogleLogin } from 'react-google-login';
 
 class Login extends React.Component {
-  state = {
-    username: '',
-    password: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -17,7 +20,7 @@ class Login extends React.Component {
 
   submitForm = async e => {
     e.preventDefault();
-    await this.props.login(this.state);
+    await this.props.logInHandler(e, this.state);
     this.props.history.push('/dashboard');
   };
 
