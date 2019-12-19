@@ -85,7 +85,7 @@ class App extends React.Component {
         <header>
           <div className='logo-cont'>
             <Link to='/'>
-              <img src='./img/myvivlio-logo.png' alt='logo' className='logo' />
+              <img src='/img/myvivlio-logo.png' alt='logo' className='logo' />
             </Link>
           </div>
           <nav className='app-nav'>
