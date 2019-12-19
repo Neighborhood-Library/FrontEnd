@@ -3,6 +3,7 @@ import './CustomButton.scss';
 
 const CustomButton = ({
   children,
+  isSignUp,
   isRegister,
   loginWithGoogle,
   availability,
@@ -12,7 +13,9 @@ const CustomButton = ({
   ...otherProps
 }) => (
   <button
-    className={`${isRegister ? 'register-button' : ''}
+    className={`${isRegister ? 'register-button' : ''}${
+      isSignUp ? 'sign-up' : ''
+    }
     ${loginWithGoogle ? 'google-button' : ''}${
       availability ? 'availability-button' : ''
     } 

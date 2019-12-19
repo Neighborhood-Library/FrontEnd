@@ -22,7 +22,7 @@
 .bookTitle {
   font-size: 1.6rem;
   font-weight: 500;
-  padding: 1%;
+  padding: 2%;
 }
 
 .author {
@@ -33,7 +33,7 @@
 
 .coverArt {
   height: auto;
-  padding: 1%;
+  padding: 2%;
   width: 18rem;
   margin: auto;
   border-radius: 5px 5px 0 0;
@@ -41,7 +41,7 @@
 
 .bookSummary {
   font-size: 1.3rem;
-  padding: 1%;
+  padding: 2%;
   line-height: 12pt;
   /* overflow: hidden; */
   padding: 0.5em;
