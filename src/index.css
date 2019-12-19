@@ -8,6 +8,16 @@ a {
   text-decoration: none;
 }
 
+.sign-up a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.google-button a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -2,6 +2,7 @@ import { faBookOpen, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CustomButton from '../customButton/CustomButton';
 import './landing.scss';
 
 export const LandingPage = () => {
@@ -12,9 +13,11 @@ export const LandingPage = () => {
           A New Way to <br />
           Share Books
         </h1>
-        <button className='signup-btn'>
-          <Link to='/register'>Sign Up</Link>
-        </button>
+        <div className='sign-up'>
+          <CustomButton isSignUp>
+            <Link to='/register'>Sign Up</Link>
+          </CustomButton>
+        </div>
       </div>
       <footer className='landing-footer'>
         <div className='icon-group'>
