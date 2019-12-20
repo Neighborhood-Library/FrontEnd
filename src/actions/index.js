@@ -12,9 +12,13 @@ export const fetchUser = () => async dispatch => {
       if (res.user) {
         dispatch({ type: FETCH_USER, payload: res.user.data });
         return true;
+      } else if (res.data.user) {
+        dispatch({ type: FETCH_USER, payload: res.data.user[0] });
+        return true;
+      } else {
+        dispatch({ type: FETCH_USER });
+        return false;
       }
-      dispatch({ type: FETCH_USER });
-      return false;
     })
     .catch(err => {
       dispatch({ type: FETCH_USER_FAILURE });
@@ -34,8 +38,6 @@ export const login = (credentials, history) => async dispatch => {
     .post(`${process.env.REACT_APP_REQ_URL}/auth/login`, creds, {withCredentials: true})
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS });
-      // history.push('/dashboard');
-      console.log(res);
       return true;
     })
     .catch(err => {
@@ -56,7 +58,6 @@ export const register = (credentials, history, func) => dispatch => {
     .then(res => {
       dispatch({ type: REGISTER_SUCCESS });
       func.push('/login');
-      console.log(res);
       return true;
     })
     .catch(err => {
@@ -64,41 +65,3 @@ export const register = (credentials, history, func) => dispatch => {
       return false;
     });
 };
-
-
-// export const login = creds => dispatch => {
-//   dispatch({ type: LOGIN_START });
-//   axios
-//     .post(
-//       "https://muovivlio.herokuapp.com/auth/google",
-//       creds
-//     )
-//     .then(res => {
-//       console.log(res.data)
-//       localStorage.setItem('token', res.data.authToken);
-//       localStorage.setItem("user_id", res.data.user.id);
-//       dispatch({ type: LOGIN_SUCCESS, payload: res.data});
-//       return true;
-//     })
-//     .catch(err => {dispatch({type:LOGIN_FAILURE, payload:err})
-//   console.log(localStorage.token)});
-// };
-// export const register = credentials => {
-//   return async dispatch => {
-//     try {
-//       const res = await axios.post(
-//         'https://muovivlio.herokuapp.com/auth/register',
-//         credentials
-//       );
-//       console.log('res', res);
-//       dispatch({
-//         type: REGISTER_SUCCESS,
-//         payload: res.data.token
-//       });
-//       localStorage.setItem('token', res.data.token);
-//       localStorage.setItem('user_id', res.data.user.id);
-//     } catch (err) {
-//       console.errro('err', err);
-//     }
-//   };
-

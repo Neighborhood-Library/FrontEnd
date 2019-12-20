@@ -17,7 +17,6 @@ class RegisterForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
     const newUser = {
       username: this.state.username,
       email: this.state.email,

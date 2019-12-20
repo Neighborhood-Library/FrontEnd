@@ -54,7 +54,6 @@ export const borrowBook = book => async dispatch => {
       dispatch({ type: BORROW_BOOK_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: BORROW_BOOK_FAILURE, payload: err });
     });
 };
@@ -71,7 +70,6 @@ export const lendBook = book => async dispatch => {
       dispatch({ type: LEND_BOOK_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: LEND_BOOK_FAILURE, payload: err.body });
     });
 };
@@ -108,7 +106,6 @@ export const lendBookDashboard = () => async dispatch => {
         dispatch({ type: LEND_DASH_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        console.log(err);
         dispatch({ type: LEND_DASH_FAILURE, payload: err.body });
       });
   }
@@ -131,7 +128,6 @@ export const borrowBookDashboard = () => async dispatch => {
         dispatch({ type: BORROW_DASH_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        console.log(err);
         dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
       });
   }
