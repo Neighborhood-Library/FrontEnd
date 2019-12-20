@@ -46,6 +46,18 @@ header {
     align-items: center;
     width: 100%;
   }
+  
+  .login-btn {
+    color: black;
+    text-decoration: none;
+    padding: 7px 20px;
+    font-weight: 300;
+    font-size: 1.8rem;
+    background: #6bafe1;
+    padding: 7px 25px;
+    border-radius: 5px;
+  }
+
   a {
     color: black;
     text-decoration: none;
@@ -60,11 +72,6 @@ header {
     }
   }
 
-  .login-btn {
-    background: #6bafe1;
-    padding: 7px 25px;
-    border-radius: 5px;
-  }
 }
 
 /* Pop up Modals */

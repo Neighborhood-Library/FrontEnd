@@ -5,12 +5,16 @@ import BooksList from './BooksList';
 import './UserDashboard.scss';
 
 class UserDashboard extends React.Component {
-  state = {
-    book: [],
-    activeTab: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      book: [],
+      activeTab: ''
+    };
+  }
 
   componentDidMount = async () => {
+    await this.props.checkCookie();
     await this.props.borrowBookDashboard();
     await this.props.lendBookDashboard();
   };
