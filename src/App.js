@@ -39,9 +39,9 @@ class App extends React.Component {
   checkCookie = async () => {
     const userData = await this.props.fetchUser();
 
-      if (userData) {
-        this.setState({ logOut: true });
-      } 
+    if (userData) {
+      this.setState({ logOut: true });
+    } 
   }
 
   renderContent() {

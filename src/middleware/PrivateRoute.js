@@ -26,7 +26,6 @@ class PrivateRoute extends React.Component {
 
   
   render() {
-    console.log(process.env);
     return(
       <>
         {

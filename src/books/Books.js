@@ -22,10 +22,10 @@ class Books extends Component {
     });
   }
 
-  handleSearch = e => {
+  handleSearch = async e => {
     e.preventDefault()
-    // console.log(this.state.searchInput)
-    axios
+
+    await axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}`)
       .then(data => {
         console.log(data)
@@ -35,9 +35,6 @@ class Books extends Component {
       })
       .catch(err => console.log(err))
   }
-  addToVivlio = title => {
-    console.log(`you clicked on ${title}`)
-  }
 
   render() {
     return (
@@ -45,7 +42,7 @@ class Books extends Component {
         <Search
           handleInput={this.handleInput} handleSearch={this.handleSearch}
           searchInput={this.searchInput}/>
-        <BookList books={this.state.books} addToVivlio={this.addToVivlio}/>
+        <BookList books={this.state.books} />
       </div>
     )
   }
