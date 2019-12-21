@@ -19,7 +19,6 @@
   color: #ffffff;
   background-color: #6cb0e2;
   font-size: 1.7rem;
-  border: 1px solid #6cb0e2;
   border-radius: 3px;
   transition-duration: 0.3s;
   transition: all 0.3s ease 0s;
@@ -27,8 +26,6 @@
   &:hover {
     color: #ffffff;
     background-color: #0b67a8;
-    border: 1px solid #c0bfbd;
-    border-radius: 3px;
   }
 
   &:active {

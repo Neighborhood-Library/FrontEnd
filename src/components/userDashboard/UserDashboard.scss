@@ -7,4 +7,24 @@
     flex-flow: row wrap;
     justify-content: center;
   }
+
+  .remove-book {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #c5c5c5;
+    border: 2px solid #696969;
+    color: #696969;
+    font-size: 4rem;
+    line-height: 0.9rem;
+    padding: 0 1px;
+    display: flex;
+    align-items: baseline;
+
+    &:hover {
+      border-color: #f00;
+      color: #f00;
+      background-color: #ff8a8a;
+    }
+  }
 }

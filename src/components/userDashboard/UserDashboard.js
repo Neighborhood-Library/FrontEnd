@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { borrowBookDashboard, lendBookDashboard } from '../../actions/bookActions';
+import { delLendBook, delBorrowBook } from '../../actions/deleteBooks';
 import BooksList from './BooksList';
 import './UserDashboard.scss';
 
@@ -24,10 +25,16 @@ class UserDashboard extends React.Component {
       <div className="dashboard">
         <h1>User Dashboard</h1>
         <hr />
-        <BooksList books={this.props.lenderCollection} />
+        <BooksList
+          books={this.props.lenderCollection}
+          delLendBook={this.props.delLendBook}
+        />
         <h1>My Wishlist</h1>
         <hr />
-        <BooksList books={this.props.wishlistBooks} />
+        <BooksList
+          books={this.props.wishlistBooks}
+          delBorrowBook={this.props.delBorrowBook}
+        />
       </div>
     );
   }
@@ -40,5 +47,7 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   lendBookDashboard,
-  borrowBookDashboard
+  borrowBookDashboard,
+  delLendBook,
+  delBorrowBook
 })(UserDashboard);

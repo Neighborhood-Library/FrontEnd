@@ -19,6 +19,16 @@ class Book extends React.Component {
       .catch(err => console.log(err.body));
   }
 
+  checkIfLendOrBorrow = () => {
+    console.log(this.props);
+    
+    if (this.props.delLendBook) {
+      return this.props.delLendBook(this.props.book.id);
+    } else {
+      return this.props.delBorrowBook(this.props.book.id);
+    }
+  }
+
   render() {
     if (this.state.info === null) {
       return (
@@ -27,6 +37,7 @@ class Book extends React.Component {
     } else {
       return (
         <div className='bookCard'>
+          <button className="remove-book" onClick={this.checkIfLendOrBorrow}>x</button>
           <img
             className='coverArt'
             alt='Cover Art'
