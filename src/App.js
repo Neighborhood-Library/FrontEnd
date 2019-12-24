@@ -13,6 +13,7 @@ import UserDashboard from './components/userDashboard/UserDashboard';
 import PrivateRoute from './middleware/PrivateRoute';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
+import ChatPage from './pages/Chat';
 import './scss/index.scss';
 import Axios from 'axios';
 
@@ -106,6 +107,7 @@ class App extends React.Component {
           <Route path='/books' component={Books} />
           <Route path='/about' component={AboutPage} />
           <Route path='/contact' component={ContactPage} />
+          <Route path='/chat' component={ChatPage} />
           <PrivateRoute path='/dashboard' checkCookie={this.checkCookie} component={UserDashboard} />
         </Switch>
       </div>
