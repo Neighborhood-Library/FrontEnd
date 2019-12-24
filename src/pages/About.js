@@ -72,7 +72,7 @@ const About = () => {
           {
             team.map(memb => {
               return <div key={memb.name}>
-                <img src={memb.img} alt="team member"/>
+                <img className='profile-avi' src={memb.img} alt="team member"/>
                 <p>
                   <a href={memb.profile} target="_blank" rel="noopener noreferrer">
                     {memb.name}
