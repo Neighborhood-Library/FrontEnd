@@ -7,36 +7,22 @@ import Messages from '../Messages/Messages';
 import TextContainer from '../TextContainer/TextContainer';
 import './Chat.css';
 
-let socket;
+const socket = io(process.env.REACT_APP_REQ_URL);
 
-const Chat = ({ location }) => {
+const Chat = () => {
 	const [name, setName] = useState('');
 	const [room, setRoom] = useState('');
 	const [users, setUsers] = useState('');
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
-	const ENDPOINT = 'localhost:5000';
-
-	// useEffect(() => {
-	// 	const { name, room } = queryString.parse(location.search);
-
-		const socket = io(ENDPOINT);
-
-	// 	setRoom(room);
-	// 	setName(name);
-
-	// 	socket.emit('join', { name, room }, error => {
-	// 		if (error) {
-	// 			alert(error);
-	// 		}
-	// 	});
-	// }, [ENDPOINT, location.search]);
 
 	useEffect(() => {
+		// returned message from server
 		socket.on('retMsg', message => {
 			setMessages([...messages, message]);
 		});
 
+		// returned active users from server
 		socket.on('roomData', ({ users }) => {
 			setUsers(users);
 		});
@@ -46,13 +32,15 @@ const Chat = ({ location }) => {
 
 			socket.off();
 		};
-	}, [messages]);
+	}, [messages, socket]);
 
 	const sendMessage = event => {
 		event.preventDefault();
 
 		if (message) {
-			socket.emit('message', message, () => setMessage(''));
+			// sends message to server
+			socket.emit('message', message);
+			setMessage('');
 		}
 	};
 
