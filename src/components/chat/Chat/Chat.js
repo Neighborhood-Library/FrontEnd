@@ -13,15 +13,9 @@ const Chat = () => {
 	const [name, setName] = useState('');
 	const [room, setRoom] = useState('');
 	const [users, setUsers] = useState('');
-	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
 
 	useEffect(() => {
-		// returned message from server
-		socket.on('retMsg', message => {
-			setMessages([...messages, message]);
-		});
-
 		// returned active users from server
 		socket.on('roomData', ({ users }) => {
 			setUsers(users);
@@ -34,26 +28,12 @@ const Chat = () => {
 		};
 	}, [messages, socket]);
 
-	const sendMessage = event => {
-		event.preventDefault();
-
-		if (message) {
-			// sends message to server
-			socket.emit('message', message);
-			setMessage('');
-		}
-	};
-
 	return (
 		<div className='outerContainer'>
 			<div className='container'>
 				<InfoBar room={room} />
 				<Messages messages={messages} name={name} />
-				<Input
-					message={message}
-					setMessage={setMessage}
-					sendMessage={sendMessage}
-				/>
+				<Input setMessages={setMessages} messages={messages} />
 			</div>
 			<TextContainer users={users} />
 		</div>
