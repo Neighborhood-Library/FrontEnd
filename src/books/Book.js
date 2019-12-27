@@ -1,7 +1,10 @@
 import React from 'react';
+import {connect} from "react-redux";
 import '../App.scss';
 import CustomButton from '../components/customButton/CustomButton';
 import './books.css';
+import {deleteBook} from "../actions/index";
+import { removeBook } from '../actions/bookActions';
 
 class Book extends React.Component {
   constructor(props) {
@@ -31,6 +34,7 @@ class Book extends React.Component {
         <a className='learnMore' href={this.props.toLink}>
           Learn More
         </a>
+        <button className="md-button" type="submit" onClick={removeBook}>Delete Book</button>
         {/* <button className="addBtn" onClick={props.addToVivlio}>Add to MyVivlio</button> */}
         <div className='borrowBookBtn'>
           <CustomButton isBorrowBook onClick={this.callBorrowBook}>
@@ -48,4 +52,5 @@ class Book extends React.Component {
   }
 }
 
-export default Book;
+export default connect(mapStateToProps,
+  {deleteBook})(Book);
