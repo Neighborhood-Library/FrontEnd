@@ -28,6 +28,7 @@ class UserDashboard extends React.Component {
         <BooksList
           books={this.props.lenderCollection}
           delLendBook={this.props.delLendBook}
+          lenders={true}
         />
         <h1>My Wishlist</h1>
         <hr />

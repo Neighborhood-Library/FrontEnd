@@ -8,6 +8,19 @@
     justify-content: center;
   }
 
+  .availability {
+    position: absolute;
+    top: -1px;
+    right: 5px;
+    background: #c50202;
+    border: 0;
+    padding: 5px 15px;
+    border: 1px solid #560000;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 0 0 10px 10px;
+  }
+
   .remove-book {
     position: absolute;
     top: 0;

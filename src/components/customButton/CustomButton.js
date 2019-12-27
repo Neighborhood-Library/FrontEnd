@@ -13,14 +13,15 @@ const CustomButton = ({
   ...otherProps
 }) => (
   <button
-    className={`${isRegister ? 'register-button' : ''}${
-      isSignUp ? 'sign-up' : ''
+    className={`
+      ${isRegister ? 'register-button' : ''}
+      ${isSignUp ? 'sign-up' : ''}
+      ${loginWithGoogle ? 'google-button' : ''}
+      ${availability ? 'availability-button' : ''}
+      ${removeBook ? 'remove-button' : ''}
+      ${isBorrowBook ? 'borrowBookBtn' : ''}
+      ${isLendBook ? 'lendBookBtn' : ''} custom-button`
     }
-    ${loginWithGoogle ? 'google-button' : ''}${
-      availability ? 'availability-button' : ''
-    } 
-    ${removeBook ? 'remove-button' : ''} ${isBorrowBook ? 'borrowBookBtn' : ''}
-    ${isLendBook ? 'lendBookBtn' : ''} custom-button`}
     {...otherProps}
   >
     {children}

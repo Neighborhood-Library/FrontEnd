@@ -33,7 +33,7 @@ class Book extends React.Component {
         </a>
         {/* <button className="addBtn" onClick={props.addToVivlio}>Add to MyVivlio</button> */}
         <div className='borrowBookBtn'>
-          <CustomButton isBorrowBook onClick={this.callBorrowBook}>
+          <CustomButton isBorrowBook>
             Borrow book
           </CustomButton>
         </div>

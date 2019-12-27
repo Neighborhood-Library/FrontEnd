@@ -3,6 +3,7 @@ import { loginAuthReducer, registerAuthReducer } from './authReducer.js';
 import { borrowerReducer, lenderReducer } from './lenderAndBorrowReducer.js';
 import deleteBookReducer from './deleteBookReducer.js';
 import oAuthReducer from './oAuthReducer.js';
+import getAvailBooksRed from './getAvailBooksRed.js';
 
 const reducer = combineReducers({
   oAuthReducer,
@@ -10,7 +11,8 @@ const reducer = combineReducers({
   registerAuthReducer,
   borrowerReducer,
   lenderReducer,
-  deleteBookReducer
+  deleteBookReducer,
+  getAvailBooksRed
 });
 
 export default reducer;
