@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Book from "./Book";
+import axios from "axios";
 import { getBooks, addBook, deleteBook } from "./actions/index";
 
 class BookForm extends Component {
@@ -11,9 +12,19 @@ class BookForm extends Component {
         author:''
         }
     };
-    componentDidMount(){
-        this.props.getBooks();
-    };
+    componentDidMount = async e => {
+        e.preventDefault()
+    
+        await axios
+          .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}`)
+          .then(data => {
+            console.log(data)
+            this.setState({
+              books: [...data.data.items]
+            })
+          })
+          .catch(err => console.log(err))
+      }
     changeHandler = e => {
         this.setState({
             newBook: {
