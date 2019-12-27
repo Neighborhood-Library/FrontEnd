@@ -16,15 +16,15 @@ class BookForm extends Component {
         e.preventDefault()
     
         await axios
-          .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}`)
-          .then(data => {
+        .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}`)
+        .then(data => {
             console.log(data)
             this.setState({
-              books: [...data.data.items]
+            books: [...data.data.items]
             })
-          })
-          .catch(err => console.log(err))
-      }
+        })
+        .catch(err => console.log(err))
+    };
     changeHandler = e => {
         this.setState({
             newBook: {
