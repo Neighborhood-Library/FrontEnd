@@ -12,9 +12,7 @@ class BookForm extends Component {
         author:''
         }
     };
-    componentDidMount = async e => {
-        e.preventDefault()
-    
+    componentDidMount = async e => {    
         await axios
         .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}`)
         .then(data => {
