@@ -82,10 +82,10 @@ class BookForm extends Component {
                         value={this.state.newBook.author}
                         name='author'
                     />
-                    <button className="md-button" type="submit">
+                    <button className="md-button" type="submit" onClick= {this.callBorrowBook}>
                         Borrow Book
                     </button>
-                    <button className="md-button" type="submit">
+                    <button className="md-button" type="submit" onClick= {this.deleteBook}>
                         Delete Book
                     </button>
                 </form>
