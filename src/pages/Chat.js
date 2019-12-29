@@ -8,8 +8,7 @@ const socket = io('http://localhost:5000');
 
 class ChatPage extends React.Component {
   state = {
-    messages: [],
-    currMessage: 'Sending to server :)'
+    messages: []
   }
 
   componentDidMount() {

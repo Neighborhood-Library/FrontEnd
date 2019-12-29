@@ -15,7 +15,9 @@ class Book extends React.Component {
   }
 
   componentDidMount = async () => {
-    await this.props.getAvailBooks(this.props.book.google_book_id);
+    if (this.props.lenders) {
+      await this.props.getAvailBooks(this.props.book.google_book_id);
+    }
 
     await Axios
       .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}`)
@@ -25,7 +27,7 @@ class Book extends React.Component {
       .catch(err => console.log(err.body));
   }
 
-  checkIfLendOrBorrow = () => {    
+  checkIfLendOrBorrow = async () => {    
     if (this.props.delLendBook) {
       return this.props.delLendBook(this.props.book.id);
     } else {
@@ -36,17 +38,14 @@ class Book extends React.Component {
   render() {
     if (this.state.info === null) {
       return (
-        <p>Loading book...</p>
+        <div className="bookCard">
+          <ClipLoader size={50} />
+        </div>
       )
     } else {
       return (
         <div className='bookCard'>
           <button className="remove-book" onClick={this.checkIfLendOrBorrow}>x</button>
-          {/* {
-            this.props.lenders ?
-              <button className="availability">6 available</button>
-            : null
-          } */}
           <img
             className='coverArt'
             alt='Cover Art'
