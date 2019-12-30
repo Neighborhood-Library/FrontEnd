@@ -2,20 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser, login } from './actions/index';
+import Axios from 'axios';
+
 import './App.scss';
-import Books from './books/Books.js';
+import './scss/index.scss';
+
+import Books from './books/Books';
 import BookForm from './components/borrowerDashboard/BookForm';
-import HomeDashboard from './components/homeDashboard/HomeDashboard';
 import { LandingPage } from './components/landingPage/LandingPage';
-import Login from './components/login/Login.js';
+import Login from './components/login/Login';
 import RegisterForm from './components/registration/RegisterForm';
 import UserDashboard from './components/userDashboard/UserDashboard';
-import PrivateRoute from './middleware/PrivateRoute';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ChatPage from './pages/Chat';
-import './scss/index.scss';
-import Axios from 'axios';
+import Footer from './components/Footer';
+import PrivateRoute from './middleware/PrivateRoute';
 
 require('dotenv').config();
 
@@ -95,12 +97,8 @@ class App extends React.Component {
             {this.renderContent()}
           </nav>
         </header>
-        <h2 className='appTitle'>
-          Share the Experience of Your Books With Others
-        </h2>
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          <Route path='/homepage' component={HomeDashboard} />
           <Route path='/login' render={() => <Login logInHandler={this.logInHandler} history={this.props.history} />} />
           <Route path='/register' component={RegisterForm} />
           <Route path='/borrow' component={BookForm} />
@@ -110,6 +108,7 @@ class App extends React.Component {
           <Route path='/chat' component={ChatPage} />
           <PrivateRoute path='/dashboard' checkCookie={this.checkCookie} component={UserDashboard} />
         </Switch>
+        <Footer />
       </div>
     );
   }

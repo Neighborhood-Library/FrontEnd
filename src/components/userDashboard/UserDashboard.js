@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { borrowBookDashboard, lendBookDashboard } from '../../actions/bookActions';
 import { delLendBook, delBorrowBook } from '../../actions/deleteBooks';
 import BooksList from './BooksList';
+import AccountInfo from './AccountInfo';
 import './UserDashboard.scss';
 
 class UserDashboard extends React.Component {
@@ -57,7 +58,8 @@ class UserDashboard extends React.Component {
           }
           {
             this.state.activeTab === 'wishlist' ? (<>
-              <h1>My Wishlist</h1>
+              <h2>My Wishlist</h2>
+              <p>All the books you want to read and explore are here. See what lenders are available for each book. Learn more about each by clicking the 'Learn More' button.</p>
               <hr />
               <BooksList
                 books={this.props.wishlistBooks}
@@ -68,7 +70,7 @@ class UserDashboard extends React.Component {
           }
           {
             this.state.activeTab === 'account' ? (<>
-              <p>Account page will be here</p>
+              <AccountInfo />
             </>) : null
           }
         </div>

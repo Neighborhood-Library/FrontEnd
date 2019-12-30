@@ -1,14 +1,18 @@
+.dashboard-cont {
+  padding: 30px 0;
+}
+
 .dashboard {
   width: 60%;
   margin: 0 auto;
-  background: lightgray;
-  border: 1px solid grey;
+  background: #fff;
+  border: 1px solid #bbbbbb;
   border-radius: 5px 5px 0 0;
 
   .tabs {
     display: flex;
     flex-flow: row nowrap;
-    background-color: #fff;
+    background-color: #ebebeb;
     border-radius: 5px 5px 0 0;
 
     p {
@@ -17,7 +21,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #efefef;
+        background-color: #fff;
       }
 
       .active {
@@ -25,6 +29,30 @@
         border-bottom: 2px solid #000;
         color: #fff;
       }
+    }
+
+  }
+  
+  h2 {
+    margin-bottom: 15px;
+  }
+  
+  p {
+    font-size: 1.4rem;
+  }
+  
+  .account {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .half-col {
+      width: 50%;
+    }
+
+    form {
+      display: flex;
+      flex-flow: column nowrap;
     }
   }
 
@@ -35,30 +63,39 @@
   }
 
   .bookCard {
-    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .remove-book {
+    cursor: pointer;
     position: absolute;
-    top: 0;
-    left: 0;
-    background: #c5c5c5;
-    border: 2px solid #696969;
-    color: #696969;
-    font-size: 4rem;
-    line-height: 0.9rem;
+    top: 5px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #000;
+    border-radius: 50%;
     padding: 0 1px;
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
     outline: none;
 
+    p {
+      position: absolute;
+      top: 1px;
+      left: 5px;
+      font-size: 2.75rem;
+      line-height: 1.4rem;
+      color: inherit;
+    }
+    
     &:hover {
       border-color: #f00;
-      color: #f00;
       background-color: #ff8a8a;
+      color: #f00;
     }
   }
 }

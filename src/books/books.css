@@ -7,11 +7,11 @@
 }
 
 .bookCard {
-  background-color: #f7f7f7;
-  margin: 3%;
-  width: 30rem;
+  background-color: #f5f5f5;
+  margin: 10px;
+  width: 25rem;
   padding: 2% 0.5%;
-  box-shadow: 5px 5px 15px rgba(39, 38, 43, 0.5);
+  box-shadow: 2px 2px 0px rgba(39, 38, 43, 0.5);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -33,10 +33,9 @@
 
 .coverArt {
   height: auto;
-  padding: 2%;
   width: 18rem;
   margin: auto;
-  border-radius: 5px 5px 0 0;
+  border: 1px solid black;
 }
 
 .bookSummary {
