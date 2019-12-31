@@ -10,6 +10,7 @@ const CustomButton = ({
   removeBook,
   isBorrowBook,
   isLendBook,
+  learnMore,
   ...otherProps
 }) => (
   <button
@@ -20,7 +21,9 @@ const CustomButton = ({
       ${availability ? 'availability-button' : ''}
       ${removeBook ? 'remove-button' : ''}
       ${isBorrowBook ? 'borrowBookBtn' : ''}
-      ${isLendBook ? 'lendBookBtn' : ''} custom-button`
+      ${isLendBook ? 'lendBookBtn' : ''}
+      ${learnMore ? 'learnMoreBtn' : ''}
+      custom-button`
     }
     {...otherProps}
   >

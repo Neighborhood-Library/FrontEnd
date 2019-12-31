@@ -49,6 +49,16 @@ class UserDashboard extends React.Component {
     }
   }
 
+  deleteBookHandler = async (type, book_id) => {
+    if (type === 'borrow') {
+      await this.props.delBorrowBook(book_id);
+      await this.props.borrowBookDashboard();
+    } else {
+      await this.props.delLendBook(book_id);
+      await this.props.lendBookDashboard();
+    }
+  }
+
   render() {
     return (
       <div className="dashboard">
@@ -73,7 +83,7 @@ class UserDashboard extends React.Component {
               <hr />
               <BooksList
                 books={this.props.lenderCollection}
-                delLendBook={this.props.delLendBook}
+                deleteBookHandler={this.deleteBookHandler}
               />
             </>) : (null)
           }
@@ -84,7 +94,7 @@ class UserDashboard extends React.Component {
               <hr />
               <BooksList
                 books={this.props.wishlistBooks}
-                delBorrowBook={this.props.delBorrowBook}
+                deleteBookHandler={this.deleteBookHandler}
                 lenders={true}
               />
             </>) : null

@@ -28,10 +28,10 @@ class Book extends React.Component {
   }
 
   checkIfLendOrBorrow = async () => {    
-    if (this.props.delLendBook) {
-      return this.props.delLendBook(this.props.book.id);
+    if (!this.props.lenders) {
+      return this.props.deleteBookHandler('lend',this.props.book.id);
     } else {
-      return this.props.delBorrowBook(this.props.book.id);
+      return this.props.deleteBookHandler('borrow', this.props.book.id);
     }
   }
 
@@ -58,7 +58,6 @@ class Book extends React.Component {
           <p className='bookSummary'>{this.state.info.volumeInfo.publishedDate.split('-')[0]}</p>
           {
             this.props.lenders ?
-              <div className='borrowBookBtn'>
                 <CustomButton isLendBook className='lendBookBtn custom-button' onClick={this.callBorrowBook}>
                   {
                   this.props.availPending ?
@@ -67,11 +66,10 @@ class Book extends React.Component {
                     `${this.props.availBooks.length} available`
                 }
                 </CustomButton>
-              </div>
               :
-              null
+                null
           }
-          <CustomButton className='custom-button'>
+          <CustomButton learnMore={true}>
             <a
               href={this.state.info !== null ? this.state.info.volumeInfo.previewLink : '#'} target="_blank" rel="noopener noreferrer">Learn More</a>
           </CustomButton>

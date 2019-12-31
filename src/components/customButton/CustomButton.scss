@@ -13,6 +13,12 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .sign-up {
@@ -110,5 +116,18 @@
 
   &:active {
     transform: translateY(3px);
+  }
+}
+
+.learnMoreBtn {
+  background: #525252;
+
+  a {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #000;
+    transition-duration: 0.3s;
   }
 }
