@@ -30,9 +30,11 @@ class AccountInfo extends React.Component {
             <h3>Change your password</h3>
             <hr />
             <form>
-              <input name="currentPass"></input>
-              <input name="newPass"></input>
-              <button>Update Password</button>
+              <label to="currentPass">Current Password</label>
+              <input name="currentPass" className="form-control"></input>
+              <label to="currentPass">New Password</label>
+              <input name="newPass" className="form-control"></input>
+              <button className="lendBookBtn custom-button">Update Password</button>
             </form>
           </div>
         </div>

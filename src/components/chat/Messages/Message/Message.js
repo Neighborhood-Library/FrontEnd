@@ -4,9 +4,8 @@ import './Message.css';
 
 const Message = ({ message }) => {
 	//, user }, name }
-	console.log(message.text);
 
-	let isSentByCurrentUser = Math.round(Math.random() * 1) ? true: false;
+	let isSentByCurrentUser = Math.round(Math.random() * 1) === 0 ? true: false;
 
 	// const trimmedName = name.trim().toLowerCase();
 

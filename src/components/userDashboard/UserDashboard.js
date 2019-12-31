@@ -37,13 +37,34 @@ class UserDashboard extends React.Component {
     }
   }
 
+  checkActiveTab = () => {
+    const tab = this.state.activeTab;
+
+    if (tab === 'collection') {
+      return 'collection'
+    } else if (tab === 'wishlist') {
+      return 'wishlist'
+    } else {
+      return 'account'
+    }
+  }
+
   render() {
     return (
       <div className="dashboard">
         <div className="tabs">
-          <p onClick={this.updateActiveTab}>Collection</p>
-          <p onClick={this.updateActiveTab}>Wishlist</p>
-          <p onClick={this.updateActiveTab}>Account</p>
+          <p
+            onClick={this.updateActiveTab}
+            className={this.state.activeTab === 'collection' ? 'active' : null}
+          >Collection</p>
+          <p
+            onClick={this.updateActiveTab}
+            className={this.state.activeTab === 'wishlist' ? 'active' : null}
+          >Wishlist</p>
+          <p
+            onClick={this.updateActiveTab}
+            className={this.state.activeTab === 'account' ? 'active' : null}
+          >Account</p>
         </div>
         <div className="dashboard-cont">
           {
