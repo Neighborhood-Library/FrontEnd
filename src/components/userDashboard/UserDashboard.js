@@ -80,6 +80,7 @@ class UserDashboard extends React.Component {
           {
             this.state.activeTab === 'collection' ? (<>
               <h2>My Collection</h2>
+              <p>All the books you are lending out are here. Once a user selects to borrow your book, a chat option will appear. Talk about the plot, your favorites books, or other meetups in the area.</p>
               <hr />
               <BooksList
                 books={this.props.lenderCollection}

@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { updateUser } from '../../actions/userActions';
 
 class AccountInfo extends React.Component {
   state = {
@@ -13,6 +16,12 @@ class AccountInfo extends React.Component {
         this.setState({user: res.data.user[0]})
       })
       .catch(err => console.log(err.body));
+  }
+
+  submitHandler = e => {
+    e.preventDefault();
+
+    alert('This feature is not currently working. Please try again later');
   }
   
   render() {
@@ -29,12 +38,12 @@ class AccountInfo extends React.Component {
           <div className="half-col">
             <h3>Change your password</h3>
             <hr />
-            <form>
+            <form onSubmit={this.submitHandler}>
               <label to="currentPass">Current Password</label>
               <input name="currentPass" className="form-control"></input>
               <label to="currentPass">New Password</label>
               <input name="newPass" className="form-control"></input>
-              <button className="lendBookBtn custom-button">Update Password</button>
+              <button className="lendBookBtn custom-button" onSubmit={this.submitHandler}>Update Password</button>
             </form>
           </div>
         </div>
@@ -43,4 +52,4 @@ class AccountInfo extends React.Component {
   }
 }
 
-export default AccountInfo;
+export default connect(null, { updateUser })(AccountInfo);
