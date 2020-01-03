@@ -81,8 +81,6 @@ const getCurrUser = async () => {
       withCredentials: true
     })
     .then(res => {
-      console.log(res.data.user);
-
       if (res.data.user !== undefined) {
         return res.data.user[0].id;
       } else {
