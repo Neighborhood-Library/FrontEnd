@@ -9,7 +9,7 @@ let initialState = {
   lendPending: false,
   lendSuccess: false,
   error: ''
-}
+};
 
 export default function deleteBookReducer(state = initialState, action) {
   switch(action.type) {
