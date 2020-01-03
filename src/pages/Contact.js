@@ -1,4 +1,5 @@
 import React from 'react';
+import './Contact.scss';
 
 const Contact = () => {
   return (
@@ -7,19 +8,19 @@ const Contact = () => {
         <div className="form-row">
         <div className="form-group col-md-6">
             <label htmlFor="inputFirst">First Name</label>
-            <input type="text" className="form-control" id="inputFirst"></input>
+            <input type="text" className="form-control" id="inputFirst" placeholder="Sam"></input>
           </div>
           <div className="form-group col-md-6">
             <label htmlFor="inputLast">Last Name</label>
-            <input type="text" className="form-control" id="inputLast"></input>
+            <input type="text" className="form-control" id="inputLast" placeholder="I-Am"></input>
           </div>
           <div className="form-group col-md-6">
             <label htmlFor="inputEmail4">Email</label>
-            <input type="email" className="form-control" id="inputEmail4"></input>
+            <input type="email" className="form-control" id="inputEmail4" placeholder="emailme@email.org"></input>
           </div>
           <div className="form-group col-md-6">
             <label htmlFor="inputSocial">Social "Instagram/Snapchat"</label>
-            <input type="text" className="form-control" id="inputSocial"></input>
+            <input type="text" className="form-control" id="inputSocial" placeholder="@instagram_name"></input>
           </div>
         </div>
           <div className="form-group col-md-12">
@@ -33,12 +34,12 @@ const Contact = () => {
           <div className="form-row col-md-12">
             <div className="form-group col-md-6">
               <label htmlFor="inputCity">City</label>
-              <input type="text" className="form-control" id="inputCity"></input>
+              <input type="text" className="form-control" id="inputCity" placeholder="Neverland"></input>
             </div>
           <div className="form-group col-md-4">
             <label htmlFor="inputState">State</label>
             <select id="inputState" className="form-control">
-              <option defaultValue>Do you live here</option>
+              <option defaultValue>Do you live in Any of these States?</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
