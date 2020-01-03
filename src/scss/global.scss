@@ -4,3 +4,20 @@ h3 {font-size: 2.2rem;}
 hr {margin-bottom: 30px;}
 p {font-size: 1.6rem; color: $sec-color}
 section {margin-bottom: 30px;}
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+input {
+  color: #000;
+}
+footer {
+  padding: 20px 50px;
+  
+  p {
+    margin: 0 auto;
+  }
+}
