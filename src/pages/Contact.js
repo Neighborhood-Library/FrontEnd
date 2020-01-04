@@ -3,10 +3,10 @@ import './Contact.scss';
 
 const Contact = () => {
   return (
-    <form>
+    <form id="contact-page" onSubmit={this.handleSubmit.bind(this)} method="POST">
       <div className="container-fluid">
         <div className="form-row">
-        <div className="form-group col-md-6">
+          <div className="form-group col-md-6">
             <label htmlFor="inputFirst">First Name</label>
             <input type="text" className="form-control" id="inputFirst" placeholder="Sam"></input>
           </div>
@@ -96,13 +96,6 @@ const Contact = () => {
           <div className="form-group col-md-2">
             <label htmlFor="inputZip">Zip</label>
             <input type="text" className="form-control" id="inputZip"></input>
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="form-check">
-          <input className="form-check-input" type="checkbox" id="gridCheck"></input>
-          <label className="form-check-label" htmlFor="gridCheck"> Check Me Out
-          </label>
           </div>
         </div>
       <button type="submit" className="btn btn-primary">Book This

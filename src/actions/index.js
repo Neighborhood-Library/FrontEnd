@@ -47,6 +47,8 @@ export const login = (credentials, history) => async dispatch => {
     
 export const register = (credentials, history, func) => dispatch => {
   const creds = {
+    first_name: credentials.first_name,
+    last_name: credentials.last_name,
     user_name: credentials.username,
     user_email: credentials.email,
     user_credential: credentials.password
