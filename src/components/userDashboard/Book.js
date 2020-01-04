@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 
 import CustomButton from '../../components/customButton/CustomButton';
+import Modal from '../Modal';
 import { getAvailBooks } from '../../actions/getAvailBooks';
 
 class Book extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      info: null
+      info: null,
+      modal: false
     }
   }
 
@@ -22,7 +24,7 @@ class Book extends React.Component {
     await Axios
       .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}`)
       .then(async res => {
-        this.setState({ info: res.data })
+        this.setState({ info: res.data });
       })
       .catch(err => console.log(err.body));
   }
@@ -35,6 +37,20 @@ class Book extends React.Component {
     }
   }
 
+  openModal = e => {
+    e.preventDefault();
+
+    this.setState({modal: true});
+  }
+
+  closeModal = e => {
+    e.preventDefault();
+
+    console.log('closing modal');
+
+    this.setState({modal: false});
+  }
+
   render() {
     if (this.state.info === null) {
       return (
@@ -45,6 +61,16 @@ class Book extends React.Component {
     } else {
       return (
         <div className='bookCard'>
+          {
+            this.state.modal ?
+              <Modal
+                availability
+                closeModal={this.closeModal}
+                availBooks={this.props.availBooks}
+              />
+            :
+              null
+          }
           <div className="remove-book" onClick={this.checkIfLendOrBorrow}>
             <p>x</p>
           </div>
@@ -57,17 +83,18 @@ class Book extends React.Component {
           <h4 className='author'>{this.state.info.volumeInfo.authors ? this.state.info.volumeInfo.authors[0] : 'N/A' }</h4>
           <p className='bookSummary'>{this.state.info.volumeInfo.publishedDate.split('-')[0]}</p>
           {
+            // checks to show lenders
             this.props.lenders ?
-                <CustomButton isLendBook className='lendBookBtn custom-button' onClick={this.callBorrowBook}>
-                  {
+              <CustomButton isLendBook className='lendBookBtn custom-button' onClick={this.openModal} >
+                {
                   this.props.availPending ?
                     <ClipLoader size={30} color={"#ffffff"} />
                   : 
                     `${this.props.availBooks.length} available`
                 }
-                </CustomButton>
-              :
-                null
+              </CustomButton>
+            :
+              null
           }
           <CustomButton learnMore={true}>
             <a

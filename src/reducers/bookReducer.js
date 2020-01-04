@@ -34,7 +34,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         error: '',
         books: action.payload,
-        // eslint-disable-next-line no-dupe-keys
         error: null
       };
     case ADDING_BOOK_FAIL:
