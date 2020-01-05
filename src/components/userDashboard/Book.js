@@ -12,7 +12,8 @@ class Book extends React.Component {
     super(props);
     this.state = {
       info: null,
-      modal: false
+      modal: false,
+      available: false
     }
   }
 
@@ -49,6 +50,26 @@ class Book extends React.Component {
     console.log('closing modal');
 
     this.setState({modal: false});
+  }
+
+  checkAvailable = async () => {
+    console.log(this.state.info);
+
+    await Axios
+      .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.lender_id}`, {withCredentials: true})
+      .then(res => {
+        console.log(`entry found for ${this.props.book.lender_id}`);
+
+        const books = res.data.filter(book => book.google_book_id === this.state.info.id);
+
+        console.log(books[0].is_available);
+
+        this.setState({available: `${books[0].is_available}`});
+      })
+      .catch(err => {
+        console.log(`entry not found or incorrect for ${this.props.book.lender_id}`);
+        this.setState({available: `false`});
+      });
   }
 
   render() {
@@ -94,7 +115,9 @@ class Book extends React.Component {
                 }
               </CustomButton>
             :
-              null
+              <CustomButton className={`availability custom-button ${this.state.available}`}>
+                Toggle Availability
+              </CustomButton>
           }
           <CustomButton learnMore={true}>
             <a

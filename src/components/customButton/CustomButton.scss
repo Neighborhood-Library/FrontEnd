@@ -124,10 +124,25 @@
 
   a {
     color: #fff;
+    line-height: inherit;
   }
 
   &:hover {
     background-color: #000;
     transition-duration: 0.3s;
+  }
+}
+
+.availability {
+  .false{
+    background: #f00;
+  }
+  
+  .true {
+    background: #0f0;
+  }
+
+  &:active {
+    background: #cacaca;
   }
 }
