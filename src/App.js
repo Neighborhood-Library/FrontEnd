@@ -16,7 +16,7 @@ import ContactPage from './pages/Contact';
 import './scss/index.scss';
 import Axios from 'axios';
 
-require('dotenv').config();
+ require('dotenv').config();
 
 class App extends React.Component {
   constructor(props) {
