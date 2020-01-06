@@ -56,36 +56,17 @@ class Book extends React.Component {
         withCredentials: true
       })
       .then(res => {
-        console.log(res.data);
         this.setState({lenderBooks: res.data});
       })
       .catch(err => {
         return;
       });
-
-    // await Axios
-    //   .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.lender_id}`, {withCredentials: true})
-    //   .then(res => {
-    //     console.log(`entry found for ${this.props.book.lender_id}`);
-
-    //     const books = res.data.filter(book => book.google_book_id === this.state.info.id);
-
-    //     console.log(books[0].is_available);
-
-    //     this.setState({available: `${books[0].is_available}`});
-    //   })
-    //   .catch(err => {
-    //     console.log(`entry not found or incorrect for ${this.props.book.lender_id}`);
-    //     this.setState({available: `false`});
-    //   });
   }
 
   changeAvailable = async () => {
     await Axios
       .put(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.id}`, {},{withCredentials:true})
       .then(res => {
-        // this.setState({available: res.data[0].is_available});
-        console.log('put worked');
         this.props.lendBookDashboard();
         return;
       })

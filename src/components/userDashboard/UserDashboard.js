@@ -28,8 +28,6 @@ class UserDashboard extends React.Component {
   }
 
   updateTabClass = e => {
-    console.log(e.target);
-
     if (this.state.activeTab === e.target.innerText){
       return 'active'
     } else {
