@@ -28,8 +28,6 @@ class UserDashboard extends React.Component {
   }
 
   updateTabClass = e => {
-    console.log(e.target);
-
     if (this.state.activeTab === e.target.innerText){
       return 'active'
     } else {
@@ -85,6 +83,7 @@ class UserDashboard extends React.Component {
               <BooksList
                 books={this.props.lenderCollection}
                 deleteBookHandler={this.deleteBookHandler}
+                lendBookDashboard={this.props.lendBookDashboard}
               />
             </>) : (null)
           }

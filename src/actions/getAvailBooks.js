@@ -8,8 +8,6 @@ export const BOOK_AVAIL_FAILURE = 'BOOK_AVAIL_FAILURE';
 export const getAvailBooks = book_id => async dispatch => {
   dispatch({ type: BOOK_AVAIL_PENDING, payload: true });
 
-  console.log('action book id ***', book_id);
-
   await axios
     .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/book/${book_id}`, {
       withCredentials: true

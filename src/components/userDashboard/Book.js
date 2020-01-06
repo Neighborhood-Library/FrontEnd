@@ -12,13 +12,16 @@ class Book extends React.Component {
     super(props);
     this.state = {
       info: null,
-      modal: false
+      modal: false,
+      lenderBooks: []
     }
   }
 
   componentDidMount = async () => {
+    // if borrow collection
     if (this.props.lenders) {
-      await this.props.getAvailBooks(this.props.book.google_book_id);
+      // show all users with book available to borrow
+      this.checkAvailable();
     }
 
     await Axios
@@ -39,16 +42,38 @@ class Book extends React.Component {
 
   openModal = e => {
     e.preventDefault();
-
     this.setState({modal: true});
   }
 
   closeModal = e => {
     e.preventDefault();
-
-    console.log('closing modal');
-
     this.setState({modal: false});
+  }
+
+  checkAvailable = async () => {
+    await Axios
+      .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/book/${this.props.book.google_book_id}`, {
+        withCredentials: true
+      })
+      .then(res => {
+        this.setState({lenderBooks: res.data});
+      })
+      .catch(err => {
+        return;
+      });
+  }
+
+  changeAvailable = async () => {
+    await Axios
+      .put(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.id}`, {},{withCredentials:true})
+      .then(res => {
+        this.props.lendBookDashboard();
+        return;
+      })
+      .catch(err => {
+        console.log(err.body);
+        return;
+      });
   }
 
   render() {
@@ -66,7 +91,7 @@ class Book extends React.Component {
               <Modal
                 availability
                 closeModal={this.closeModal}
-                availBooks={this.props.availBooks}
+                lenderBooks={this.state.lenderBooks}
               />
             :
               null
@@ -90,11 +115,18 @@ class Book extends React.Component {
                   this.props.availPending ?
                     <ClipLoader size={30} color={"#ffffff"} />
                   : 
-                    `${this.props.availBooks.length} available`
+                    `${this.state.lenderBooks.length} available`
                 }
               </CustomButton>
             :
-              null
+              <CustomButton
+                className={`availability custom-button ${this.props.book.is_available}`}
+                onClick={this.changeAvailable}
+              >
+                {
+                  this.props.book.is_available === true ? 'Available' : 'Not Available'
+                }
+              </CustomButton>
           }
           <CustomButton learnMore={true}>
             <a
