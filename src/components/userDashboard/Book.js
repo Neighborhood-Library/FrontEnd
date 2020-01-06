@@ -13,13 +13,15 @@ class Book extends React.Component {
     this.state = {
       info: null,
       modal: false,
-      available: false
+      lenderBooks: []
     }
   }
 
   componentDidMount = async () => {
+    // if borrow collection
     if (this.props.lenders) {
-      await this.props.getAvailBooks(this.props.book.google_book_id);
+      // show all users with book available to borrow
+      this.checkAvailable();
     }
 
     await Axios
@@ -40,35 +42,56 @@ class Book extends React.Component {
 
   openModal = e => {
     e.preventDefault();
-
     this.setState({modal: true});
   }
 
   closeModal = e => {
     e.preventDefault();
-
-    console.log('closing modal');
-
     this.setState({modal: false});
   }
 
   checkAvailable = async () => {
-    console.log(this.state.info);
-
     await Axios
-      .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.lender_id}`, {withCredentials: true})
+      .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/book/${this.props.book.google_book_id}`, {
+        withCredentials: true
+      })
       .then(res => {
-        console.log(`entry found for ${this.props.book.lender_id}`);
-
-        const books = res.data.filter(book => book.google_book_id === this.state.info.id);
-
-        console.log(books[0].is_available);
-
-        this.setState({available: `${books[0].is_available}`});
+        console.log(res.data);
+        this.setState({lenderBooks: res.data});
       })
       .catch(err => {
-        console.log(`entry not found or incorrect for ${this.props.book.lender_id}`);
-        this.setState({available: `false`});
+        return;
+      });
+
+    // await Axios
+    //   .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.lender_id}`, {withCredentials: true})
+    //   .then(res => {
+    //     console.log(`entry found for ${this.props.book.lender_id}`);
+
+    //     const books = res.data.filter(book => book.google_book_id === this.state.info.id);
+
+    //     console.log(books[0].is_available);
+
+    //     this.setState({available: `${books[0].is_available}`});
+    //   })
+    //   .catch(err => {
+    //     console.log(`entry not found or incorrect for ${this.props.book.lender_id}`);
+    //     this.setState({available: `false`});
+    //   });
+  }
+
+  changeAvailable = async () => {
+    await Axios
+      .put(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.id}`, {},{withCredentials:true})
+      .then(res => {
+        // this.setState({available: res.data[0].is_available});
+        console.log('put worked');
+        this.props.lendBookDashboard();
+        return;
+      })
+      .catch(err => {
+        console.log(err.body);
+        return;
       });
   }
 
@@ -87,7 +110,7 @@ class Book extends React.Component {
               <Modal
                 availability
                 closeModal={this.closeModal}
-                availBooks={this.props.availBooks}
+                lenderBooks={this.state.lenderBooks}
               />
             :
               null
@@ -111,12 +134,17 @@ class Book extends React.Component {
                   this.props.availPending ?
                     <ClipLoader size={30} color={"#ffffff"} />
                   : 
-                    `${this.props.availBooks.length} available`
+                    `${this.state.lenderBooks.length} available`
                 }
               </CustomButton>
             :
-              <CustomButton className={`availability custom-button ${this.state.available}`}>
-                Toggle Availability
+              <CustomButton
+                className={`availability custom-button ${this.props.book.is_available}`}
+                onClick={this.changeAvailable}
+              >
+                {
+                  this.props.book.is_available === true ? 'Available' : 'Not Available'
+                }
               </CustomButton>
           }
           <CustomButton learnMore={true}>

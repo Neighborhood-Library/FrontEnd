@@ -134,11 +134,11 @@
 }
 
 .availability {
-  .false{
+  &.false{
     background: #f00;
   }
   
-  .true {
+  &.true {
     background: #0f0;
   }
 

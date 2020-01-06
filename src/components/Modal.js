@@ -7,13 +7,29 @@ class Modal extends React.Component {
     lenders: []
   }
 
+  componentDidMount() {
+    if (this.props.lenderBooks) {
+      this.props.lenderBooks.forEach(async (book) => {
+        await this.getLenderInfo(book.lender_id);
+      })
+    }
+  }
+
   getLenderInfo = async (lender_id) => {
-    await Axios.get(`${process.env.REACT_APP_REQ_URL}/api/users/${this.props}`)
+    await Axios
+      .get(`${process.env.REACT_APP_REQ_URL}/api/users/${lender_id}`,{withCredentials: true})
+      .then(res => {
+        console.log(res.data);
+
+        this.setState({lenders: [...this.state.lenders, res.data]})
+      })
+      .catch(err => {
+        console.log(err);
+        return;
+      })
   }
   
   render() {
-    console.log()
-
     return this.props.availability ? (
         <div className="overlay" onClick={this.props.closeModal}>
           <div className="overlay-cont" onClick={e => e.stopPropagation()}>
@@ -22,9 +38,16 @@ class Modal extends React.Component {
               <hr />
               <ul>
                 {
-                  this.props.availBooks.map(lender => (
-                    <li>{lender.id}, {lender.is_available === true ? 'yes': 'no'}</li>
-                  ))
+                  // if passed books list has lenders
+                  this.props.lenderBooks.length > 0 ?
+                  // map and print out lenders... ex. John Doe, Yes
+                    this.state.lenders.map(lender => (
+                      <li key={lender.id}>
+                        {lender.first_name} {lender.last_name}
+                      </li>
+                    ))
+                  : 
+                    <li>No books found.</li>
                 }
               </ul>
             </div>
