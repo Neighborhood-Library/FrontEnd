@@ -3,7 +3,7 @@ import './Contact.scss';
 
 const Contact = () => {
   return (
-    <form id="contact-page" onSubmit={this.handleSubmit.bind(this)} method="POST">
+    <form id="contact-page" method="POST">
       <div className="container-fluid">
         <div className="form-row">
           <div className="form-group col-md-6">
