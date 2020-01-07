@@ -30,7 +30,6 @@ export const login = (credentials, history) => async dispatch => {
   const creds = {
     user_name: credentials.username,
     user_credential: credentials.password
-
   };
 
   dispatch({ type: LOGIN_START });
@@ -45,15 +44,18 @@ export const login = (credentials, history) => async dispatch => {
     });
   };
     
-export const register = (credentials, history, func) => dispatch => {
+export const register = (credentials, history, func) => async dispatch => {
   const creds = {
+    first_name: credentials.first_name,
+    last_name: credentials.last_name,
     user_name: credentials.username,
     user_email: credentials.email,
     user_credential: credentials.password
-
   };
+
   dispatch({ type: REGISTER_START });
-  axios
+
+  await axios
     .post(`${process.env.REACT_APP_REQ_URL}/auth/register`, creds)
     .then(res => {
       dispatch({ type: REGISTER_SUCCESS });
