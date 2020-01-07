@@ -31,7 +31,6 @@ class Book extends React.Component {
         <a className='learnMore' href={this.props.toLink}>
           Learn More
         </a>
-        {/* <button className="addBtn" onClick={props.addToVivlio}>Add to MyVivlio</button> */}
         <div className='borrowBookBtn'>
           <CustomButton isBorrowBook onClick={this.callBorrowBook}>
             Borrow book
