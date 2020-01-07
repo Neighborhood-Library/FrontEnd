@@ -16,8 +16,13 @@ class PrivateRoute extends React.Component {
     await axios
       .get(URL, { withCredentials: true })
       .then(res => {
-        this.setState({ auth: true });
-        return;
+        if (res.status === 200) {
+          this.setState({ auth: true });
+          return;
+        } else {
+          this.setState({ auth: false });
+          return;
+        }
       })
       .catch(err => {
         this.setState({ auth: false });

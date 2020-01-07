@@ -7,16 +7,16 @@
 }
 
 .bookCard {
-  background-color: #f7f7f7;
-  height: 55rem;
-  margin: 3%;
-  width: 30rem;
+  background-color: #f5f5f5;
+  margin: 10px;
+  width: 25rem;
   padding: 2% 0.5%;
-  box-shadow: 5px 5px 15px rgba(39, 38, 43, 0.5);
+  box-shadow: 2px 2px 0px rgba(39, 38, 43, 0.5);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .bookTitle {
@@ -33,15 +33,14 @@
 
 .coverArt {
   height: auto;
-  padding: 2%;
   width: 18rem;
   margin: auto;
-  border-radius: 5px 5px 0 0;
+  border: 1px solid black;
 }
 
 .bookSummary {
   font-size: 1.3rem;
-  padding: 2%;
+  padding: 20px 10px;
   line-height: 12pt;
   /* overflow: hidden; */
   padding: 0.5em;

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.card {
+  background: #fff;
+  padding: 3rem 12rem;
+  line-height: 1.5;
+  border-radius: 1.5%;
+
+  p {
+   color: #555f77;
+   text-align: justify;
+  }
+}
+
+.card-title {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  color: #555f77;
+}
+
+.team-cont {
+  div {
+    .profile-avi {
+      width: 70%;
+      margin-bottom: 1rem;
+    }
+    .text-bold {
+      font-weight: 700;
+      a {
+        font-size: 1.8rem;
+        color: #555f77;
+      }
+    }
+  }
+}
