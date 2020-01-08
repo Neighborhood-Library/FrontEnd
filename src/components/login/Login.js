@@ -7,6 +7,7 @@ import './Login.css';
 // import Change from './NavBar'
 
 
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -22,15 +23,15 @@ class Login extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // changeMe() {
+  //   document.getElementById("input").style.color = "blue";
+  // }
   submitForm = async e => {
     e.preventDefault();
     await this.props.logInHandler(e, this.state);
     this.props.history.push('/dashboard');
   };
-  // inputChange = e => {
-  //   e.preventDefault();
-  //   document.querySelector(".username").style = "red";
-  // }
+  
 
   render() {
     if (this.props.loggedIn) {
@@ -42,13 +43,15 @@ class Login extends React.Component {
     return (
       <div id='absoluteCenteredDiv'>
         <div className='box'>
-          <h1 className='login-title'> Login </h1>
+          <h1 className='login-title'> Log in to your account</h1>
+          <br>
+          </br>
           <div>
           <form className="submitForm" onSubmit={this.submitForm}>
             <div className="inputs">
-            <i class="fas fa-user fa-6x "></i>
+            <i id="input"class="fas fa-user fa-5x "></i>
             <input
-              onClick = {this.inputChange}
+              onClick = {this.changeMe}
               className='username'
               onChange={this.onChange}
               name='username'
@@ -59,7 +62,8 @@ class Login extends React.Component {
             />
             <br>
             </br>
-            <i class="fas fa-key fa-6x"></i>
+            {/* <i class="fas fa-key fa-6x"></i> */}
+            <i class="fas fa-lock fa-5x"></i>
             <input
               className='username'
               onChange={this.onChange}
@@ -70,23 +74,28 @@ class Login extends React.Component {
               required
             />
             </div>
-            <button className='button' type='submit'>
+            <button className='login-button' type='submit'>
               Login
             </button>
           </form>
-          <button>
-            <a href='https://muovivlio.herokuapp.com/auth/google'>
-              Sign In With Google
+          <button className="google-buttons">
+            <a href='https://muovivlio.herokuapp.com/auth/google'> 
+              <i class="fab fa-google"></i>oogle Sign In
             </a>
           </button>
-          </div>
-        </div>
-        <p className='forgot-password'>
+          <br>
+          </br>
+          <p className='forgot-password'>
           Forgot your password?{' '}
           <a className='fpwd' href='/#'>
             Click Here!
           </a>
         </p>
+          </div>
+        </div>
+        <br>
+        </br>
+        
       </div>
     );
   }
