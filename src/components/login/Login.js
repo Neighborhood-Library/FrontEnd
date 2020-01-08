@@ -3,37 +3,55 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../actions/index';
 import './Login.css';
-// import { GoogleLogin } from 'react-google-login';
+// import {TweenMax,Power3} from "gsap";
+// import Change from './NavBar'
+
+
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      
     };
   }
+ 
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // changeMe() {
+  //   document.getElementById("input").style.color = "blue";
+  // }
   submitForm = async e => {
     e.preventDefault();
     await this.props.logInHandler(e, this.state);
     this.props.history.push('/dashboard');
   };
+  
 
   render() {
     if (this.props.loggedIn) {
       return <Redirect to='/dashboard' />;
     }
+    
+    
+    
     return (
       <div id='absoluteCenteredDiv'>
         <div className='box'>
-          <h1 className='login-title'> Login </h1>
-          <form onSubmit={this.submitForm}>
+          <h1 className='login-title'> Log in to your account</h1>
+          <br>
+          </br>
+          <div>
+          <form className="submitForm" onSubmit={this.submitForm}>
+            <div className="inputs">
+            <i id="input"class="fas fa-user fa-5x "></i>
             <input
+              onClick = {this.changeMe}
               className='username'
               onChange={this.onChange}
               name='username'
@@ -42,6 +60,10 @@ class Login extends React.Component {
               value={this.state.username}
               required
             />
+            <br>
+            </br>
+            {/* <i class="fas fa-key fa-6x"></i> */}
+            <i class="fas fa-lock fa-5x"></i>
             <input
               className='username'
               onChange={this.onChange}
@@ -51,26 +73,35 @@ class Login extends React.Component {
               value={this.state.password}
               required
             />
-            <button className='button' type='submit'>
+            </div>
+            <button className='login-button' type='submit'>
               Login
             </button>
           </form>
-          <button>
-            <a href='https://muovivlio.herokuapp.com/auth/google'>
-              Sign In With Google
+          <button className="google-buttons">
+            <a href='https://muovivlio.herokuapp.com/auth/google'> 
+              <i class="fab fa-google"></i>oogle Sign In
             </a>
           </button>
-        </div>
-        <p className='forgot-password'>
+          <br>
+          </br>
+          <p className='forgot-password'>
           Forgot your password?{' '}
           <a className='fpwd' href='/#'>
             Click Here!
           </a>
         </p>
+          </div>
+        </div>
+        <br>
+        </br>
+        
       </div>
     );
   }
 }
+
+
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn
 });

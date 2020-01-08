@@ -7,6 +7,7 @@ body {
   margin: 20px 0px 20px 0px;
 }
 
+
 .login-title {
   font-size: 2.5rem;
   color: #525252;
@@ -15,13 +16,15 @@ body {
   font-weight: 300;
 }
 .box {
-  background: white;
-  width: 300px;
-  border-radius: 3px;
+  background: rgb(224, 234, 247);
+  /* background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
+  width: 450px;
+  border-radius: 15px;
   margin: 0 auto 0 auto;
   padding: 4% 4%;
   border: #3a3a3b 1px solid;
 }
+
 .username {
   background: #fcfdfd;
   border: #ccc 1px solid;
@@ -33,9 +36,10 @@ body {
   font-size: 1.5rem;
   border-radius: 3px;
 }
-.button {
-  background: #2ecc71;
-  width: 125px;
+
+.login-button {
+  background: #6bafe1;
+  width: 135px;
   padding-top: 5px;
   padding-bottom: 5px;
   color: white;
@@ -49,9 +53,10 @@ body {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-.button:hover {
-  background: #2cc06b;
-}
+/* .login-button:hover {
+  background-color: #6bafe1;
+  width:175px;
+} */
 .forgot-password {
   font-size: 1.3rem;
   text-decoration: none;
@@ -72,4 +77,48 @@ body {
   width: 400px;
   height: 300px;
   /* text-align: center; */
+}
+.fas.fa-user {
+  padding:10px;
+  display:inline-block;
+  
+}
+.fas.fa-lock {
+  padding:10px;
+}
+
+
+
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+  width: 280px;
+  border-color: #2ecc71;
+}
+
+.google-buttons{
+  /* height: 70px; */
+  font-size: 15px;
+  height: 35px;
+  width: 135px;
+  border-radius: 3px;
+  border: 1px solid black;
+  /* background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
+  
+}
+.google-buttons:hover {
+  /* background: #6bafe1; */
+  /* background: linear-gradient(120DEG, #4285f4,#34A853,#FBBC05,#EA4335); */
+  
+}
+.google-buttons a {
+  color:black;
+  
+  text-decoration: none;
+}
+.fab.fa-google{
+  background: -webkit-linear-gradient(-120DEG,#4285f4,#34A853,#FBBC05,#EA4335);
+  /* background:green; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* text-decoration-color: linear-gradient(-120DEG, #4285f4,#34A853,#FBBC05,#EA4335); */
 }
