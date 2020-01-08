@@ -105,7 +105,7 @@ class App extends React.Component {
           <Route path='/books' component={Books} />
           <Route path='/about' component={AboutPage} />
           <Route path='/contact' component={ContactPage} />
-          <Route path='/chat' component={ChatPage} />
+          <Route path='/chat/:user_id&:book_id' component={ChatPage} />
           <PrivateRoute path='/dashboard' checkCookie={this.checkCookie} component={UserDashboard} />
         </Switch>
         <Footer />

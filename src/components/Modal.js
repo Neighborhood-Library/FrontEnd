@@ -26,6 +26,21 @@ class Modal extends React.Component {
         return;
       })
   }
+
+  startTransaction = async e => {
+    e.preventDefault();
+
+    const lender_id_JSX = e.target.attributes.name.value;
+
+    await Axios
+      .post(`${process.env.REACT_APP_REQ_URL}/api/transaction/`,
+      {lender_id: lender_id_JSX, google_book_id: this.props.userInfo.google_book_id, borrower_id: this.props.userInfo.borrower_id}
+      , {withCredentials: true})
+      .then(res => {
+        this.props.updateChat(res.data);
+      })
+      .catch(err => console.log(err));
+  }
   
   render() {
     return this.props.availability ? (
@@ -34,20 +49,18 @@ class Modal extends React.Component {
             <div>
               <h3>Available From:</h3>
               <hr />
-              <ul>
-                {
-                  // if passed books list has lenders
-                  this.props.lenderBooks.length > 0 ?
-                  // map and print out lenders... ex. John Doe, Yes
-                    this.state.lenders.map(lender => (
-                      <li key={lender.id}>
-                        {lender.first_name} {lender.last_name}
-                      </li>
-                    ))
-                  : 
-                    <li>No books found.</li>
-                }
-              </ul>
+              {
+                // if passed books list has lenders
+                this.props.lenderBooks.length > 0 ?
+                // map and print out lenders... ex. John Doe, Yes
+                  this.state.lenders.map(lender => (
+                    <button key={lender.id} name={lender.id} onClick={this.startTransaction}>
+                      {lender.first_name} {lender.last_name}
+                    </button>
+                  ))
+                : 
+                  <li>No books found.</li>
+              }
             </div>
           </div>
         </div>

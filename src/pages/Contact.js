@@ -3,11 +3,7 @@ import './Contact.scss';
 
 const Contact = () => {
   return (
-<<<<<<< HEAD
-    <form id="contact-page" method="POST">
-=======
     <form id="contact-page">
->>>>>>> 60de30d0eec38ac5e0cbaa91306a5203ff54eee2
       <div className="container-fluid">
         <div className="form-row">
           <div className="form-group col-md-6">
