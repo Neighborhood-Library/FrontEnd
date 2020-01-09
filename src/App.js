@@ -19,7 +19,7 @@ import ChatPage from './pages/Chat';
 import Footer from './components/Footer';
 import PrivateRoute from './middleware/PrivateRoute';
 
-require('dotenv').config();
+ require('dotenv').config();
 
 class App extends React.Component {
   constructor(props) {
