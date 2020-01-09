@@ -18,13 +18,13 @@ const Message = ({ message }) => {
 			<p className='sentText pr-10'>Name</p>
 			{/* {trimmedName} */}
 			<div className='messageBox backgroundBlue'>
-				<p className='messageText colorWhite'>{ReactEmoji.emojify(message.text)}</p>
+				<p className='messageText colorWhite'>{ReactEmoji.emojify(message.content)}</p>
 			</div>
 		</div>
 	) : (
 		<div className='messageContainer justifyStart'>
 			<div className='messageBox backgroundLight'>
-				<p className='messageText colorDark'>{ReactEmoji.emojify(message.text)}</p>
+				<p className='messageText colorDark'>{ReactEmoji.emojify(message.content)}</p>
 			</div>
 			<p className='sentText pl-10 '>User</p>
 			{/* {user} */}

@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
+import { withRouter } from 'react-router';
 
 import CustomButton from '../../components/customButton/CustomButton';
 import Modal from '../Modal';
@@ -13,26 +14,43 @@ class Book extends React.Component {
     this.state = {
       info: null,
       modal: false,
-      lenderBooks: []
+      lenderBooks: [],
+      transaction: []
     }
   }
 
   componentDidMount = async () => {
+    let chatHolder = {};
+    let infoHolder = {};
+
     // if borrow collection
     if (this.props.lenders) {
       // show all users with book available to borrow
-      this.checkAvailable();
+      // this.checkAvailable();
+      this.checkTransactions();
     }
 
+    // check if book has transaction
+    // await Axios
+    //   .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/`, {withCredentials: true})
+    //   .then(res => chatHolder = res.data[0])
+    //   .catch(err => console.log(err));
+
+    // get data for each book from google
     await Axios
       .get(`https://www.googleapis.com/books/v1/volumes/${this.props.book.google_book_id}`)
-      .then(async res => {
-        this.setState({ info: res.data });
-      })
+      .then(res => infoHolder = res.data)
       .catch(err => console.log(err.body));
+
+
+    this.setState({
+      chat: chatHolder,
+      info: infoHolder
+    });
   }
 
   checkIfLendOrBorrow = async () => {    
+    // link delete book handler per user type
     if (!this.props.lenders) {
       return this.props.deleteBookHandler('lend',this.props.book.id);
     } else {
@@ -50,7 +68,27 @@ class Book extends React.Component {
     this.setState({modal: false});
   }
 
+  checkTransactions = async () => {
+    // get transaction if available
+    await Axios
+      .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${this.props.book.borrower_id}&${this.props.book.google_book_id}`, {withCredentials: true})
+      .then(res => {
+        console.log(res.data);
+
+        if (res.data.message || res.data.length > 0) {
+          this.setState({ transaction: res.data.message })
+        } else {
+          this.checkAvailable();
+        }
+        return;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   checkAvailable = async () => {
+    // find all books offered by lender
     await Axios
       .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/book/${this.props.book.google_book_id}`, {
         withCredentials: true
@@ -64,6 +102,7 @@ class Book extends React.Component {
   }
 
   changeAvailable = async () => {
+    // change availablility of lender's book
     await Axios
       .put(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.id}`, {},{withCredentials:true})
       .then(res => {
@@ -87,11 +126,14 @@ class Book extends React.Component {
       return (
         <div className='bookCard'>
           {
+            // pop up for borrow to select lender
             this.state.modal ?
               <Modal
                 availability
                 closeModal={this.closeModal}
                 lenderBooks={this.state.lenderBooks}
+                updateChat={this.updateChat}
+                userInfo={this.props.book}
               />
             :
               null
@@ -109,7 +151,7 @@ class Book extends React.Component {
           <p className='bookSummary'>{this.state.info.volumeInfo.publishedDate.split('-')[0]}</p>
           {
             // checks to show lenders
-            this.props.lenders ?
+            this.props.lenders && !this.state.transaction.google_book_id ? (
               <CustomButton isLendBook className='lendBookBtn custom-button' onClick={this.openModal} >
                 {
                   this.props.availPending ?
@@ -118,7 +160,11 @@ class Book extends React.Component {
                     `${this.state.lenderBooks.length} available`
                 }
               </CustomButton>
-            :
+            ) :
+              null
+          }
+          {
+            this.props.borrowers ? (
               <CustomButton
                 className={`availability custom-button ${this.props.book.is_available}`}
                 onClick={this.changeAvailable}
@@ -127,7 +173,11 @@ class Book extends React.Component {
                   this.props.book.is_available === true ? 'Available' : 'Not Available'
                 }
               </CustomButton>
+            ) : null
           }
+          <CustomButton className='custom-button' onClick={this.state.transaction}>
+            Visit Chat
+          </CustomButton>
           <CustomButton learnMore={true}>
             <a
               href={this.state.info !== null ? this.state.info.volumeInfo.previewLink : '#'} target="_blank" rel="noopener noreferrer">Learn More</a>
@@ -143,4 +193,6 @@ const mapStateToProps = state => ({
   availBooks: state.getAvailBooksRed.books
 });
 
-export default connect(mapStateToProps, { getAvailBooks })(Book);
+const WithRouterComp = withRouter(Book);
+
+export default connect(mapStateToProps, { getAvailBooks })(WithRouterComp);
