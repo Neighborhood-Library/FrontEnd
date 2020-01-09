@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
+import { withRouter } from 'react-router';
 
 import CustomButton from '../../components/customButton/CustomButton';
 import Modal from '../Modal';
@@ -174,7 +175,7 @@ class Book extends React.Component {
               </CustomButton>
             ) : null
           }
-          <CustomButton className='custom-button'>
+          <CustomButton className='custom-button' onClick={this.state.transaction}>
             Visit Chat
           </CustomButton>
           <CustomButton learnMore={true}>
@@ -192,4 +193,6 @@ const mapStateToProps = state => ({
   availBooks: state.getAvailBooksRed.books
 });
 
-export default connect(mapStateToProps, { getAvailBooks })(Book);
+const WithRouterComp = withRouter(Book);
+
+export default connect(mapStateToProps, { getAvailBooks })(WithRouterComp);
