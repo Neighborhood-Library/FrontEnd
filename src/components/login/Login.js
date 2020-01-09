@@ -49,7 +49,7 @@ class Login extends React.Component {
           <div>
           <form className="submitForm" onSubmit={this.submitForm}>
             <div className="inputs">
-            <i id="input"class="fas fa-user fa-5x "></i>
+            <i id="input" className="fas fa-user fa-5x "></i>
             <input
               onClick = {this.changeMe}
               className='username'
@@ -63,7 +63,7 @@ class Login extends React.Component {
             <br>
             </br>
             {/* <i class="fas fa-key fa-6x"></i> */}
-            <i class="fas fa-lock fa-5x"></i>
+            <i className="fas fa-lock fa-5x"></i>
             <input
               className='username'
               onChange={this.onChange}
@@ -79,8 +79,8 @@ class Login extends React.Component {
             </button>
           </form>
           <button className="google-buttons">
-            <a href='https://muovivlio.herokuapp.com/auth/google'> 
-              <i class="fab fa-google"></i>oogle Sign In
+            <a href={`${process.env.REACT_APP_REQ_URL}/auth/google`}> 
+              <i className="fab fa-google"></i>oogle Sign In
             </a>
           </button>
           <br>
