@@ -73,8 +73,6 @@ class Book extends React.Component {
     await Axios
       .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${this.props.book.borrower_id}&${this.props.book.google_book_id}`, {withCredentials: true})
       .then(res => {
-        console.log(res.data);
-
         if (res.data.message || res.data.length > 0) {
           this.setState({ transaction: res.data.message })
         } else {
@@ -113,6 +111,12 @@ class Book extends React.Component {
         console.log(err.body);
         return;
       });
+  }
+
+  goToChat = e => {
+    e.preventDefault();
+
+    this.props.history.push(`chat/${this.state.transaction.borrower_id}&${this.state.transaction.google_book_id}`);
   }
 
   render() {
@@ -175,7 +179,7 @@ class Book extends React.Component {
               </CustomButton>
             ) : null
           }
-          <CustomButton className='custom-button' onClick={this.state.transaction}>
+          <CustomButton className='custom-button' onClick={this.goToChat}>
             Visit Chat
           </CustomButton>
           <CustomButton learnMore={true}>
