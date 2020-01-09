@@ -14,6 +14,7 @@ const Chat = () => {
 	// const [name, setName] = useState('');
 	const [users, setUsers] = useState('');
 	const [messages, setMessages] = useState([]);
+	const [transaction, setTransaction] = useState({});
 	
 	const {user_id, book_id} = useParams();
 
@@ -32,13 +33,13 @@ const Chat = () => {
 
 	useEffect(() => {
 		async function getMessages() {
-			console.log('running getMessages fn');
-
 			// get transaction info
 			await Axios
 				.get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${user_id}&${book_id}`,
 				{withCredentials: true})
 				.then(async res => {
+
+					setTransaction(res.data.message);
 
 					// get messages for transcation
 					await Axios
@@ -63,9 +64,9 @@ const Chat = () => {
 			<div className='container'>
 				<InfoBar />
 				{/* room={room} */}
-				<Messages messages={messages} />
+				<Messages messages={messages} transaction={transaction} />
 				{/* name={name} */}
-				<Input setMessages={setMessages} messages={messages} />
+				<Input setMessages={setMessages} messages={messages} transaction={transaction} />
 			</div>
 			<TextContainer users={users} />
 		</div>
