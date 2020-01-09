@@ -37,9 +37,9 @@ const Input = ({ setMessages, messages, transaction }) => {
     }
     
     // returned message from server
-		socket.on('retMsg', getMessages());
+		socket.on('retMsg', getMessages);
     
-    socket.on('update', getMessages());
+    socket.on('update', getMessages);
   }, [message, messages, setMessages, transaction]);
 
   return (
