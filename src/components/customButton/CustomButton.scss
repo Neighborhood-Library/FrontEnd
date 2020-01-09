@@ -1,148 +1,196 @@
 .custom-button {
-  min-width: 18rem;
-  width: auto;
-  height: auto;
-  letter-spacing: 0.7px;
-  line-height: 45px;
-  padding: 0 35px 0 35px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  border-radius: 3px;
-  font-weight: 400;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
+	min-width: 18rem;
+	width: auto;
+	height: auto;
+	letter-spacing: 0.7px;
+	line-height: 45px;
+	padding: 0 35px 0 35px;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	border-radius: 3px;
+	font-weight: 400;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
 
-  a {
-    &:hover {
-      text-decoration: none;
-    }
-  }
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .sign-up {
-  color: #ffffff;
-  background-color: #6cb0e2;
-  font-size: 1.7rem;
-  border-radius: 3px;
-  transition-duration: 0.3s;
-  transition: all 0.3s ease 0s;
+	color: #ffffff;
+	background-color: #6cb0e2;
+	font-size: 1.7rem;
+	transition-duration: 0.3s;
 
-  &:hover {
-    color: #ffffff;
-    background-color: #0b67a8;
-  }
+	&:hover {
+		color: #ffffff;
+		background-color: #0b67a8;
+	}
 
-  &:active {
-    transform: translateY(3px);
-  }
+	&:active {
+		transform: translateX(2px);
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }
 
 .register-button {
-  background-color: #6cb0e2;
-  color: #ffffff;
-  border: 1px solid #6cb0e2;
-  border-radius: 3px;
-  transition-duration: 0.3s;
-  transition: all 0.3s ease 0s;
+	background-color: #6cb0e2;
+	color: #ffffff;
+	transition-duration: 0.3s;
 
-  &:hover {
-    color: #6cb0e2;
-    background-color: #1867a0;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 3px;
-  }
+	&:hover {
+		color: #6cb0e2;
+		background-color: #1867a0;
+		color: #ffffff;
+	}
 
-  &:active {
-    transform: translateY(3px);
-  }
+	&:active {
+		transform: translateY(-3px);
+	}
+
+	&:active,
+	:focus {
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }
 
 .google-button {
-  background-color: #fbbc05;
-  text-decoration: none;
-  color: #ffffff;
-  border: 1px solid #fbbc05;
-  border-radius: 3px;
-  transition-duration: 0.3s;
-  transition: all 0.3s ease 0s;
+	background-color: #fbbc05;
+	text-decoration: none;
+	color: #ffffff;
+	border-radius: 3px;
+	transition-duration: 0.3s;
 
-  &:hover {
-    background-color: #e8b923;
-    border: 1px solid #ffffff;
-    border-radius: 3px;
-  }
+	&:hover {
+		background-color: #e8b923;
+		border-radius: 3px;
+	}
 
-  &:active {
-    transform: translateY(3px);
-  }
+	&:active {
+		transform: translateY(-1px);
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }
 
 .borrowBookBtn {
-  background-color: #e5755b;
-  border: 1px solid #e5755b;
-  color: #ffffff;
-  border-radius: 3px;
-  transition-duration: 0.3s;
-  transition: all 0.3s ease 0s;
+	background-color: #e5755b;
+	color: #ffffff;
+	border-radius: 3px;
+	transition-duration: 0.3s;
 
-  &:hover {
-    background-color: #bf4d33;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    border-radius: 3px;
-  }
+	&:hover {
+		background-color: #bf4d33;
+		color: #ffffff;
+		border-radius: 3px;
+	}
 
-  &:active {
-    transform: translateY(3px);
-  }
+	&:active {
+		transform: translateY(-2px);
+	}
+
+	&:active,
+	:focus {
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }
 
 .lendBookBtn {
-  background-color: #1881dd;
-  border: 1px solid #1881dd;
-  color: #ffffff;
-  border-radius: 3px;
-  transition-duration: 0.3s;
+	background-color: #1881dd;
+	color: #ffffff;
+	border-radius: 3px;
+	transition-duration: 0.3s;
 
-  &:hover {
-    background-color: #025093;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 3px;
-  }
+	&:hover {
+		background-color: #025093;
+		color: #ffffff;
+		border-radius: 3px;
+	}
 
-  &:active {
-    transform: translateY(3px);
-  }
+	&:active {
+		transform: translateY(-2px);
+	}
+
+	&:active,
+	:focus {
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }
 
 .learnMoreBtn {
-  background: #525252;
+	margin-top: 5px;
+	background: #525252;
+	transition-duration: 0.3s;
 
-  a {
-    color: #fff;
-    line-height: inherit;
-  }
+	a {
+		color: #fff;
+		line-height: inherit;
+	}
 
-  &:hover {
-    background-color: #000;
-    transition-duration: 0.3s;
-  }
+	&:hover {
+		background-color: #000;
+		transition-duration: 0.3s;
+	}
+
+	&:active {
+		transform: translateY(-2px);
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
+}
+
+.chatBtn {
+	background-color: #fff;
+	margin-top: 5px;
+	color: #000;
+	transition-duration: 0.3s;
+
+	&:hover {
+		background-color: #7ca9e4;
+		color: #fff;
+	}
+
+	&:active {
+		transform: translateY(-2px);
+	}
+
+	&:active,
+	:focus {
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }
 
 .availability {
-  &.false{
-    background: #f00;
-  }
-  
-  &.true {
-    background: #0f0;
-  }
+	transition-duration: 0.3s;
+	&.false {
+		background: #f00;
+	}
 
-  &:active {
-    background: #cacaca;
-  }
+	&.true {
+		background: #0f0;
+	}
+
+	&:active {
+		background: #cacaca;
+		transform: translateY(-2px);
+	}
+
+	&:active,
+	&:focus {
+		outline: none;
+		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
+	}
 }

@@ -1,66 +1,87 @@
 .bookDisplay,
 .bookCards {
-  display: flex;
-  flex-wrap: wrap;
-  width: auto;
-  justify-content: space-evenly;
+	display: flex;
+	flex-wrap: wrap;
+	width: auto;
+	justify-content: space-evenly;
 }
 
 .bookCard {
-  background-color: #f5f5f5;
-  margin: 10px;
-  width: 25rem;
-  padding: 2% 0.5%;
-  box-shadow: 2px 2px 0px rgba(39, 38, 43, 0.5);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+	background-color: #f5f4f4;
+	margin: 10px;
+	width: 25rem;
+	padding: 2% 0.5%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	backface-visibility: hidden;
+	transition: transform 0.3s;
+	animation-name: moveInBottom;
+	animation-duration: 2s;
+	animation-timing-function: ease-out;
+}
+
+.bookCard:hover {
+	transform: translateY(-1rem) scale(1.03);
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
 }
 
 .bookTitle {
-  font-size: 1.6rem;
-  font-weight: 500;
-  padding: 2%;
+	font-size: 1.6rem;
+	font-weight: 500;
+	padding: 2%;
 }
 
 .author {
-  font-size: 1.3rem;
-  padding: 1%;
-  font-weight: 300;
+	font-size: 1.3rem;
+	padding: 1%;
+	font-weight: 300;
 }
 
 .coverArt {
-  height: auto;
-  width: 18rem;
-  margin: auto;
-  border: 1px solid black;
+	height: auto;
+	width: 18rem;
+	margin: auto;
+	border: 1px solid black;
 }
 
 .bookSummary {
-  font-size: 1.3rem;
-  padding: 20px 10px;
-  line-height: 12pt;
-  /* overflow: hidden; */
-  padding: 0.5em;
-  font-weight: 300;
-  text-overflow: ellipsis;
+	font-size: 1.3rem;
+	padding: 20px 10px;
+	line-height: 12pt;
+	/* overflow: hidden; */
+	padding: 0.5em;
+	font-weight: 300;
+	text-overflow: ellipsis;
 }
 
 .learnMore {
-  font-size: 1.2rem;
-  margin: 2%;
+	font-size: 1.2rem;
+	margin: 2%;
 }
 
 .btnDivider {
-  font-size: 1rem;
-  padding: 2%;
+	font-size: 1rem;
+	padding: 2%;
 }
 
 @media (max-width: 1077px) {
-  .bookDisplay,
-  .bookCards {
-    justify-content: space-evenly;
-  }
+	.bookDisplay,
+	.bookCards {
+		justify-content: space-evenly;
+	}
 }
