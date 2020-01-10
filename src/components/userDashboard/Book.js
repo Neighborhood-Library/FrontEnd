@@ -71,15 +71,11 @@ class Book extends React.Component {
   checkTransactions = async () => {
     let user_id;
 
-    console.log(this.props.lenders)
-
     if (this.props.lenders === true) {
       user_id = this.props.book.borrower_id;
     } else {
       user_id = this.props.book.lender_id;
     }
-
-    console.log(user_id);
 
     // get transaction if available
     await Axios
