@@ -23,6 +23,9 @@ class Login extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // changeBack(){
+  //   document.getElementById("input").style.color = "black";
+  // }
   // changeMe() {
   //   document.getElementById("input").style.color = "blue";
   // }
@@ -43,15 +46,16 @@ class Login extends React.Component {
     return (
       <div id='absoluteCenteredDiv'>
         <div className='box'>
-          <h1 className='login-title'> Log in to your account</h1>
+          <p className='login-title'> Login to your account</p>
           <br>
           </br>
           <div>
           <form className="submitForm" onSubmit={this.submitForm}>
             <div className="inputs">
+              <div className="username-box">
             <i id="input"class="fas fa-user fa-5x "></i>
             <input
-              onClick = {this.changeMe}
+              // onMouseEnter = {this.changeMe}
               className='username'
               onChange={this.onChange}
               name='username'
@@ -60,6 +64,10 @@ class Login extends React.Component {
               value={this.state.username}
               required
             />
+            </div>
+            <div className="password-box">
+
+            
             <br>
             </br>
             {/* <i class="fas fa-key fa-6x"></i> */}
@@ -74,15 +82,17 @@ class Login extends React.Component {
               required
             />
             </div>
+            </div>
             <button className='login-button' type='submit'>
               Login
             </button>
           </form>
-          <button className="google-buttons">
-            <a href='https://muovivlio.herokuapp.com/auth/google'> 
-              <i class="fab fa-google"></i>oogle Sign In
+          <p>Or Sign In Using</p>
+          
+            <a class="login100-social-item bg3" href='https://muovivlio.herokuapp.com/auth/google'> 
+              <i class="fab fa-google"></i>
             </a>
-          </button>
+          
           <br>
           </br>
           <p className='forgot-password'>
@@ -92,7 +102,7 @@ class Login extends React.Component {
           </a>
         </p>
           </div>
-        </div>
+        </div> 
         <br>
         </br>
         
