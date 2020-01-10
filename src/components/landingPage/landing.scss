@@ -1,5 +1,7 @@
 $phone: 500px;
+$small-phone: 360px;
 $tablet: 800px;
+
 
 .landing-background {
   background-image: url(../../vivlio.jpg);
@@ -50,7 +52,11 @@ $tablet: 800px;
     margin-left: 0;
     margin-top: 35%;
     padding: 10%;
+  }
 
+  @media (max-width: $small-phone) {
+    font-size: 3rem;
+    margin-top: 55%;
   }
 }
 
@@ -62,6 +68,9 @@ $tablet: 800px;
     width: 36%;
     text-align: center;
     margin-left: 0;
+  }
+  @media (max-width: $small-phone) {
+    width: 50%;
   }
 }
 
@@ -81,10 +90,14 @@ $tablet: 800px;
   @media (max-width: $phone) {
     flex-direction: column;
     align-items: center;
-    height: 35vh;
+    height: 40vh;
     background: #C9C8C6;
     opacity: 1;
     border: 1px solid red;
+  }
+
+  @media (max-width: $small-phone) {
+    border: none;
   }
 }
 
@@ -102,6 +115,11 @@ $tablet: 800px;
     padding: 10%;
     font-size: 10rem;
   }
+
+  @media (max-width: $small-phone) {
+    font-size: 5rem;
+    padding: 7%;
+  }
 }
 
 .icon-group {
@@ -113,11 +131,19 @@ $tablet: 800px;
   width: 25%;
   align-items: center;
   @media (max-width: $phone) {
-    width: 47%;
+    width: 70%;
     padding-bottom: 0;
     flex-direction: column;
+    border: 1px solid black;
+    margin-top: 3rem;
+    align-items: center;
   }
 
+  @media (max-width: $small-phone) {
+  width: 85%;
+  margin-top: 1rem;
+  border: none;
+  }
   .landing-text {
     display: flex;
     justify-content: flex-start;
@@ -128,11 +154,12 @@ $tablet: 800px;
     color: white;
     font-size: 2.3rem;
     @media (max-width: $phone) {
-      font-size: 0.8rem;
-      margin-top: 0;
-      border: 1px solid black;
+      font-size: 1.6rem;
       justify-content: center;
       width: 100%;
+    }
+    @media (max-width: $small-phone) {
+      font-size: 1.2rem;
     }
   }
 }
