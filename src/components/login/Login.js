@@ -49,11 +49,9 @@ class Login extends React.Component {
           <p className='login-title'> Login to your account</p>
           <br>
           </br>
-          <div>
+          
           <form className="submitForm" onSubmit={this.submitForm}>
-            <div className="inputs">
-              <div className="username-box">
-            <i id="input"class="fas fa-user fa-5x "></i>
+            <i id="input" className="fas fa-user fa-5x "></i>
             <input
               // onMouseEnter = {this.changeMe}
               className='username'
@@ -64,14 +62,9 @@ class Login extends React.Component {
               value={this.state.username}
               required
             />
-            </div>
-            <div className="password-box">
-
-            
             <br>
             </br>
-            {/* <i class="fas fa-key fa-6x"></i> */}
-            <i class="fas fa-lock fa-5x"></i>
+            <i className="fas fa-lock fa-5x"></i>
             <input
               className='username'
               onChange={this.onChange}
@@ -81,15 +74,13 @@ class Login extends React.Component {
               value={this.state.password}
               required
             />
-            </div>
-            </div>
             <button className='login-button' type='submit'>
               Login
             </button>
           </form>
           <p>Or Sign In Using</p>
           
-            <a class="login100-social-item bg3" href='https://muovivlio.herokuapp.com/auth/google'> 
+            <a class="login100-social-item bg3" href={`${process.env.REACT_APP_REQ_URL}/auth/google`}> 
               <i class="fab fa-google"></i>
             </a>
           
@@ -101,7 +92,7 @@ class Login extends React.Component {
             Click Here!
           </a>
         </p>
-          </div>
+          
         </div> 
         <br>
         </br>
