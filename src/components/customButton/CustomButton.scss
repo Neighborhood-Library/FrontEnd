@@ -136,13 +136,15 @@
 .availability {
   &.false{
     background: #f00;
+    color: #fff;
   }
   
   &.true {
     background: #0f0;
   }
+}
 
-  &:active {
-    background: #cacaca;
-  }
+.chat {
+  background: #009bb4;
+  color: #fff;
 }

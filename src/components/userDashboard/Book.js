@@ -58,13 +58,11 @@ class Book extends React.Component {
     }
   }
 
-  openModal = e => {
-    e.preventDefault();
+  openModal = () => {
     this.setState({modal: true});
   }
 
-  closeModal = e => {
-    e.preventDefault();
+  closeModal = () => {
     this.setState({modal: false});
   }
 
@@ -134,10 +132,9 @@ class Book extends React.Component {
     }
   }
 
-  refreshPage = e => {
-    e.preventDefault();
-
-    this.props.history.push('/dashboard');
+  refreshPage = async () => {
+    await this.checkTransactions();
+    this.closeModal();
   }
 
   render() {
@@ -201,11 +198,16 @@ class Book extends React.Component {
             ) : null
           }
           {
-            this.state.transaction.length > 0 ?
-            <CustomButton className='custom-button' onClick={this.goToChat}>
-              Visit Chat
-            </CustomButton>
-            : null
+            this.state.transaction.id !== undefined ? (
+            <>
+              <CustomButton className='custom-button chat' onClick={this.goToChat}>
+                Visit Chat
+              </CustomButton>
+              <CustomButton className='custom-button lendBookBtn'>
+                Return Book
+              </CustomButton>
+            </>
+            ) : null
           }
           <CustomButton learnMore={true}>
             <a
