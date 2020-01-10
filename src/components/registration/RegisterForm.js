@@ -147,11 +147,11 @@ class RegisterForm extends React.Component {
 							</span>
 							<span className='or'> Or Continue with </span>
 							<div className='google-button'>
-								<a href='https://muovivlio.herokuapp.com/auth/google'>
-									<CustomButton type='submit' loginWithGoogle>
+								<CustomButton type='submit' loginWithGoogle>
+									<a href='https://muovivlio.herokuapp.com/auth/google'>
 										<i className='fab fa-google'></i> oogle
-									</CustomButton>
-								</a>
+									</a>
+								</CustomButton>
 							</div>
 						</div>
 					</form>

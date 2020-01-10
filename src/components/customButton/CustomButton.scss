@@ -53,7 +53,7 @@
 	}
 
 	&:active {
-		transform: translateY(-3px);
+		transform: translateY(3px);
 	}
 
 	&:active,
@@ -64,24 +64,24 @@
 }
 
 .google-button {
-	background-color: #fff;
+	background-color: #fcbc03;
 	text-decoration: none;
-	color: #000;
+	color: #fff;
 	border-radius: 3px;
-	border: 1px solid #dbdbdb;
+	border: 1px solid #fcbc03;
 	font-size: 1.5rem;
 	transition-duration: 0.3s;
 	position: relative;
 
-	&:hover {
-		background-color: #000;
-		color: #fff;
-		border-radius: 3px;
-		border: 1px solid #000;
-	}
+	// &:hover {
+	// 	background-color: #000;
+	// 	color: #fff;
+	// 	border-radius: 3px;
+	// 	border: 1px solid #000;
+	// }
 
 	&:active {
-		transform: translateY(-1px);
+		transform: translateY(1px);
 		outline: none;
 		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
 	}
