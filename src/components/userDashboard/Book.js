@@ -81,12 +81,9 @@ class Book extends React.Component {
     await Axios
       .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${user_id}&${this.props.book.google_book_id}`, {withCredentials: true})
       .then(res => {
-        console.log(res.data);
-        if (res.data.message.id !== undefined) {
-          console.log('firing transaction');
+        if (res.data.message !== undefined) {
           this.setState({ transaction: res.data.message })
         } else {
-          console.log('checking available');
           this.checkAvailable();
         }
         return;
@@ -127,11 +124,20 @@ class Book extends React.Component {
   goToChat = e => {
     e.preventDefault();
 
+    const book = this.state.transaction;
+    const info = this.state.info.volumeInfo;
+
     if (this.props.lenders === true) {
-      this.props.history.push(`chat/${this.state.transaction.borrower_id}&${this.state.transaction.google_book_id}`);
+      this.props.history.push(`chat/${book.borrower_id}&${book.google_book_id}&${info.title}`);
     } else {
-      this.props.history.push(`chat/${this.state.transaction.lender_id}&${this.state.transaction.google_book_id}`);
+      this.props.history.push(`chat/${book.lender_id}&${book.google_book_id}&${info.title}`);
     }
+  }
+
+  refreshPage = e => {
+    e.preventDefault();
+
+    this.props.history.push('/dashboard');
   }
 
   render() {
@@ -151,7 +157,7 @@ class Book extends React.Component {
                 availability
                 closeModal={this.closeModal}
                 lenderBooks={this.state.lenderBooks}
-                updateChat={this.updateChat}
+                refreshPage={this.refreshPage}
                 userInfo={this.props.book}
               />
             :
@@ -194,9 +200,13 @@ class Book extends React.Component {
               </CustomButton>
             ) : null
           }
-          <CustomButton className='custom-button' onClick={this.goToChat}>
-            Visit Chat
-          </CustomButton>
+          {
+            this.state.transaction.length > 0 ?
+            <CustomButton className='custom-button' onClick={this.goToChat}>
+              Visit Chat
+            </CustomButton>
+            : null
+          }
           <CustomButton learnMore={true}>
             <a
               href={this.state.info !== null ? this.state.info.volumeInfo.previewLink : '#'} target="_blank" rel="noopener noreferrer">Learn More</a>

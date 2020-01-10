@@ -3,8 +3,6 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import Message from './Message/Message';
 import './Messages.css';
 
-
-// messages, name
 class Messages extends React.Component {
 	render() {
 		const user1 = this.props.transaction.borrower_id;
@@ -30,7 +28,7 @@ class Messages extends React.Component {
 				</ScrollToBottom>
 			)
 		} else {
-			return <ScrollToBottom className='messages'><p>Nothing to see.</p></ScrollToBottom>
+			return <ScrollToBottom className='messages'><p>Send a message...</p></ScrollToBottom>
 		}
 	}
 };

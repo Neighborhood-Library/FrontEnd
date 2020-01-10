@@ -32,12 +32,13 @@ class Modal extends React.Component {
 
     const lender_id_JSX = e.target.attributes.name.value;
 
-    await Axios
+    return await Axios
       .post(`${process.env.REACT_APP_REQ_URL}/api/transaction/`,
       {lender_id: lender_id_JSX, google_book_id: this.props.userInfo.google_book_id, borrower_id: this.props.userInfo.borrower_id}
       , {withCredentials: true})
       .then(res => {
-        this.props.updateChat(res.data);
+        this.props.refreshPage();
+        return;
       })
       .catch(err => console.log(err));
   }
