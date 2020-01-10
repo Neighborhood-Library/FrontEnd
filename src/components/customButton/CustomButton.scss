@@ -26,6 +26,7 @@
 	background-color: #6cb0e2;
 	font-size: 1.7rem;
 	transition-duration: 0.3s;
+	border-radius: 3px;
 
 	&:hover {
 		color: #ffffff;
@@ -153,9 +154,9 @@
 
 .chatBtn {
 	background-color: #fff;
-	margin-top: 5px;
 	color: #000;
 	transition-duration: 0.3s;
+	margin-top: 5px;
 
 	&:hover {
 		background-color: #7ca9e4;
