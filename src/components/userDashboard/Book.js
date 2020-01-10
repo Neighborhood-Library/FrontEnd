@@ -24,11 +24,11 @@ class Book extends React.Component {
     let infoHolder = {};
 
     // if borrow collection
-    if (this.props.lenders) {
+    // if (this.props.lenders) {
       // show all users with book available to borrow
       // this.checkAvailable();
-      this.checkTransactions();
-    }
+    // }
+    await this.checkTransactions();
 
     // check if book has transaction
     // await Axios
@@ -69,9 +69,17 @@ class Book extends React.Component {
   }
 
   checkTransactions = async () => {
+    let user_id;
+
+    if (this.props.lenders === true) {
+      user_id = this.props.book.borrower_id;
+    } else {
+      user_id = this.props.book.lender_id;
+    }
+
     // get transaction if available
     await Axios
-      .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${this.props.book.borrower_id}&${this.props.book.google_book_id}`, {withCredentials: true})
+      .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${user_id}&${this.props.book.google_book_id}`, {withCredentials: true})
       .then(res => {
         if (res.data.message || res.data.length > 0) {
           this.setState({ transaction: res.data.message })
@@ -116,7 +124,11 @@ class Book extends React.Component {
   goToChat = e => {
     e.preventDefault();
 
-    this.props.history.push(`chat/${this.state.transaction.borrower_id}&${this.state.transaction.google_book_id}`);
+    if (this.props.lenders === true) {
+      this.props.history.push(`chat/${this.state.transaction.borrower_id}&${this.state.transaction.google_book_id}`);
+    } else {
+      this.props.history.push(`chat/${this.state.transaction.lender_id}&${this.state.transaction.google_book_id}`);
+    }
   }
 
   render() {
