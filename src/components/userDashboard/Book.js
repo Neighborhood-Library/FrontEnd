@@ -162,12 +162,13 @@ class Book extends React.Component {
 					/>
 					<h4 className='bookTitle'>{this.state.info.volumeInfo.title}</h4>
 					<h4 className='author'>
+						By:{' '}
 						{this.state.info.volumeInfo.authors
 							? this.state.info.volumeInfo.authors[0]
 							: 'N/A'}
 					</h4>
 					<p className='bookSummary'>
-						{this.state.info.volumeInfo.publishedDate.split('-')[0]}
+						Published: {this.state.info.volumeInfo.publishedDate.split('-')[0]}
 					</p>
 					{// checks to show lenders
 					this.props.lenders && !this.state.transaction.google_book_id ? (
