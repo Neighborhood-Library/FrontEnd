@@ -1,5 +1,4 @@
 body {
-  font-family: 'Open Sans', sans-serif;
   /* background:#3498db; */
   margin: 0 auto 0 auto;
   width: 100%;
@@ -12,7 +11,7 @@ body {
   font-size: 2.5rem;
   color: #525252;
   padding: 2%;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 300;
 }
 .box {
@@ -23,7 +22,10 @@ body {
   margin: 0 auto 0 auto;
   padding: 4% 4%;
   border: #3a3a3b 1px solid;
+ 
 }
+
+
 
 .username {
   background: #fcfdfd;
@@ -31,11 +33,13 @@ body {
   /* border-bottom: #ccc 2px solid; */
   padding: 3%;
   width: 250px;
-  color: rgba(61, 60, 60, 0.205);
+  /* color: rgba(61, 60, 60, 0.205); */
   margin-top: 10px;
   font-size: 1.5rem;
   border-radius: 3px;
+  font-family: 'BioRhyme', serif;
 }
+
 
 .login-button {
   background: #6bafe1;
@@ -52,6 +56,11 @@ body {
   font-weight: 400;
   font-size: 1.5rem;
   text-transform: uppercase;
+  transition-property: background;
+}
+.login-button:hover {
+  /* border-radius: 10%; */
+  background: #4b7a9e;
 }
 /* .login-button:hover {
   background-color: #6bafe1;
@@ -73,10 +82,21 @@ body {
   bottom: 0;
   left: 0;
   right: 0; */
+  position:relative;
   margin: 0 auto;
   width: 400px;
   height: 300px;
   /* text-align: center; */
+  animation-name:div;
+  animation-duration: 1s;
+  /* font-family: 'BioRhyme', serif; */
+  font-family: 'Arvo', serif;
+}
+@keyframes div {
+  0% {top:-50px;opacity: 0 }
+  25%{opacity:.2}
+  50% {opacity: .5;}
+  100%{top:0px; opacity:1}
 }
 .fas.fa-user {
   padding:10px;
@@ -94,31 +114,23 @@ body {
   border-color: #2ecc71;
 }
 
-.google-buttons{
-  /* height: 70px; */
-  font-size: 15px;
-  height: 35px;
-  width: 135px;
-  border-radius: 3px;
-  border: 1px solid black;
-  /* background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
-  
-}
-.google-buttons:hover {
-  /* background: #6bafe1; */
-  /* background: linear-gradient(120DEG, #4285f4,#34A853,#FBBC05,#EA4335); */
-  
-}
-.google-buttons a {
-  color:black;
-  
-  text-decoration: none;
-}
-.fab.fa-google{
-  background: -webkit-linear-gradient(-120DEG,#4285f4,#34A853,#FBBC05,#EA4335);
-  /* background:green; */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 
-  /* text-decoration-color: linear-gradient(-120DEG, #4285f4,#34A853,#FBBC05,#EA4335); */
+
+.login100-social-item {
+  font-size: 25px;
+  color: #fff;
+  display:inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
 }
+.login100-social-item:hover {
+color:white;
+text-decoration:none;
+background-color:#333333;
+}
+
+.bg3 {background-color: #ea4335}
