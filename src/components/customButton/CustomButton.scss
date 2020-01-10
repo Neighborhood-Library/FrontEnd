@@ -43,6 +43,7 @@
 .register-button {
 	background-color: #6cb0e2;
 	color: #ffffff;
+	font-size: 1.5rem;
 	transition-duration: 0.3s;
 
 	&:hover {
@@ -63,15 +64,20 @@
 }
 
 .google-button {
-	background-color: #fbbc05;
+	background-color: #fff;
 	text-decoration: none;
-	color: #ffffff;
+	color: #000;
 	border-radius: 3px;
+	border: 1px solid #dbdbdb;
+	font-size: 1.5rem;
 	transition-duration: 0.3s;
+	position: relative;
 
 	&:hover {
-		background-color: #e8b923;
+		background-color: #000;
+		color: #fff;
 		border-radius: 3px;
+		border: 1px solid #000;
 	}
 
 	&:active {

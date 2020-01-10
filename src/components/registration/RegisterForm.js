@@ -149,7 +149,7 @@ class RegisterForm extends React.Component {
 							<div className='google-button'>
 								<a href='https://muovivlio.herokuapp.com/auth/google'>
 									<CustomButton type='submit' loginWithGoogle>
-										Google
+										<i className='fab fa-google'></i> oogle
 									</CustomButton>
 								</a>
 							</div>
