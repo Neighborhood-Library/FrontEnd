@@ -81,9 +81,12 @@ class Book extends React.Component {
     await Axios
       .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${user_id}&${this.props.book.google_book_id}`, {withCredentials: true})
       .then(res => {
+        console.log(res.data);
         if (res.data.message !== undefined && res.data.message.length > 0) {
+          console.log('firing transaction');
           this.setState({ transaction: res.data.message })
         } else {
+          console.log('checking available');
           this.checkAvailable();
         }
         return;
