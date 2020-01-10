@@ -82,7 +82,7 @@ class Book extends React.Component {
       .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${user_id}&${this.props.book.google_book_id}`, {withCredentials: true})
       .then(res => {
         console.log(res.data);
-        if (res.data.message !== undefined && res.data.message.length > 0 || res.data.message.id !== undefined) {
+        if (res.data.message.id !== undefined) {
           console.log('firing transaction');
           this.setState({ transaction: res.data.message })
         } else {
