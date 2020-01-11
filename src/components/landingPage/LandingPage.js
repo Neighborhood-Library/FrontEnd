@@ -21,15 +21,15 @@ export const LandingPage = () => {
       </div>
       <footer className='landing-footer'>
         <div className='icon-group'>
-          <FontAwesomeIcon className='icon' icon={faBookOpen} />
-          <p>
+          <FontAwesomeIcon className='landing-icon' icon={faBookOpen} />
+          <p className='landing-text'>
             Share your own collection <br />
             or borrow from others
           </p>
         </div>
         <div className='icon-group'>
-          <FontAwesomeIcon className='icon' icon={faUserFriends} />
-          <p>
+          <FontAwesomeIcon className='landing-icon' icon={faUserFriends} />
+          <p className='landing-text'>
             Join a vibrant community of book <br />
             enthuisists in your local area
           </p>
