@@ -175,8 +175,10 @@
 
 .availability {
 	transition-duration: 0.3s;
+	
 	&.false {
 		background: #f00;
+    color: #fff;
 	}
 
 	&.true {
@@ -193,4 +195,9 @@
 		outline: none;
 		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
 	}
+}
+
+.chat {
+  background: #009bb4;
+  color: #fff;
 }
