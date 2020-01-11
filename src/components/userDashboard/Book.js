@@ -81,7 +81,7 @@ class Book extends React.Component {
       .then(res => {
 	console.log(res.data);
 	console.log(res.data.message, res.data.message.length > 0, Object.entries(res.data).length > 0);
-        if (res.data.message && res.data.message.length > 0 && Object.entries(res.data).length > 0) {
+        if (res.data.message && Object.entries(res.data).length > 0) {
           this.setState({ transaction: res.data.message })
         } else {
           this.checkAvailable();
