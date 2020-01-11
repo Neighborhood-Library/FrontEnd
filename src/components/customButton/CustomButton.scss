@@ -13,6 +13,7 @@
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
+	margin-bottom: 5px;
 
 	a {
 		&:hover {
@@ -134,7 +135,6 @@
 }
 
 .learnMoreBtn {
-	margin-top: 5px;
 	background: #525252;
 	transition-duration: 0.3s;
 
@@ -162,7 +162,6 @@
 	background-color: #fff;
 	color: #000;
 	transition-duration: 0.3s;
-	margin-top: 5px;
 
 	&:hover {
 		background-color: #7ca9e4;
