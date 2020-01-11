@@ -58,11 +58,14 @@ class Book extends React.Component {
     }
   }
 
-  openModal = () => {
+  openModal = e => {
+		e.preventDefault();
+
     this.setState({modal: true});
   }
 
-  closeModal = () => {
+  closeModal = e => {
+		e.preventDefault();
     this.setState({modal: false});
   }
 
