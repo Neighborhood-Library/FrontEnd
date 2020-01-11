@@ -24,10 +24,10 @@
 	animation-timing-function: ease-out; */
 }
 
-.bookCard:hover {
+/* .bookCard:hover {
 	transform: translateY(-0.5rem);
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* @keyframes moveInBottom {
 	0% {
