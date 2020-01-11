@@ -2,7 +2,7 @@ $phone: 500px;
 $small-phone: 360px;
 $small-iphone: 320px;
 $medium-iphone: 375px;
-$medium-phone: 411px;
+$medium-phone: 414px;
 $tablet: 800px;
 
 
@@ -97,12 +97,12 @@ $tablet: 800px;
     @media (max-width: $medium-phone) {
       min-width: 12rem;
       padding: 0 2rem;
-      margin-left: 2rem;
+      margin-left: 2.2rem;
       font-size: 1.5rem;
       border: 1px solid black;
     }
 
-    @media (max-width: $medium-phone) {
+    @media (max-width: $medium-iphone) {
       margin-left: 1.5rem;
     }
 
