@@ -1,6 +1,7 @@
 .container {
+	font-family: 'Montserrat', sans-serif;
 	width: 100%;
-	height: 75vh;
+	// height: 75vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -20,14 +21,13 @@
 	}
 
 	.form-content {
-		width: 100%;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 	}
 
 	.sign-up-title {
-		font-family: Helvetica, sans-serif;
+		font-family: 'Montserrat', sans-serif;
 		width: 100%;
 		font-size: 3rem;
 		font-weight: lighter;
@@ -38,7 +38,7 @@
 	}
 	.reg-label {
 		text-align: start;
-		font-size: 1.3rem;
+		font-size: 1.4rem;
 		font-weight: 300;
 		margin-left: 7px;
 		margin-bottom: 3px;
@@ -54,7 +54,7 @@
 		padding: 8px 8px;
 		border: none;
 		border-bottom: 2px solid transparent;
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		color: inherit;
 		font-weight: 400;
 		letter-spacing: 0.04rem;
@@ -72,7 +72,7 @@
 		}
 
 		&::-webkit-input-placeholder {
-			color: #bebebe;
+			color: #6e6c6e;
 		}
 	}
 
@@ -116,6 +116,12 @@
 		right: 10px;
 		font-size: 1.3rem;
 		cursor: pointer;
+	}
+
+	.fab {
+		position: absolute;
+		top: 15px;
+		left: 44px;
 	}
 
 	.or {

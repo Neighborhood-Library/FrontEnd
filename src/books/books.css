@@ -19,17 +19,17 @@
 	position: relative;
 	backface-visibility: hidden;
 	transition: transform 0.3s;
-	animation-name: moveInBottom;
+	/* animation-name: moveInBottom;
 	animation-duration: 2s;
-	animation-timing-function: ease-out;
+	animation-timing-function: ease-out; */
 }
 
 .bookCard:hover {
-	transform: translateY(-1rem) scale(1.03);
+	transform: translateY(-0.5rem);
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 
-@keyframes moveInBottom {
+/* @keyframes moveInBottom {
 	0% {
 		opacity: 0;
 		transform: translateY(3rem);
@@ -38,7 +38,7 @@
 		opacity: 1;
 		transform: translate(0);
 	}
-}
+} */
 
 .bookTitle {
 	font-size: 1.6rem;

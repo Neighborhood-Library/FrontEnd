@@ -4,7 +4,7 @@
 	height: auto;
 	letter-spacing: 0.7px;
 	line-height: 45px;
-	padding: 0 35px 0 35px;
+	padding: 0 3%;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	border-radius: 3px;
@@ -26,6 +26,7 @@
 	background-color: #6cb0e2;
 	font-size: 1.7rem;
 	transition-duration: 0.3s;
+	border-radius: 3px;
 
 	&:hover {
 		color: #ffffff;
@@ -42,6 +43,7 @@
 .register-button {
 	background-color: #6cb0e2;
 	color: #ffffff;
+	font-size: 1.5rem;
 	transition-duration: 0.3s;
 
 	&:hover {
@@ -51,7 +53,7 @@
 	}
 
 	&:active {
-		transform: translateY(-3px);
+		transform: translateY(3px);
 	}
 
 	&:active,
@@ -62,19 +64,24 @@
 }
 
 .google-button {
-	background-color: #fbbc05;
+	background-color: #fcbc03;
 	text-decoration: none;
-	color: #ffffff;
+	color: #fff;
 	border-radius: 3px;
+	border: 1px solid #fcbc03;
+	font-size: 1.5rem;
 	transition-duration: 0.3s;
+	position: relative;
 
-	&:hover {
-		background-color: #e8b923;
-		border-radius: 3px;
-	}
+	// &:hover {
+	// 	background-color: #000;
+	// 	color: #fff;
+	// 	border-radius: 3px;
+	// 	border: 1px solid #000;
+	// }
 
 	&:active {
-		transform: translateY(-1px);
+		transform: translateY(1px);
 		outline: none;
 		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
 	}
@@ -153,9 +160,9 @@
 
 .chatBtn {
 	background-color: #fff;
-	margin-top: 5px;
 	color: #000;
 	transition-duration: 0.3s;
+	margin-top: 5px;
 
 	&:hover {
 		background-color: #7ca9e4;

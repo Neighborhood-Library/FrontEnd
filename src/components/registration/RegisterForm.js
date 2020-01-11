@@ -105,28 +105,28 @@ class RegisterForm extends React.Component {
 							<input
 								className='reg-input'
 								type='text'
-								placeholder='Username'
+								placeholder='Create a Username'
 								name='username'
 								value={username}
 								onChange={this.handleChange}
 								required
 							/>
 							<label className='reg-label' htmlFor='username'>
-								Create a Username
+								Username
 							</label>
 						</div>
 						<div className='form-group password'>
 							<input
 								className='reg-input'
 								type={showPassword ? 'text' : 'password'}
-								placeholder='Password'
+								placeholder='Create a Password'
 								name='password'
 								value={password}
 								onChange={this.handleChange}
 								required
 							/>
 							<label className='reg-label' htmlFor='password'>
-								Create a Password
+								Password
 							</label>
 							<i
 								className={`fa ${
@@ -149,7 +149,7 @@ class RegisterForm extends React.Component {
 							<div className='google-button'>
 								<CustomButton type='submit' loginWithGoogle>
 									<a href='https://muovivlio.herokuapp.com/auth/google'>
-										Google
+										<i className='fab fa-google'></i> oogle
 									</a>
 								</CustomButton>
 							</div>
