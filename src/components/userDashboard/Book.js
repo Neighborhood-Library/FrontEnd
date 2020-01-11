@@ -109,7 +109,7 @@ class Book extends React.Component {
     // change availablility of lender's book
     await Axios
       .put(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${this.props.book.id}`, {},{withCredentials:true})
-      .then(res => {
+      .then(() => {
         this.props.lendBookDashboard();
         return;
       })
