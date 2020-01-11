@@ -1,5 +1,8 @@
 $phone: 500px;
 $small-phone: 360px;
+$small-iphone: 320px;
+$medium-iphone: 375px;
+$medium-phone: 411px;
 $tablet: 800px;
 
 
@@ -54,6 +57,16 @@ $tablet: 800px;
     padding: 10%;
   }
 
+  @media (max-width: $medium-phone) {
+    margin-top: 65%;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: $medium-iphone) {
+    margin-top: 75%;
+    padding: 1rem;
+  }
+
   @media (max-width: $small-phone) {
     font-size: 3rem;
     margin-top: 55%;
@@ -69,8 +82,37 @@ $tablet: 800px;
     text-align: center;
     margin-left: 0;
   }
+
+  @media (max-width: $medium-phone) {
+    width: 40%;
+  }
+
   @media (max-width: $small-phone) {
     width: 50%;
+  }
+}
+
+.sign-up {
+  &.custom-button {
+    @media (max-width: $medium-phone) {
+      min-width: 12rem;
+      padding: 0 2rem;
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      border: 1px solid black;
+    }
+
+    @media (max-width: $medium-phone) {
+      margin-left: 1.5rem;
+    }
+
+    @media (max-width: $small-phone) {
+      margin-left: 2.8rem;
+    }
+
+    @media (max-width: $small-iphone) {
+      margin-left: 1.9rem;
+    }
   }
 }
 
@@ -116,6 +158,11 @@ $tablet: 800px;
     font-size: 10rem;
   }
 
+  @media (max-width: $medium-phone) {
+    font-size: 6rem;
+    padding: 5%;
+  }
+
   @media (max-width: $small-phone) {
     font-size: 5rem;
     padding: 7%;
@@ -137,6 +184,18 @@ $tablet: 800px;
     border: 1px solid black;
     margin-top: 3rem;
     align-items: center;
+  }
+
+  @media (max-width: $medium-phone) {
+    width: 80%;
+    margin-top: 2rem;
+    border: none;
+  }
+
+  @media (max-width: $medium-iphone) {
+    width: 90%;
+    border: 1px solid black;
+    margin-top: 0;
   }
 
   @media (max-width: $small-phone) {
