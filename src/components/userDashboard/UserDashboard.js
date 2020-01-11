@@ -96,6 +96,7 @@ class UserDashboard extends React.Component {
               <BooksList
                 books={this.props.wishlistBooks}
                 deleteBookHandler={this.deleteBookHandler}
+                borrowBookDashboard={this.props.borrowBookDashboard}
                 lenders={true}
               />
             </>) : null
