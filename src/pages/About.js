@@ -6,47 +6,56 @@ const About = () => {
     {
       name: 'Brandon Desselle',
       profile: 'https://github.com/BDesselle',
-      img: './img/brandon-desselle.jpg'
+      img: './img/brandon-desselle.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Cam Perry',
       profile: 'https://github.com/cpscott1',
-      img: './img/cam-perry.jpg'
+      img: './img/cam-perry.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Ali Rajaii',
       profile: 'https://github.com/rajaii',
-      img: './img/ali-rajaii.jpg'
+      img: './img/ali-rajaii.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Shobhita Vaishnav',
       profile: 'https://github.com/shobhitav',
-      img: './img/shobhita-vaishnav.jpg'
+      img: './img/shobhita-vaishnav.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Carlos Sanchez',
       profile: 'https://github.com/Lohrem',
-      img: './img/carlos-sanchez.jpg'
+      img: './img/carlos-sanchez.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Mariana Huh',
       profile: 'https://github.com/marianahuh',
-      img: './img/mariana-huh.jpg'
+      img: './img/mariana-huh.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Joshua Stevens',
       profile: 'https://github.com/JustSpokenCodes',
-      img: './img/joshua-stevens.jpg'
+      img: './img/joshua-stevens.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Oscar Valenzuela',
       profile: 'https://github.com/oscarv0101',
-      img: './img/oscar-valenzuela.jpg'
+      img: './img/oscar-valenzuela.jpg',
+      role: 'Software Engineer'
     },
     {
       name: 'Shawn Henry',
       profile: 'https://github.com/shenry45',
-      img: './img/shawn-henry.jpg'
+      img: './img/shawn-henry.jpg',
+      role: 'Software Engineer'
     }
   ];
 
@@ -77,6 +86,7 @@ const About = () => {
                   <a href={memb.profile} target="_blank" rel="noopener noreferrer">
                     {memb.name}
                   </a>
+                  <p className='about-role'>{memb.role}</p>
                 </p>
               </div>
             })
