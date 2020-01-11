@@ -2,19 +2,20 @@ import React from 'react';
 import './CustomButton.scss';
 
 const CustomButton = ({
-  children,
-  isSignUp,
-  isRegister,
-  loginWithGoogle,
-  availability,
-  removeBook,
-  isBorrowBook,
-  isLendBook,
-  learnMore,
-  ...otherProps
+	children,
+	isSignUp,
+	isRegister,
+	loginWithGoogle,
+	availability,
+	removeBook,
+	isBorrowBook,
+	isLendBook,
+	learnMore,
+	isChat,
+	...otherProps
 }) => (
-  <button
-    className={`
+	<button
+		className={`
       ${isRegister ? 'register-button' : ''}
       ${isSignUp ? 'sign-up' : ''}
       ${loginWithGoogle ? 'google-button' : ''}
@@ -23,12 +24,12 @@ const CustomButton = ({
       ${isBorrowBook ? 'borrowBookBtn' : ''}
       ${isLendBook ? 'lendBookBtn' : ''}
       ${learnMore ? 'learnMoreBtn' : ''}
-      custom-button`
-    }
-    {...otherProps}
-  >
-    {children}
-  </button>
+      ${isChat ? 'chatBtn' : ''}
+      custom-button`}
+		{...otherProps}
+	>
+		{children}
+	</button>
 );
 
 export default CustomButton;

@@ -1,110 +1,132 @@
 .container {
-  width: 100%;
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #c5c5c2;
-  margin-top: 15px;
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	// height: 75vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #c5c5c2;
+	margin-top: 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-  .form-container {
-    width: 27%;
-    display: flex;
-    flex-direction: column;
-    padding: 2% 3%;
-    border: 1px solid grey;
-    border-radius: 3px;
-    background-color: #ffffff;
-  }
+	.form-container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: 3% 3%;
+		border: none;
+		border-radius: 3px;
+		background-color: #f5f4f4;
+	}
 
-  .form-content {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
+	.form-content {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
 
-  .sign-up-title {
-    width: 100%;
-    font-size: 3rem;
-    font-weight: 200;
-    text-align: center;
-    padding-bottom: 10%;
-    text-transform: uppercase;
-  }
-  .reg-label {
-    text-align: start;
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 3px;
-    letter-spacing: 0.03rem;
-  }
+	.sign-up-title {
+		font-family: 'Montserrat', sans-serif;
+		width: 100%;
+		font-size: 3rem;
+		font-weight: lighter;
+		color: #6d6d68;
+		text-align: center;
+		padding-bottom: 10%;
+		text-transform: uppercase;
+	}
+	.reg-label {
+		text-align: start;
+		font-size: 1.4rem;
+		font-weight: 300;
+		margin-left: 7px;
+		margin-bottom: 3px;
+		display: block;
+		letter-spacing: 0.03rem;
+		color: #797779;
+		transition: all 0.3s;
+	}
 
-  .reg-input {
-    border-radius: 3px;
-    outline: none;
-    padding: 8px 8px;
-    border: 1px solid lightgray;
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 0.04rem;
-    margin-bottom: 2px;
+	.reg-input {
+		outline: none;
+		border-radius: 2px;
+		padding: 8px 8px;
+		border: none;
+		border-bottom: 2px solid transparent;
+		font-size: 1.5rem;
+		color: inherit;
+		font-weight: 400;
+		letter-spacing: 0.04rem;
+		display: block;
+		margin-bottom: 2px;
 
-    .reg-input::placeholder {
-      font-size: 1rem;
-      letter-spacing: 0.04rem;
-      font-weight: 200;
-      color: lightgray;
-    }
-  }
+		&:focus {
+			outline: none;
+			box-shadow: 1px 3px 5px 1px rgba(#000, 0.2);
+			border-bottom: 2px solid rgb(95, 194, 56);
+		}
 
-  .firstName,
-  .lastName,
-  .email,
-  .user-name,
-  .password {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-  }
+		&:focus:invalid {
+			border-bottom: 2px solid #e96006;
+		}
 
-  .firstName,
-  .lastName,
-  .email,
-  .user-name,
-  .password {
-    width: 100%;
-  }
+		&::-webkit-input-placeholder {
+			color: #6e6c6e;
+		}
+	}
 
-  .password {
-    position: relative;
-  }
+	.form-group {
+		.reg-input:placeholder-shown + .reg-label {
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-4rem);
+		}
+	}
 
-  .register {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 12px;
+		width: 100%;
+	}
 
-  .login-link {
-    font-size: 1.1rem;
-    font-weight: 300;
-    text-decoration: none;
-    margin-top: 0.3rem;
-  }
+	.password {
+		position: relative;
+	}
 
-  .password-icon {
-    position: absolute;
-    color: #797779;
-    top: 33px;
-    right: 9px;
-    cursor: pointer;
-  }
+	.register {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-  .or {
-    margin-top: 12px;
-    padding: 2%;
-    font-size: 1.1rem;
-  }
+	.login-link {
+		font-size: 1.1rem;
+		font-weight: 300;
+		text-decoration: none;
+		margin-top: 0.7rem;
+	}
+
+	.password-icon {
+		position: absolute;
+		color: #9e9d9ec0;
+		top: 15px;
+		right: 10px;
+		font-size: 1.3rem;
+		cursor: pointer;
+	}
+
+	.fab {
+		position: absolute;
+		top: 15px;
+		left: 44px;
+	}
+
+	.or {
+		margin-top: 12px;
+		padding: 2%;
+		font-size: 1.1rem;
+	}
 }

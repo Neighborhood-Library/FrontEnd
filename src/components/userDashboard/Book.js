@@ -24,11 +24,11 @@ class Book extends React.Component {
     let infoHolder = {};
 
     // if borrow collection
-    if (this.props.lenders) {
+    // if (this.props.lenders) {
       // show all users with book available to borrow
       // this.checkAvailable();
-      this.checkTransactions();
-    }
+    // }
+    await this.checkTransactions();
 
     // check if book has transaction
     // await Axios
@@ -58,24 +58,28 @@ class Book extends React.Component {
     }
   }
 
-  openModal = e => {
-    e.preventDefault();
+  openModal = () => {
     this.setState({modal: true});
   }
 
-  closeModal = e => {
-    e.preventDefault();
+  closeModal = () => {
     this.setState({modal: false});
   }
 
   checkTransactions = async () => {
+    let user_id;
+
+    if (this.props.lenders === true) {
+      user_id = this.props.book.borrower_id;
+    } else {
+      user_id = this.props.book.lender_id;
+    }
+
     // get transaction if available
     await Axios
-      .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${this.props.book.borrower_id}&${this.props.book.google_book_id}`, {withCredentials: true})
+      .get(`${process.env.REACT_APP_REQ_URL}/api/transaction/${user_id}&${this.props.book.google_book_id}`, {withCredentials: true})
       .then(res => {
-        console.log(res.data);
-
-        if (res.data.message || res.data.length > 0) {
+        if (res.data.message !== undefined) {
           this.setState({ transaction: res.data.message })
         } else {
           this.checkAvailable();
@@ -115,6 +119,24 @@ class Book extends React.Component {
       });
   }
 
+  goToChat = e => {
+    e.preventDefault();
+
+    const book = this.state.transaction;
+    const info = this.state.info.volumeInfo;
+
+    if (this.props.lenders === true) {
+      this.props.history.push(`chat/${book.borrower_id}&${book.google_book_id}&${info.title}`);
+    } else {
+      this.props.history.push(`chat/${book.lender_id}&${book.google_book_id}&${info.title}`);
+    }
+  }
+
+  refreshPage = async () => {
+    await this.checkTransactions();
+    this.closeModal();
+  }
+
   render() {
     if (this.state.info === null) {
       return (
@@ -132,7 +154,7 @@ class Book extends React.Component {
                 availability
                 closeModal={this.closeModal}
                 lenderBooks={this.state.lenderBooks}
-                updateChat={this.updateChat}
+                refreshPage={this.refreshPage}
                 userInfo={this.props.book}
               />
             :
@@ -175,9 +197,18 @@ class Book extends React.Component {
               </CustomButton>
             ) : null
           }
-          <CustomButton className='custom-button' onClick={this.state.transaction}>
-            Visit Chat
-          </CustomButton>
+          {
+            this.state.transaction.id !== undefined ? (
+            <>
+              <CustomButton className='custom-button chat' onClick={this.goToChat}>
+                Visit Chat
+              </CustomButton>
+              <CustomButton className='custom-button lendBookBtn'>
+                Return Book
+              </CustomButton>
+            </>
+            ) : null
+          }
           <CustomButton learnMore={true}>
             <a
               href={this.state.info !== null ? this.state.info.volumeInfo.previewLink : '#'} target="_blank" rel="noopener noreferrer">Learn More</a>
@@ -189,8 +220,8 @@ class Book extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  availPending: state.getAvailBooksRed.availPending,
-  availBooks: state.getAvailBooksRed.books
+	availPending: state.getAvailBooksRed.availPending,
+	availBooks: state.getAvailBooksRed.books
 });
 
 const WithRouterComp = withRouter(Book);
