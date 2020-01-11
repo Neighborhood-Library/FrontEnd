@@ -220,8 +220,8 @@ class Book extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  availPending: state.getAvailBooksRed.availPending,
-  availBooks: state.getAvailBooksRed.books
+	availPending: state.getAvailBooksRed.availPending,
+	availBooks: state.getAvailBooksRed.books
 });
 
 const WithRouterComp = withRouter(Book);
