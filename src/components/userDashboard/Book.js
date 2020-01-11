@@ -15,7 +15,7 @@ class Book extends React.Component {
       info: null,
       modal: false,
       lenderBooks: [],
-      transaction: null
+      transaction: []
     }
   }
 
@@ -142,7 +142,7 @@ class Book extends React.Component {
 			.put(`${process.env.REACT_APP_REQ_URL}/api/transaction/${this.state.transaction.id}`, {}, {withCredentials: true})
 			.catch(err => console.log(err));
 
-		this.setState({transaction: null});
+		this.setState({transaction: []});
 	}
 
   render() {
