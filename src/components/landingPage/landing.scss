@@ -35,7 +35,6 @@ $tablet: 800px;
   @media (max-width: $phone) {
     height: 60vh;
     align-items: center;
-    border: 1px solid black;
   }
 }
 
@@ -53,7 +52,7 @@ $tablet: 800px;
     width: 100%;
     text-align: center;
     margin-left: 0;
-    margin-top: 35%;
+    margin-top: 65%;
     padding: 10%;
   }
 
@@ -99,7 +98,6 @@ $tablet: 800px;
       padding: 0 2rem;
       margin-left: 2.2rem;
       font-size: 1.5rem;
-      border: 1px solid black;
     }
 
     @media (max-width: $medium-iphone) {
@@ -135,7 +133,6 @@ $tablet: 800px;
     height: 40vh;
     background: #C9C8C6;
     opacity: 1;
-    border: 1px solid red;
   }
 
   @media (max-width: $small-phone) {
@@ -153,7 +150,6 @@ $tablet: 800px;
   margin-left: 2%;
   margin-top: 3.2%;
   @media (max-width: $phone) {
-    border: 1px solid red;
     padding: 10%;
     font-size: 10rem;
   }
@@ -181,7 +177,6 @@ $tablet: 800px;
     width: 70%;
     padding-bottom: 0;
     flex-direction: column;
-    border: 1px solid black;
     margin-top: 3rem;
     align-items: center;
   }
@@ -194,7 +189,6 @@ $tablet: 800px;
 
   @media (max-width: $medium-iphone) {
     width: 90%;
-    border: 1px solid black;
     margin-top: 0;
   }
 
@@ -203,6 +197,7 @@ $tablet: 800px;
   margin-top: 1rem;
   border: none;
   }
+
   .landing-text {
     display: flex;
     justify-content: flex-start;
