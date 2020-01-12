@@ -13,11 +13,9 @@ export const LandingPage = () => {
 					A New Way to <br />
 					Share Books
 				</h1>
-				<div className='sign-up'>
-					<CustomButton isSignUp>
-						<Link to='/register'>Sign Up</Link>
-					</CustomButton>
-				</div>
+				<Link className='sign-up' to='/register'>
+					<CustomButton isSignUp>Sign Up</CustomButton>
+				</Link>
 			</div>
 			<footer className='landing-footer'>
 				<div className='icon-group'>

@@ -6,7 +6,7 @@ $medium-phone: 414px;
 $tablet: 800px;
 
 .landing-background {
-	background-image: url(../../vivlio.jpg);
+	background-image: url(../../assests/vivlio.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -32,13 +32,16 @@ $tablet: 800px;
 	justify-content: center;
 
 	@media (max-width: $phone) {
+		background-image: url(../../assests/landing-img-dark.png);
+		background-size: cover;
+		background-position: center;
 		height: 60vh;
 		align-items: center;
 	}
 }
 
 .cta {
-	font-family: 'Quicksand', sans-serif;
+	// font-family: 'Quicksand', sans-serif;
 	font-weight: 300;
 	font-size: 4.5rem;
 	padding-bottom: 2%;
@@ -46,18 +49,25 @@ $tablet: 800px;
 	margin-top: 5%;
 	margin-left: 5%;
 	text-align: justify;
+	color: #52524c;
+	line-height: 5.5rem;
+	letter-spacing: 0.1rem;
+	font-weight: 300;
+	font-size: 4.5rem;
 
 	@media (max-width: $phone) {
 		width: 100%;
 		text-align: center;
+		line-height: normal;
 		margin-left: 0;
 		margin-top: 65%;
 		padding: 10%;
+		color: #fff;
 	}
 
 	@media (max-width: $medium-phone) {
 		margin-top: 65%;
-		font-size: 2.5rem;
+		font-size: 3rem;
 	}
 
 	@media (max-width: $medium-iphone) {
@@ -71,20 +81,9 @@ $tablet: 800px;
 	}
 }
 
-// @media (max-width: $phone) {
-// 	width: 100%;
-// 	text-align: center;
-// 	margin-left: 0;
-// 	margin-top: 35%;
-// }
-
-.cta-title {
-	margin: 5% 0 5%;
-	color: #5e5e5c;
-	line-height: 5.5rem;
-	letter-spacing: 0.15rem;
-	font-weight: 300;
-	font-size: 4.5rem;
+.sign-up {
+	margin-left: 5%;
+	width: 0.001%;
 
 	@media (max-width: $phone) {
 		width: 36%;
@@ -227,65 +226,3 @@ $tablet: 800px;
 		}
 	}
 }
-
-// .landing-footer {
-// 	display: flex;
-// 	flex-direction: row;
-// 	position: fixed;
-// 	left: 0;
-// 	bottom: 0;
-// 	width: 100%;
-// 	text-align: center;
-// 	justify-content: center;
-// 	z-index: 98;
-// 	background: #aba2a4;
-// 	opacity: 0.7;
-
-// 	@media (max-width: $phone) {
-// 		flex-direction: column;
-// 		align-items: center;
-// 		height: 35vh;
-// 		border: 1px solid red;
-// 	}
-// }
-
-// .icon {
-// 	position: relative;
-// 	z-index: 98;
-// 	font-size: 5.8rem;
-// 	background: white;
-// 	margin-right: 4%;
-// 	padding: 2%;
-// 	border-radius: 50%;
-// 	margin-top: 3.2%;
-// 	@media (max-width: $phone) {
-// 		border: 1px solid red;
-// 		padding: 10%;
-// 		font-size: 0.2rem;
-// 	}
-// }
-
-// .icon-group {
-// 	display: flex;
-// 	padding-bottom: 1.5%;
-// 	justify-content: center;
-// 	width: 35%;
-// 	align-items: center;
-// 	@media (max-width: $phone) {
-// 		width: 47%;
-// 		padding-bottom: 0;
-// 		flex-direction: column;
-// 	}
-
-// 	p {
-// 		font-size: 1rem;
-// 		text-align: justify;
-// 		margin-top: 3.5%;
-// 		color: white;
-// 		font-size: 2rem;
-// 		@media (max-width: $phone) {
-// 			font-size: 0.8rem;
-// 			margin-top: 0;
-// 		}
-// 	}
-// }
