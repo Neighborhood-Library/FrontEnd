@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.scss';
 import CustomButton from '../components/customButton/CustomButton';
 import './books.css';
 
@@ -31,24 +30,30 @@ class Book extends React.Component {
 				<a className='learnMore' href={this.props.toLink}>
 					Learn More
 				</a>
+				{
+					this.props.logOut ? (
+						<>
+						<CustomButton
+							className='borrowBookBtn custom-button'
+							isBorrowBook
+							onClick={this.callBorrowBook}
+						>
+							Borrow book
+						</CustomButton>
 
-				<CustomButton
-					className='borrowBookBtn custom-button'
-					isBorrowBook
-					onClick={this.callBorrowBook}
-				>
-					Borrow book
-				</CustomButton>
+						<div className='btnDivider'>OR</div>
 
-				<div className='btnDivider'>OR</div>
-
-				<CustomButton
-					className='lendBookBtn custom-button'
-					isLendBook
-					onClick={this.callLendBook}
-				>
-					Lend book
-				</CustomButton>
+						<CustomButton
+							className='lendBookBtn custom-button'
+							isLendBook
+							onClick={this.callLendBook}
+						>
+							Lend book
+						</CustomButton>
+						</>
+					) : null
+				}
+				
 			</div>
 		);
 	}

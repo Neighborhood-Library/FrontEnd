@@ -128,6 +128,7 @@ class BookList extends React.Component {
                         lendBookHandler={this.lendBookHandler}
                         isbn={book.volumeInfo.industryIdentifiers ? book.volumeInfo.industryIdentifiers[0].identifier : 'N/A'}
                         id={book.id}
+                        logOut={this.props.logOut}
                         key={i}/>
             })
           }

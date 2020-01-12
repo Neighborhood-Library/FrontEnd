@@ -7,7 +7,6 @@ class OwnedBooks extends React.Component {
   render() {
     return (
       <Book />
-      // {/* <h2>books will go here</h2> */}
     )
   }
 }

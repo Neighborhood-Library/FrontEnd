@@ -42,7 +42,7 @@ class Books extends Component {
         <Search
           handleInput={this.handleInput} handleSearch={this.handleSearch}
           searchInput={this.searchInput}/>
-        <BookList books={this.state.books} />
+        <BookList books={this.state.books} logOut={this.props.logOut} />
       </div>
     )
   }

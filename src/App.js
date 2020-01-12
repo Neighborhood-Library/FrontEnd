@@ -4,7 +4,6 @@ import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser, login } from './actions/index';
 import Axios from 'axios';
 
-import './App.scss';
 import './scss/index.scss';
 
 import Books from './books/Books';
@@ -114,7 +113,7 @@ class App extends React.Component {
 					/>
 					<Route path='/register' component={RegisterForm} />
 					<Route path='/borrow' component={BookForm} />
-					<Route path='/books' component={Books} />
+					<Route path='/books' render={() => <Books logOut={this.state.logOut} />} />
 					<Route path='/about' component={AboutPage} />
 					<Route path='/contact' component={ContactPage} />
 					<Route

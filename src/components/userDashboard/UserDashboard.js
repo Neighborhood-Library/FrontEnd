@@ -4,7 +4,6 @@ import { borrowBookDashboard, lendBookDashboard } from '../../actions/bookAction
 import { delLendBook, delBorrowBook } from '../../actions/deleteBooks';
 import BooksList from './BooksList';
 import AccountInfo from './AccountInfo';
-import './UserDashboard.scss';
 
 class UserDashboard extends React.Component {
   constructor(props) {
