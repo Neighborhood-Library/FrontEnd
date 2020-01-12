@@ -16,7 +16,9 @@ header {
 	@media (max-width: $phone) {
 		text-align: center;
 		position: relative;
+		flex-flow: column nowrap;
 		z-index: 98;
+		background: rgba(123, 123, 123, 0.5);
 	}
 
 	.logo-cont {
@@ -25,7 +27,7 @@ header {
 		text-align: left;
 
 		@media (max-width: $phone) {
-			display: none;
+			text-align: center;
 		}
 	}
 

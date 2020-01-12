@@ -112,3 +112,17 @@
 		}
 	}
 }
+
+@media (max-width: $phone) {
+	.dashboard {
+		width: 100%;
+	}
+
+	.account {
+		flex-flow: column nowrap;
+
+		.half-col {
+			width: 100%;
+		}
+	}
+}
