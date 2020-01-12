@@ -32,7 +32,12 @@ $tablet: 800px;
 	justify-content: center;
 
 	@media (max-width: $phone) {
-		background-image: url(../../assests/landing-img-dark.png);
+		background-image: linear-gradient(
+				to bottom,
+				rgba(#584e4e, 0.4),
+				rgba(#000, 0.5)
+			),
+			url(../../assests/landing-blur.png);
 		background-size: cover;
 		background-position: center;
 		height: 60vh;
