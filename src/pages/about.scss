@@ -21,7 +21,7 @@
 .team-cont {
   div {
     .profile-avi {
-      width: 70%;
+      width: 75%;
       margin-bottom: 1rem;
     }
     .text-bold {
@@ -29,6 +29,11 @@
       a {
         font-size: 1.8rem;
         color: #555f77;
+      }
+      .about-role {
+        font-weight: 200;
+        text-transform: uppercase;
+        font-size: 1.4rem;
       }
     }
   }
