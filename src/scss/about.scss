@@ -1,6 +1,14 @@
 .page-wrap {
 	width: 60%;
 	margin: 0 auto;
+
+	@media (max-width: $phone) {
+		width: 100%;
+
+		.card {
+			padding: 15px;
+		}
+	}
 }
 
 hr {
