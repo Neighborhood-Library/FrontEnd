@@ -9,31 +9,27 @@ export const LandingPage = () => {
 	return (
 		<div className='landing-background'>
 			<div className='landing-content'>
-				<div className='cta'>
-					<h1 className='cta-title'>
-						A New Way to
-						<br /> Share Books
-					</h1>
-					<Link className='sign-up' to='/register'>
-						<CustomButton isSignUp>Sign Up</CustomButton>
-					</Link>
+				<h1 className='cta'>
+					A New Way to <br />
+					Share Books
+				</h1>
+				<div className='sign-up'>
+					<CustomButton isSignUp>
+						<Link to='/register'>Sign Up</Link>
+					</CustomButton>
 				</div>
 			</div>
 			<footer className='landing-footer'>
 				<div className='icon-group'>
-					<FontAwesomeIcon className='icon left' icon={faBookOpen} />
-				</div>
-				<div className='footer-text'>
-					<p>
+					<FontAwesomeIcon className='landing-icon' icon={faBookOpen} />
+					<p className='landing-text'>
 						Share your own collection <br />
 						or borrow from others
 					</p>
 				</div>
-				<div className='icon-group right'>
-					<FontAwesomeIcon className='icon right' icon={faUserFriends} />
-				</div>
-				<div className='footer-text'>
-					<p>
+				<div className='icon-group'>
+					<FontAwesomeIcon className='landing-icon' icon={faUserFriends} />
+					<p className='landing-text'>
 						Join a vibrant community of book <br />
 						enthuisists in your local area
 					</p>
