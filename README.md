@@ -6,7 +6,7 @@ In this app, we provide a simple solution for lending and borrowing books to and
 
 ---
 
-## Tech Stack Architectre
+## Tech Stack Architecture
 
 Web only app built with React and Redux. Styled using Sass and Bootstrap. Built on an SQL database, and a Node Express back-end.
 
