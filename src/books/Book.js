@@ -19,17 +19,16 @@ class Book extends React.Component {
 	render() {
 		return (
 			<div className='bookCard'>
-				<img
-					className='coverArt'
-					alt='Cover Art'
-					src={this.props.coverArt}
-				></img>
+				<a href={this.props.toLink}>
+					<img
+						className='coverArt'
+						alt='Cover Art'
+						src={this.props.coverArt}
+					/>
+				</a>
 				<h2 className='bookTitle'>{this.props.title}</h2>
 				<h4 className='author'>By: {this.props.author}</h4>
 				<p className='bookSummary'>Published: {this.props.publishedDate}</p>
-				<a className='learnMore' href={this.props.toLink}>
-					Learn More
-				</a>
 				{
 					this.props.logOut ? (
 						<>
