@@ -1,0 +1,45 @@
+.page-wrap {
+	width: 60%;
+	margin: 0 auto;
+
+	@media (max-width: $phone) {
+		width: 100%;
+
+		.card {
+			padding: 15px;
+		}
+	}
+}
+
+hr {
+	margin-bottom: 30px;
+}
+
+.team-cont {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+
+	div {
+		max-width: 200px;
+
+		img {
+			width: 100%;
+			border-radius: 50%;
+		}
+
+		p {
+			padding-bottom: 20px;
+			text-align: center;
+		}
+
+		a {
+			font-size: 1.6rem;
+			color: $sec-color;
+
+			// &:hover {
+			//   text-decoration: underline;
+			// }
+		}
+	}
+}

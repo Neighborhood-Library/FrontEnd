@@ -1,0 +1,122 @@
+.dashboard-cont {
+	padding: 30px;
+}
+
+.dashboard {
+	width: 60%;
+	margin: 0 auto;
+	background: #fff;
+	border: 1px solid #bbbbbb;
+	border-radius: 5px 5px 0 0;
+
+	.tabs {
+		display: flex;
+		flex-flow: row nowrap;
+		background-color: #ebebeb;
+		border-radius: 5px 5px 0 0;
+
+		p {
+			padding: 10px 20px;
+			border-bottom: 2px solid transparent;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #fff;
+			}
+		}
+
+		.active {
+			border-bottom: 2px solid #000;
+
+			&:hover {
+				background-color: inherit;
+				color: #000;
+			}
+		}
+	}
+
+	h2 {
+		margin-bottom: 15px;
+	}
+
+	p {
+		font-size: 1.4rem;
+	}
+
+	.account {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+
+		.half-col {
+			width: 50%;
+			padding: 0 15px;
+		}
+
+		form {
+			display: flex;
+			flex-flow: column nowrap;
+
+			label {
+				font-size: 1.4rem;
+				font-weight: normal;
+				text-align: left;
+			}
+
+			button {
+				margin-top: 20px;
+			}
+		}
+	}
+
+	section {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+
+	.remove-book {
+		cursor: pointer;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		width: 25px;
+		height: 25px;
+		border: 1px solid #000;
+		border-radius: 50%;
+		padding: 0 1px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		outline: none;
+
+		p {
+			position: absolute;
+			top: 1px;
+			left: 5px;
+			font-size: 2.75rem;
+			line-height: 1.4rem;
+			color: inherit;
+		}
+
+		&:hover {
+			border-color: #f00;
+			background-color: #ff8a8a;
+			color: #f00;
+		}
+	}
+}
+
+@media (max-width: $phone) {
+	.dashboard {
+		width: 100%;
+	}
+
+	.account {
+		flex-flow: column nowrap;
+
+		.half-col {
+			width: 100%;
+		}
+	}
+}
