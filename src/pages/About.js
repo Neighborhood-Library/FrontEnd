@@ -86,8 +86,8 @@ const About = () => {
                   <a href={memb.profile} target="_blank" rel="noopener noreferrer">
                     {memb.name}
                   </a>
-                  <p className='about-role'>{memb.role}</p>
                 </p>
+                <p className='about-role'>{memb.role}</p>
               </div>
             })
           }
