@@ -6,10 +6,10 @@ $medium-phone: 414px;
 $tablet: 800px;
 
 .landing-background {
-	background-image: url(../../assests/vivlio.jpg);
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	// background-image: url(../../assests/vivlio.jpg);
+	// background-position: center;
+	// background-size: cover;
+	// background-repeat: no-repeat;
 	min-height: 100%;
 	width: 100%;
 	height: auto;
@@ -30,35 +30,12 @@ $tablet: 800px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-	@media (max-width: $phone) {
-		background-image: linear-gradient(
-				to bottom,
-				rgba(#584e4e, 0.4),
-				rgba(#000, 0.5)
-			),
-			url(../../assests/landing-blur.png);
-		background-size: cover;
-		background-position: center;
-		height: 60vh;
-		align-items: center;
-	}
 }
 
 .cta {
-	// font-family: 'Quicksand', sans-serif;
-	font-weight: 300;
 	font-size: 4.5rem;
 	padding-bottom: 2%;
-	width: 20%;
-	margin-top: 5%;
-	margin-left: 5%;
-	text-align: justify;
 	color: #52524c;
-	line-height: 5.5rem;
-	letter-spacing: 0.1rem;
-	font-weight: 300;
-	font-size: 4.5rem;
 
 	@media (max-width: $phone) {
 		width: 100%;
@@ -131,27 +108,9 @@ $tablet: 800px;
 .landing-footer {
 	display: flex;
 	flex-direction: row;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
 	text-align: center;
 	justify-content: center;
-	z-index: 98;
 	background: #aba2a4;
-	opacity: 0.7;
-
-	@media (max-width: $phone) {
-		flex-direction: column;
-		align-items: center;
-		height: 40vh;
-		background: #c9c8c6;
-		opacity: 1;
-	}
-
-	@media (max-width: $small-phone) {
-		border: none;
-	}
 }
 
 .landing-icon {
