@@ -3,7 +3,7 @@ import Book from './Book';
 
 const BooksList = props => {
   return (
-    <section>
+    <section className="dashboard-books">
       {
         props.books === undefined || props.books.length === 0 ?
           <p>No books found</p>

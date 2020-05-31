@@ -7,13 +7,9 @@
 }
 
 .bookCard {
-	background-color: #fafafa;
+	background-color: #f2f2f2;
 	margin: 10px;
-	padding: 20px 20px 20px 40px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	border-radius: 3px;
-	align-items: center;
-	text-align: center;
+	border: 1px solid #e4e4e4;
 	position: relative;
 }
 
@@ -47,7 +43,8 @@
 
 .coverArt {
 	float: left;
-	width: 18rem;
+	height: 100%;
+	width: auto;
 	margin-right: 20px;
 }
 

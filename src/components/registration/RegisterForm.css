@@ -1,0 +1,166 @@
+.container {
+  margin-bottom: 2rem;
+  max-width: 45rem;
+  max-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #c5c5c2;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .form-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 3% 3%;
+  border: none;
+  border-radius: 3px;
+  background-color: #f5f4f4;
+}
+
+.container .form-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .sign-up-title {
+  width: 100%;
+  font-size: 3rem;
+  font-weight: lighter;
+  color: #6d6d68;
+  text-align: center;
+  padding-bottom: 10%;
+  text-transform: uppercase;
+}
+
+.container .reg-label {
+  text-align: start;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-left: 7px;
+  margin-bottom: 3px;
+  display: block;
+  letter-spacing: 0.03rem;
+  color: #797779;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.container .reg-input {
+  outline: none;
+  border-radius: 2px;
+  padding: 8px 8px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 1.5rem;
+  color: inherit;
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.container .reg-input:focus {
+  outline: none;
+  -webkit-box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #5fc238;
+}
+
+.container .reg-input:focus:invalid {
+  border-bottom: 2px solid #e96006;
+}
+
+.container .reg-input::-webkit-input-placeholder {
+  color: #6e6c6e;
+}
+
+.container .form-group .reg-input:placeholder-shown + .reg-label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
+}
+
+.container .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.container .password {
+  position: relative;
+}
+
+.container .register {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .login-link {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-decoration: none;
+  margin-top: 0.7rem;
+}
+
+.container .password-icon {
+  position: absolute;
+  color: #9e9d9ec0;
+  top: 15px;
+  right: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.container .fab {
+  position: absolute;
+  top: 15px;
+  left: 44px;
+}
+
+.container .or {
+  margin-top: 12px;
+  padding: 2%;
+  font-size: 1.1rem;
+}
+/*# sourceMappingURL=RegisterForm.css.map */
