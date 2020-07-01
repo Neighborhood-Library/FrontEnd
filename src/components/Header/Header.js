@@ -1,6 +1,4 @@
-import React from 'react'
-import './header.css'
-// import { NavLink, Link } from "react-router-dom";
+import React from 'react';
 
 class Header extends React.Component {
   state = {
@@ -43,7 +41,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
-
-//{/* <button className="actionBtn account"><i className="far fa-user"></i></button>
-//<button className="actionBtn logout">Log Out</button> */}
+export default Header;

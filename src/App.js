@@ -4,7 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser, login } from './actions/index';
 import Axios from 'axios';
 
-import './scss/index.scss';
+import './scss/combined.scss';
 
 import Books from './books/Books';
 import BookForm from './components/borrowerDashboard/BookForm';

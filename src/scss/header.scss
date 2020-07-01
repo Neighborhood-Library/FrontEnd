@@ -1,3 +1,34 @@
+header {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	padding: 10px 12.5%;
+	margin-bottom: 25px;
+	background-color: #fff;
+
+	@media (max-width: $phone) {
+		text-align: center;
+		position: relative;
+		flex-flow: column nowrap;
+		z-index: 98;
+		background: rgba(123, 123, 123, 0.5);
+	}
+
+	.logo-cont {
+		position: relative;
+		margin: 0;
+		text-align: left;
+
+		@media (max-width: $phone) {
+			text-align: center;
+		}
+	}
+
+	.logo {
+		width: 70px;
+	}
+}
+
 .nav {
 	flex-direction: column;
 	padding: 0.5em;
@@ -49,21 +80,21 @@
 	outline: none;
 	color: #6558f5;
 	transition: ease-out 0.25s;
-}
 
-.searchBtn:hover {
-	background: #6558f5;
-	color: white;
-	transition: ease-in 0.25s;
-}
+	&:hover {
+		background: #6558f5;
+		color: white;
+		transition: ease-in 0.25s;
+	}
 
-.searchBtn i {
-	transition: ease 0.25s;
-}
+	i {
+		transition: ease 0.25s;
 
-.searchBtn i:active {
-	transform: rotateZ(90deg);
-	transition: ease 0.25s;
+		&:active {
+			transform: rotateZ(90deg);
+			transition: ease 0.25s;
+		}
+	}
 }
 
 .actionBtn {
@@ -83,19 +114,13 @@
 	transition: ease-out 0.25s;
 	transition: ease 0.1s;
 	outline: none;
-}
 
-.menu:hover {
-	background: white;
-	color: #6558f5;
-	border: 2px solid #6558f5;
-	transition: ease-in 0.25s;
-}
-
-.menu:active,
-.logout:active {
-	transform: translateY(5px);
-	transition: ease 0.1s;
+	&:hover {
+		background: white;
+		color: #6558f5;
+		border: 2px solid #6558f5;
+		transition: ease-in 0.25s;
+	}
 }
 
 .filter {
@@ -124,13 +149,13 @@
 	border: 1px solid #6558f5;
 	right: 0;
 	margin-top: 0.125em;
-}
-
-.menuOpen li {
-	color: #6558f5;
-	text-align: center;
-	width: inherit;
-	margin: 0.125em auto;
+	
+	li {
+		color: #6558f5;
+		text-align: center;
+		width: inherit;
+		margin: 0.125em auto;
+	}
 }
 
 .menuOpen li:hover,

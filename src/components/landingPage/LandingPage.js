@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CustomButton from '../customButton/CustomButton';
-import './landing.scss';
 
 export const LandingPage = () => {
 	return (
 		<div className='page-wrap'>
-			<div className='landing-content'>
-				<h1 className='cta'>
-					A New Way to Share Books
-				</h1>
-				<Link className='sign-up' to='/register'>
-					<CustomButton isSignUp>Sign Up</CustomButton>
-				</Link>
-			</div>
+			<section className="hero">
+				<div>
+					<h1 className='cta'>
+						Explore your local book jungle
+					</h1>
+					<p>
+						Find the books neighbors are allowing others to borrow.
+					</p>
+					<Link className='sign-up' to='/register'>
+						<CustomButton isSignUp>Sign Up</CustomButton>
+					</Link>
+				</div>
+				<img src="img/reading.svg" alt="reading book" />
+			</section>
 		</div>
 	);
 };
