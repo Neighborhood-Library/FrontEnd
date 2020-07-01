@@ -41,8 +41,6 @@ class Login extends React.Component {
       return <Redirect to='/dashboard' />;
     }
     
-    
-    
     return (
       <div id='absoluteCenteredDiv'>
         <div className='box'>
@@ -80,8 +78,8 @@ class Login extends React.Component {
           </form>
           <p>Or Sign In Using</p>
           
-            <a class="login100-social-item bg3" href={`${process.env.REACT_APP_REQ_URL}/auth/google`}> 
-              <i class="fab fa-google"></i>
+            <a className="login100-social-item bg3" href={`${process.env.REACT_APP_REQ_URL}/auth/google`}> 
+              <i className="fab fa-google"></i>
             </a>
           
           <br>

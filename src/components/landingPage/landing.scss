@@ -1,35 +1,25 @@
-$phone: 500px;
-$small-phone: 360px;
-$small-iphone: 320px;
-$medium-iphone: 375px;
-$medium-phone: 414px;
-$tablet: 800px;
+#hero {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	align-items: center;
 
-.landing-background {
-	// background-image: url(../../assests/vivlio.jpg);
-	// background-position: center;
-	// background-size: cover;
-	// background-repeat: no-repeat;
-	min-height: 100%;
-	width: 100%;
-	height: auto;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: -1;
+	div {
+		text-align: left;
+		margin-bottom: 30px;
 
-	@media (max-width: $phone) {
-		background: #c9c8c6;
+		p {
+			margin-bottom: 30px;
+		}
+
+		@media (max-width: $phone) {
+			text-align: center;
+		}
 	}
-}
 
-.landing-content {
-	position: relative;
-	z-index: 98;
-	height: 85vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	img {
+		width: 85%;
+		margin: 0 auto;
+	}
 }
 
 .cta {
@@ -38,34 +28,33 @@ $tablet: 800px;
 	color: #52524c;
 
 	@media (max-width: $phone) {
-		width: 100%;
 		text-align: center;
-		line-height: normal;
-		margin-left: 0;
-		margin-top: 65%;
-		padding: 10%;
-		color: #fff;
 	}
 
 	@media (max-width: $medium-phone) {
-		margin-top: 65%;
 		font-size: 3rem;
 	}
 
 	@media (max-width: $medium-iphone) {
-		margin-top: 75%;
 		padding: 1rem;
 	}
 
 	@media (max-width: $small-phone) {
 		font-size: 3rem;
-		margin-top: 55%;
 	}
 }
 
 .sign-up {
-	margin-left: 5%;
-	width: 0.001%;
+
+	&.custom-button {
+		
+		@media (max-width: $phone) {
+			margin: 0 auto;
+			min-width: 12rem;
+			padding: 0 2rem;
+			font-size: 1.5rem;
+		}
+	}
 
 	@media (max-width: $phone) {
 		width: 36%;
@@ -80,29 +69,7 @@ $tablet: 800px;
 	@media (max-width: $small-phone) {
 		width: 50%;
 	}
-}
-
-.sign-up {
-	&.custom-button {
-		@media (max-width: $medium-phone) {
-			min-width: 12rem;
-			padding: 0 2rem;
-			margin-left: 2.2rem;
-			font-size: 1.5rem;
-		}
-
-		@media (max-width: $medium-iphone) {
-			margin-left: 1.5rem;
-		}
-
-		@media (max-width: $small-phone) {
-			margin-left: 2.8rem;
-		}
-
-		@media (max-width: $small-iphone) {
-			margin-left: 1.9rem;
-		}
-	}
+	
 }
 
 .landing-footer {

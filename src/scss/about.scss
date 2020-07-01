@@ -1,45 +1,26 @@
-.page-wrap {
-	width: 70%;
-	margin: 0 auto;
-
-	@media (max-width: $phone) {
-		width: 100%;
-
-		.card {
-			padding: 15px;
-		}
-	}
+.card {
+  background: #fff;
+  padding: 3rem 12rem;
 }
 
-hr {
-	margin-bottom: 30px;
+.card-title {
+  font-weight: 100;
+  color: #555f77;
 }
 
 .team-cont {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
 
-	div {
-		max-width: 200px;
+  p {
+    text-align: center;
+    font-weight: bold;
+  }
 
-		img {
-			width: 100%;
-			border-radius: 50%;
-		}
-
-		p {
-			padding-bottom: 20px;
-			text-align: center;
-		}
-
-		a {
-			font-size: 1.6rem;
-			color: $sec-color;
-
-			// &:hover {
-			//   text-decoration: underline;
-			// }
-		}
-	}
+  .about-role {
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+  }
 }
