@@ -5,7 +5,7 @@ import CustomButton from '../customButton/CustomButton';
 export const LandingPage = () => {
 	return (
 		<div className='page-wrap'>
-			<section className="hero">
+			<section id="hero">
 				<div>
 					<h1 className='cta'>
 						Explore your local book jungle
