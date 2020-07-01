@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import Axios from 'axios';
 import './Input.css';
 
-const socket = io(process.env.REACT_APP_REQ_URL);
+// const socket = io(process.env.REACT_APP_REQ_URL);
 
 const Input = ({ setMessages, messages, transaction }) => {
   const [message, setMessage] = useState('');
@@ -13,15 +13,15 @@ const Input = ({ setMessages, messages, transaction }) => {
   const sendMessage = event => {
 		event.preventDefault();
 
-		if (message !== '') {
-      // sends message to server
-			socket.emit('message', {
-        content: message,
-        transaction_id: transaction.id,
-        sender_id: parseInt(user_id)
-      });
-      setMessage('');
-		}
+		// if (message !== '') {
+    //   // sends message to server
+		// 	socket.emit('message', {
+    //     content: message,
+    //     transaction_id: transaction.id,
+    //     sender_id: parseInt(user_id)
+    //   });
+    //   setMessage('');
+		// }
   };
   
   useEffect(() => {
@@ -37,9 +37,9 @@ const Input = ({ setMessages, messages, transaction }) => {
     }
     
     // returned message from server
-		socket.on('retMsg', getMessages);
+		// socket.on('retMsg', getMessages);
     
-    socket.on('update', getMessages);
+    // socket.on('update', getMessages);
   }, [message, messages, setMessages, transaction]);
 
   return (
