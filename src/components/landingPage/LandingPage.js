@@ -19,6 +19,27 @@ export const LandingPage = () => {
 				</div>
 				<img src="img/reading.svg" alt="reading book" />
 			</section>
+			<section>
+
+			</section>
+			<section id="testimonials">
+				<div className="heading">
+					<h3>Testimonials</h3>
+					<hr />
+				</div>
+				<div className="test-cont">
+					<p className="test-quote">I love sharing my books with my community!</p>
+					<p className="test-author">Sarah Love</p>
+				</div>
+				<div className="test-cont">
+					<p className="test-quote">I love sharing my books with my community!</p>
+					<p className="test-author">Sarah Love</p>
+				</div>
+				<div className="test-cont">
+					<p className="test-quote">I love sharing my books with my community!</p>
+					<p className="test-author">Sarah Love</p>
+				</div>
+			</section>
 		</div>
 	);
 };
