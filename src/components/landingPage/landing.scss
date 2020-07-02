@@ -24,17 +24,19 @@
 
 #testimonials {
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr));
+	// grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr));
+	grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end];
 	grid-gap: 10px;
 
 	.heading {
-		grid-column: span 3;
+		grid-column-start: main-start;
+		grid-column-end: content-end;
 		
 		h3 {
 			text-align: center;
 			font-size: 5em;
 		}
-		
+
 		hr {
 			border-color: #6c6a7d;
 		}
@@ -72,6 +74,11 @@
 
 		.test-author {
 			color: #7d7d7d;
+		}
+
+		@media (max-width: $phone) {
+			grid-column-start: main-start;
+			grid-column-end: content-end;
 		}
 	}
 }
