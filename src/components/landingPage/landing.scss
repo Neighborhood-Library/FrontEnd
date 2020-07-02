@@ -1,6 +1,6 @@
 #hero {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
 	align-items: center;
 
 	div {
@@ -19,6 +19,60 @@
 	img {
 		width: 85%;
 		margin: 0 auto;
+	}
+}
+
+#testimonials {
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr));
+	grid-gap: 10px;
+
+	.heading {
+		grid-column: span 3;
+		
+		h3 {
+			text-align: center;
+			font-size: 5em;
+		}
+		
+		hr {
+			border-color: #6c6a7d;
+		}
+	}
+	
+	.test-cont {
+		background: #fff;
+		padding: 30px;
+		border-radius: 5px;
+		overflow: hidden;
+
+		.test-quote {
+			font-style: italic;
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+			position: relative;
+
+			&::before {
+				content: '"';
+				color: #e8e6ff;
+				position: absolute;
+				font-size: 10rem;
+				top: -63px;
+				left: -33px;
+			}
+
+			&::after {
+				content: '"';
+				color: #e8e6ff;
+				position: absolute;
+				font-size: 10rem;
+				top: 5px;
+			}
+		}
+
+		.test-author {
+			color: #7d7d7d;
+		}
 	}
 }
 

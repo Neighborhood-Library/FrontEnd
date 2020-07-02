@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import io from 'socket.io-client';
+import io from 'socket.io-client';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
@@ -8,9 +8,9 @@ import TextContainer from '../TextContainer/TextContainer';
 import './Chat.css';
 import Axios from 'axios';
 
-// const socket = io(process.env.REACT_APP_REQ_URL);
 
 const Chat = () => {
+	const socket = io(process.env.REACT_APP_REQ_URL);
 	// const [name, setName] = useState('');
 	const [users, setUsers] = useState('');
 	const [messages, setMessages] = useState([]);
@@ -18,18 +18,18 @@ const Chat = () => {
 	
 	const {user_id, book_id} = useParams();
 
-	// useEffect(() => {
-	// 	// returned active users from server
-	// 	socket.on('roomData', ({ users }) => {
-	// 		setUsers(users);
-	// 	});
+	useEffect(() => {
+		// returned active users from server
+		socket.on('roomData', ({ users }) => {
+			setUsers(users);
+		});
 
-	// 	return () => {
-	// 		socket.emit('disconnect');
+		return () => {
+			socket.emit('disconnect');
 
-	// 		socket.off();
-	// 	};
-	// }, [messages]);
+			socket.off();
+		};
+	}, [messages, socket]);
 
 	useEffect(() => {
 		async function getMessages() {
@@ -57,7 +57,7 @@ const Chat = () => {
 		}
 
 		getMessages();
-	}, [book_id, user_id]);
+	}, [book_id, user_id, socket]);
 
 	return (
 		<div className='outerContainer'>
