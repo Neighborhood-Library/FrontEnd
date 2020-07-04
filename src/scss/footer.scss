@@ -1,0 +1,11 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 30px 12.5%;
+
+    .app-nav {
+        justify-content: start;
+    }
+}
