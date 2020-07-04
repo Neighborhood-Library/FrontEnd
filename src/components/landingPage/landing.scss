@@ -8,7 +8,7 @@
 		margin-bottom: 30px;
 
 		p {
-			margin-bottom: 30px;
+			margin-bottom: 2.5rem;
 		}
 
 		@media (max-width: $phone) {
@@ -22,15 +22,26 @@
 	}
 }
 
+#milestones {
+	width: 100%;
+	padding: 3.5em 12.5%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	background-color: #6c63ff;
+	color: #fff;
+
+	text-align: center;
+}
+
 #testimonials {
 	display: grid;
 	// grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr));
-	grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end];
+	grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end];
 	grid-gap: 10px;
 
 	.heading {
 		grid-column-start: main-start;
-		grid-column-end: content-end;
+		grid-column-end: main-end;
 		
 		h3 {
 			text-align: center;
@@ -47,28 +58,31 @@
 		padding: 30px;
 		border-radius: 5px;
 		overflow: hidden;
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
 
 		.test-quote {
-			font-style: italic;
 			font-size: 1.5rem;
 			margin-bottom: 15px;
 			position: relative;
 
-			&::before {
-				content: '"';
-				color: #e8e6ff;
-				position: absolute;
-				font-size: 10rem;
-				top: -63px;
-				left: -33px;
-			}
+			// &::before {
+			// 	content: '"';
+			// 	color: #e8e6ff;
+			// 	position: absolute;
+			// 	font-size: 10rem;
+			// 	top: -63px;
+			// 	left: -33px;
+			// }
 
 			&::after {
 				content: '"';
-				color: #e8e6ff;
+				color: #f6f5ff;
 				position: absolute;
 				font-size: 10rem;
-				top: 5px;
+				right: 0;
+				// top: 5px;
 			}
 		}
 
@@ -78,14 +92,14 @@
 
 		@media (max-width: $phone) {
 			grid-column-start: main-start;
-			grid-column-end: content-end;
+			grid-column-end: main-end;
 		}
 	}
 }
 
 .cta {
 	font-size: 4.5rem;
-	padding-bottom: 2%;
+	margin-bottom: 2.5rem;
 	color: #52524c;
 
 	@media (max-width: $phone) {
