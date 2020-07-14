@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../actions/index';
 import './Login.css';
-// import {TweenMax,Power3} from "gsap";
-// import Change from './NavBar'
-
-
 
 class Login extends React.Component {
   constructor(props) {
@@ -17,7 +13,6 @@ class Login extends React.Component {
       
     };
   }
- 
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -32,10 +27,13 @@ class Login extends React.Component {
   submitForm = async e => {
     e.preventDefault();
     await this.props.logInHandler(e, this.state);
-    this.props.history.push('/dashboard');
+    if (this.props.loggedIn) {
+      this.props.history.push('/dashboard');
+    } else {
+      this.setState({username: "", password: ""});
+    }
   };
   
-
   render() {
     if (this.props.loggedIn) {
       return <Redirect to='/dashboard' />;

@@ -11,12 +11,12 @@ import BookForm from './components/borrowerDashboard/BookForm';
 import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './components/login/Login';
 import RegisterForm from './components/registration/RegisterForm';
-import UserDashboard from './components/userDashboard/UserDashboard';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ChatPage from './pages/Chat';
 import Footer from './components/Footer';
 import PrivateRoute from './middleware/PrivateRoute';
+import Shelf from './pages/Shelf';
 
 require('dotenv').config();
 
@@ -46,7 +46,7 @@ class App extends React.Component {
 		}
 	};
 
-	renderContent() {
+	userStatus() {
 		if (this.state.logOut === true) {
 			return (
 				<button className='login-btn logout-btn' onClick={this.logOutHandler}>
@@ -67,9 +67,17 @@ class App extends React.Component {
 		await this.props
 			.login(info)
 			.then(res => {
-				this.setState({ logOut: true });
+				console.log(this.props.loggedIn)
+				if (this.props.loggedIn) {
+					console.log('changing loggedIn status');
+					this.setState({ logOut: true });
+					this.props.history.push('/shelf');
+				} else {
+					throw new Error('Wrong credentials entered');
+				}
 			})
 			.catch(err => {
+				console.log('triggered login redirect!');
 				this.props.history.push('/login');
 			});
 	};
@@ -95,9 +103,9 @@ class App extends React.Component {
 					<nav className='app-nav'>
 						<Link to='/about'>About</Link>
 						<Link to='/contact'>Contact</Link>
-						<Link to='/dashboard'>Shelf</Link>
+						<Link to='/shelf'>Shelf</Link>
 						<Link to='/books'>Books</Link>
-						{this.renderContent()}
+						{this.userStatus()}
 					</nav>
 				</header>
 				<Switch>
@@ -121,9 +129,9 @@ class App extends React.Component {
 						component={ChatPage}
 					/>
 					<PrivateRoute
-						path='/dashboard'
+						path='/shelf'
 						checkCookie={this.checkCookie}
-						component={UserDashboard}
+						component={Shelf}
 					/>
 				</Switch>
 				<Footer />

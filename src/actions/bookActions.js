@@ -135,6 +135,4 @@ export const borrowBookDashboard = () => async dispatch => {
         dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
       });
   }
-  dispatch({ type: BORROW_DASH_START, payload: false });
-
 };
