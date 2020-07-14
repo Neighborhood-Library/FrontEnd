@@ -3,5 +3,14 @@
     margin: 0 auto;
 }
 
+label {
+    font-size: 2em;
+}
+.page-wrap {
+    .card:first-child {
+        margin-bottom: 25px;
+    }
+}
+
 
 
