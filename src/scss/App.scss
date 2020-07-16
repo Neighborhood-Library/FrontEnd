@@ -85,11 +85,13 @@ hr {margin: 3em 0;}
 	}
 
 	.logout-btn {
-		background-color: #ff0101;
+		background: white;
 		margin-left: 0.1rem;
+		color: #000;
+		border: 2px solid;
 
 		&:hover {
-			background-color: darken($color: #b10606, $amount: 1);
+			background-color: darken($color: #000, $amount: 1);
 		}
 
 		&:active {

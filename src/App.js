@@ -9,7 +9,7 @@ import './scss/combined.scss';
 import Books from './books/Books';
 import BookForm from './components/borrowerDashboard/BookForm';
 import { LandingPage } from './components/landingPage/LandingPage';
-import Login from './components/login/Login';
+import Login from './pages/Login';
 import RegisterForm from './components/registration/RegisterForm';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
@@ -67,7 +67,6 @@ class App extends React.Component {
 		await this.props
 			.login(info)
 			.then(res => {
-				console.log(this.props.loggedIn)
 				if (this.props.loggedIn) {
 					console.log('changing loggedIn status');
 					this.setState({ logOut: true });
@@ -101,10 +100,10 @@ class App extends React.Component {
 						</Link>
 					</div>
 					<nav className='app-nav'>
+						<Link to='/books'>Books</Link>
 						<Link to='/about'>About</Link>
 						<Link to='/contact'>Contact</Link>
 						<Link to='/shelf'>Shelf</Link>
-						<Link to='/books'>Books</Link>
 						{this.userStatus()}
 					</nav>
 				</header>
