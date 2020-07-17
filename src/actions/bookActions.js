@@ -100,8 +100,7 @@ export const lendBookDashboard = () => async dispatch => {
 
   if (currUserID) {
     await axios
-      .get(
-        `${process.env.REACT_APP_REQ_URL}/api/lender-collection/${currUserID}`,
+      .get(`${process.env.REACT_APP_REQ_URL}/api/lender-collection/${currUserID}`,
         {
           withCredentials: true
         }
@@ -112,6 +111,8 @@ export const lendBookDashboard = () => async dispatch => {
       .catch(err => {
         dispatch({ type: LEND_DASH_FAILURE, payload: err.body });
       });
+  } else {
+    dispatch({ type: LEND_DASH_FAILURE });
   }
 };
 
@@ -135,6 +136,4 @@ export const borrowBookDashboard = () => async dispatch => {
         dispatch({ type: BORROW_DASH_FAILURE, payload: err.body });
       });
   }
-  dispatch({ type: BORROW_DASH_START, payload: false });
-
 };

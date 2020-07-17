@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { borrowBookDashboard, lendBookDashboard } from '../../actions/bookActions';
-import { delLendBook, delBorrowBook } from '../../actions/deleteBooks';
-import BooksList from './BooksList';
-import AccountInfo from './AccountInfo';
+import { borrowBookDashboard, lendBookDashboard } from '../actions/bookActions';
+import { delLendBook, delBorrowBook } from '../actions/deleteBooks';
+import BooksList from '../components/userDashboard/BooksList';
+import AccountInfo from '../components/userDashboard/AccountInfo';
 
 class UserDashboard extends React.Component {
   constructor(props) {
@@ -15,8 +15,10 @@ class UserDashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-    await this.props.checkCookie();
+    // await this.props.checkCookie();
+    console.log('borrow dash, ln 20, shelf');
     await this.props.borrowBookDashboard();
+    console.log('lender dash, ln 20, shelf');
     await this.props.lendBookDashboard();
   };
 
