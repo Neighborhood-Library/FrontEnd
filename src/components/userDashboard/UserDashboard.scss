@@ -4,7 +4,7 @@
 
 .dashboard {
 	width: 60%;
-	margin: 0 auto;
+	margin:0 auto 1.7rem;
 	background: #fff;
 	border: 1px solid #bbbbbb;
 	border-radius: 5px 5px 0 0;
@@ -43,6 +43,46 @@
 		font-size: 1.4rem;
 	}
 
+	.bookCard {
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+
+		.coverArt {
+			margin: 0;
+		}
+
+		.bookCover {
+			width: 16.6rem;
+			height: 16.6rem;
+			object-fit: cover;
+		}
+
+		.bookTitle {
+			font-size: 1.7rem;
+			font-weight: bold;
+			margin-bottom: 1.7rem;
+			padding: 0;
+		}
+
+		.bookAuthor {
+			font-size: 1.4rem;
+			padding: 0;
+		}
+
+		.bookCardCont {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-between;
+			padding: 1.0rem 2.0rem;
+		}
+
+		button {
+			margin-bottom: 0;
+			padding: 1.0rem 1.7rem;
+		}
+	}
+
 	.account {
 		display: flex;
 		flex-flow: row wrap;
@@ -73,11 +113,6 @@
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
-
-		&.dashboard-books {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-		}
 	}
 
 	.remove-book {
@@ -96,8 +131,8 @@
 
 		p {
 			position: absolute;
-			top: 1px;
-			left: 5px;
+			top: 2px;
+			left: 4px;
 			font-size: 2.75rem;
 			line-height: 1.4rem;
 			color: inherit;
