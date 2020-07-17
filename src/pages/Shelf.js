@@ -60,7 +60,7 @@ class UserDashboard extends React.Component {
 
   render() {
     return (
-      <div className="dashboard">
+      <section className="dashboard">
         <div className="tabs">
           <p
             onClick={this.updateActiveTab}
@@ -108,7 +108,7 @@ class UserDashboard extends React.Component {
             </>) : null
           }
         </div>
-      </div>
+      </section>
     );
   }
 }

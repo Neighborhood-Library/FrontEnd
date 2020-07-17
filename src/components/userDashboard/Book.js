@@ -174,55 +174,60 @@ class Book extends React.Component {
             :
               null
           }
-          <a href={bookInfo}>
-            <img
-              className='coverArt'
-              alt='Cover Art'
-              src={bookCoverSrc}
-            />
-          </a>
-          <div>
-            <h4 className='bookTitle'>{this.state.info.volumeInfo.title}</h4>
-            <h4 className='author'>{authorName} {publishYear}</h4>
-            <p className='bookSummary'></p>
-            {
-              // checks to show lenders
-              this.props.lenders && !this.state.transaction.google_book_id ? (
-                <CustomButton isLendBook className='lendBookBtn custom-button' onClick={this.openModal} >
-                  {
-                    this.props.availPending ?
-                      <ClipLoader size={30} color={"#ffffff"} />
-                    : 
-                      `${this.state.lenderBooks.length} available`
-                  }
-                </CustomButton>
-              ) :
-                null
-            }
-            {
-              this.props.borrowers ? (
-                <CustomButton
-                  className={`availability custom-button ${this.props.book.is_available}`}
-                  onClick={this.changeAvailable}
-                >
-                  {
-                    this.props.book.is_available === true ? 'Available' : 'Not Available'
-                  }
-                </CustomButton>
-              ) : null
-            }
-            {
-              this.state.transaction.id !== undefined ? (
-              <>
-                <CustomButton className='custom-button chat' onClick={this.goToChat}>
-                  Visit Chat
-                </CustomButton>
-                <CustomButton className='custom-button lendBookBtn' onClick={this.returnBook}>
-                  Return Book
-                </CustomButton>
-              </>
-              ) : null
-            }
+          {/* <a href={bookInfo}>
+          </a> */}
+          <img
+            className='bookCover'
+            alt='Cover Art'
+            src={bookCoverSrc}
+          />
+          <div className="bookCardCont">
+            <div>
+              <h4 className='bookTitle'>{this.state.info.volumeInfo.title}</h4>
+              <h4 className='bookAuthor'>{authorName} {publishYear}</h4>
+            </div>
+            <div>
+              {
+                // checks to show lenders
+                this.props.lenders && !this.state.transaction.google_book_id ? (
+                  <CustomButton isLendBook className='lendBookBtn custom-button' onClick={this.openModal} >
+                    {
+                      this.props.availPending ?
+                        <ClipLoader size={30} color={"#ffffff"} />
+                      : 
+                        `${this.state.lenderBooks.length} available`
+                    }
+                  </CustomButton>
+                ) :
+                  null
+              }
+              {
+                // check if borrower has requested book
+                this.props.borrowers ? (
+                  <CustomButton
+                    className={`availability custom-button ${this.props.book.is_available}`}
+                    onClick={this.changeAvailable}
+                  >
+                    {
+                      this.props.book.is_available === true ? 'Available' : 'Not Available'
+                    }
+                  </CustomButton>
+                ) : null
+              }
+              {
+                // check if borrow request is active
+                this.state.transaction.id !== undefined ? (
+                <>
+                  <CustomButton className='custom-button chat' onClick={this.goToChat}>
+                    Visit Chat
+                  </CustomButton>
+                  <CustomButton className='custom-button lendBookBtn' onClick={this.returnBook}>
+                    Return Book
+                  </CustomButton>
+                </>
+                ) : null
+              }
+            </div>
           </div>
           <div className="remove-book" onClick={this.checkIfLendOrBorrow}>
             <p>x</p>

@@ -3,7 +3,7 @@ import Book from './Book';
 
 const BooksList = props => {
   return (
-    <section className="dashboard-books">
+    <div className="dashboard-books">
       {
         props.books === undefined || props.books.length === 0 ?
           <p>No books found</p>
@@ -16,7 +16,7 @@ const BooksList = props => {
             />;
           })
       }
-    </section>
+    </div>
   );
 };
 
