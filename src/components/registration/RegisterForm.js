@@ -93,11 +93,9 @@ class RegisterForm extends React.Component {
 					} password-icon`}
 					onClick={this.togglePassword}
 				/>
-				<div className='alt-login'>
-					<CustomButton type='submit' isRegister>
-						Submit
-					</CustomButton>
-				</div>
+				<CustomButton type='submit' isRegister>
+					Submit
+				</CustomButton>
 			</form>
 		);
 	}

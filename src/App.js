@@ -107,32 +107,35 @@ class App extends React.Component {
 						{this.userStatus()}
 					</nav>
 				</header>
-				<Switch>
-					<Route exact path='/' component={LandingPage} />
-					<Route
-						path='/login'
-						render={() => (
-							<Login
-								logInHandler={this.logInHandler}
-								history={this.props.history}
-							/>
-						)}
-					/>
-					<Route path='/register' component={RegisterPage} />
-					<Route path='/borrow' component={BookForm} />
-					<Route path='/books' render={() => <Books logOut={this.state.logOut} />} />
-					<Route path='/about' component={AboutPage} />
-					<Route path='/contact' component={ContactPage} />
-					<Route
-						path='/chat/:user_id&:book_id&:book_name'
-						component={ChatPage}
-					/>
-					<PrivateRoute
-						path='/shelf'
-						checkCookie={this.checkCookie}
-						component={Shelf}
-					/>
-				</Switch>
+				<div className="page-wrap">
+
+					<Switch>
+						<Route exact path='/' component={LandingPage} />
+						<Route
+							path='/login'
+							render={() => (
+								<Login
+									logInHandler={this.logInHandler}
+									history={this.props.history}
+								/>
+							)}
+						/>
+						<Route path='/register' component={RegisterPage} />
+						<Route path='/borrow' component={BookForm} />
+						<Route path='/books' render={() => <Books logOut={this.state.logOut} />} />
+						<Route path='/about' component={AboutPage} />
+						<Route path='/contact' component={ContactPage} />
+						<Route
+							path='/chat/:user_id&:book_id&:book_name'
+							component={ChatPage}
+						/>
+						<PrivateRoute
+							path='/shelf'
+							checkCookie={this.checkCookie}
+							component={Shelf}
+						/>
+					</Switch>
+				</div>
 				<Footer />
 			</div>
 		);
