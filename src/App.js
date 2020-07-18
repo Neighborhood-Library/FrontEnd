@@ -10,7 +10,7 @@ import Books from './books/Books';
 import BookForm from './components/borrowerDashboard/BookForm';
 import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './pages/Login';
-import RegisterForm from './components/registration/RegisterForm';
+import RegisterPage from './pages/Registration';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ChatPage from './pages/Chat';
@@ -118,7 +118,7 @@ class App extends React.Component {
 							/>
 						)}
 					/>
-					<Route path='/register' component={RegisterForm} />
+					<Route path='/register' component={RegisterPage} />
 					<Route path='/borrow' component={BookForm} />
 					<Route path='/books' render={() => <Books logOut={this.state.logOut} />} />
 					<Route path='/about' component={AboutPage} />

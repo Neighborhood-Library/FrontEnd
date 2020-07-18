@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { register } from '../../actions/index';
 import CustomButton from '../customButton/CustomButton';
 import './RegisterForm.scss';
@@ -46,121 +45,60 @@ class RegisterForm extends React.Component {
 	};
 
 	render() {
-		const {
-			firstName,
-			lastName,
-			email,
-			username,
-			password,
-			showPassword
-		} = this.state;
 		return (
-			<div className='container'>
-				<div className='form-container'>
-					<h1 className='sign-up-title'>Sign Up</h1>
-					<form className='form-content' onSubmit={this.handleSubmit}>
-						<div className='form-group'>
-							<input
-								className='reg-input'
-								type='text'
-								placeholder='First Name'
-								name='firstName'
-								value={firstName}
-								onChange={this.handleChange}
-								required
-							/>
-							<label className='reg-label' htmlFor='firstName'>
-								First Name
-							</label>
-						</div>
-						<div className='form-group'>
-							<input
-								className='reg-input'
-								type='text'
-								placeholder='Last Name'
-								name='lastName'
-								value={lastName}
-								onChange={this.handleChange}
-								required
-							/>
-							<label className='reg-label' htmlFor='lastName'>
-								Last Name
-							</label>
-						</div>
-						<div className='form-group'>
-							<input
-								className='reg-input'
-								type='email'
-								placeholder='Email'
-								name='email'
-								value={email}
-								onChange={this.handleChange}
-								required
-							/>
-							<label className='reg-label' htmlFor='email'>
-								Email
-							</label>
-						</div>
-						<div className='form-group'>
-							<input
-								className='reg-input'
-								type='text'
-								placeholder='Create a Username'
-								name='username'
-								value={username}
-								onChange={this.handleChange}
-								required
-							/>
-							<label className='reg-label' htmlFor='username'>
-								Username
-							</label>
-						</div>
-						<div className='form-group password'>
-							<input
-								className='reg-input'
-								type={showPassword ? 'text' : 'password'}
-								placeholder='Create a Password'
-								name='password'
-								value={password}
-								onChange={this.handleChange}
-								required
-							/>
-							<label className='reg-label' htmlFor='password'>
-								Password
-							</label>
-							<i
-								className={`fa ${
-									showPassword ? 'fa-eye-slash fa-lg' : 'fa-eye fa-lg'
-								} password-icon`}
-								onClick={this.togglePassword}
-							/>
-						</div>
-						<div className='register'>
-							<CustomButton type='submit' isRegister>
-								Submit
-							</CustomButton>
-							<span className='login-link'>
-								Already have an Account?{' '}
-								<Link className='login-link' to='/login'>
-									Log in
-								</Link>
-							</span>
-							<span className='or'> Or Continue with </span>
-
-							<a href={`${process.env.REACT_APP_REQ_URL}/auth/google`}>
-								{' '}
-								<CustomButton
-									className='google-button custom-button'
-									type='submit'
-									loginWithGoogle
-								>
-									google
-								</CustomButton>
-							</a>
-						</div>
-					</form>
+			<form className="submitForm" onSubmit={this.handleSubmit}>
+				<label for='firstName'>First Name</label>
+				<input
+					type='text'
+					name='firstName'
+					value={this.state.firstName}
+					onChange={this.handleChange}
+					required
+				/>
+				<label for='lastName'>Last Name</label>
+				<input
+					type='text'
+					name='lastName'
+					value={this.state.lastName}
+					onChange={this.handleChange}
+					required
+				/>
+				<label for='email'>Email</label>
+				<input
+					type='email'
+					name='email'
+					value={this.state.email}
+					onChange={this.handleChange}
+					required
+				/>
+				<label for='username'>Username</label>
+				<input
+					type='text'
+					name='username'
+					value={this.state.username}
+					onChange={this.handleChange}
+					required
+				/>
+				<label for='password'>Password</label>
+				<input
+					type={this.state.showPassword ? 'text' : 'password'}
+					name='password'
+					value={this.state.password}
+					onChange={this.handleChange}
+					required
+				/>
+				<i
+					className={`fa ${
+						this.state.showPassword ? 'fa-eye-slash fa-lg' : 'fa-eye fa-lg'
+					} password-icon`}
+					onClick={this.togglePassword}
+				/>
+				<div className='alt-login'>
+					<CustomButton type='submit' isRegister>
+						Submit
+					</CustomButton>
 				</div>
-			</div>
+			</form>
 		);
 	}
 }

@@ -17,12 +17,6 @@ class Login extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // changeBack(){
-  //   document.getElementById("input").style.color = "black";
-  // }
-  // changeMe() {
-  //   document.getElementById("input").style.color = "blue";
-  // }
   submitForm = async e => {
     e.preventDefault();
     await this.props.logInHandler(e, this.state);
@@ -40,7 +34,6 @@ class Login extends React.Component {
     
     return (
       <section className='login'>
-        
         <p className='login-title'> Login to your account</p>
         <form className="submitForm" onSubmit={this.submitForm}>
           <label for="username">Username</label>
@@ -68,7 +61,7 @@ class Login extends React.Component {
 
         <hr />
         <div className="alt-login">
-          Or Sign In Using
+          <p>Or Sign In Using</p>
           <div className="icons">
             <a href={`${process.env.REACT_APP_REQ_URL}/auth/google`}> 
               <i className="fab fa-google"></i>
