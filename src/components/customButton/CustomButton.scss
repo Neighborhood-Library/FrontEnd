@@ -34,22 +34,11 @@
 	background-color: #6cb0e2;
 	color: #ffffff;
 	font-size: 1.5rem;
-	transition-duration: 0.3s;
 
 	&:hover {
 		color: #6cb0e2;
 		background-color: #1867a0;
 		color: #ffffff;
-	}
-
-	&:active {
-		transform: translateY(3px);
-	}
-
-	&:active,
-	:focus {
-		outline: none;
-		box-shadow: 0 0.5rem 1rem rgba(#000, 0.2);
 	}
 }
 

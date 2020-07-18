@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Search from './SearchComponent.js';
-import BookList from './BookList.js';
-import './books.css';
+import Search from '../books./SearchComponent.js';
+import BookList from '../books/BookList.js';
+// import './books.css';
 
 class Books extends Component {
   constructor(props) {
