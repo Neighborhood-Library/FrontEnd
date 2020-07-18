@@ -148,7 +148,7 @@ class Book extends React.Component {
   render() {
     let publishYear = this.state.info && this.state.info.volumeInfo.publishedDate ? this.state.info.volumeInfo.publishedDate.split('-')[0] : 'N/A';
     let authorName = this.state.info && this.state.info.volumeInfo.authors ? this.state.info.volumeInfo.authors[0] : 'N/A' ;
-    let bookInfo = this.state.info && this.state.info.volumeInfo.authors !== null ? this.state.info.volumeInfo.previewLink : '#';
+    // let bookInfo = this.state.info && this.state.info.volumeInfo.authors !== null ? this.state.info.volumeInfo.previewLink : '#';
     let bookCoverSrc = this.state.info && this.state.info.volumeInfo.imageLinks !== undefined ? this.state.info.volumeInfo.imageLinks.thumbnail : '';
 
     if (this.state.info === null) {
