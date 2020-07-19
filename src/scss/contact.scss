@@ -1,6 +1,22 @@
-.contact {
-    width: 60%;
-    margin: 0 auto;
+.card.contact {
+    display: grid;
+    // grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 3.4rem;
+    justify-content: space-evenly;
+
+    .info {
+        width: 100%;
+
+    }
+
+    h1, h2, h3, h4, h5 {
+        margin-bottom: 1.7rem;
+    }
+
+    input {
+        margin-bottom: 1.7rem;
+    }
 }
 
 label {
@@ -13,4 +29,10 @@ label {
 }
 
 
-
+@media (max-width: 840px) {
+    .info {
+        padding-bottom: 1.7rem;
+        margin-bottom: 3.4rem;
+        border-bottom: 1px solid #000;
+    }
+}

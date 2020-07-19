@@ -73,10 +73,10 @@ hr {margin: 3em 0;}
     	margin-left: 10px;
 		border-radius: 3px;
 		border: 0;
-		transition: 0.2s;
 
 		&:hover {
 			background-color: #0c66a8;
+			color: #fff;
 		}
 
 		&:active {
@@ -89,10 +89,6 @@ hr {margin: 3em 0;}
 		margin-left: 0.1rem;
 		color: #000;
 		border: 2px solid;
-
-		&:hover {
-			background-color: darken($color: #000, $amount: 1);
-		}
 
 		&:active {
 			outline: none;
@@ -124,7 +120,7 @@ hr {margin: 3em 0;}
 }
 
 .page-wrap {
-	margin-top: 50px;
+	margin: 50px auto;
 }
 
 /* Pop up Modals */

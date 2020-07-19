@@ -15,7 +15,7 @@ const InfoBar = () => {
       <h3>{book_name}</h3>
     </div>  
     <div className='rightInnerContainer'>
-        <a href='/dashboard'>
+        <a href='/shelf'>
         <img src={closeIcon} alt='close icon' />
       </a>
     </div>

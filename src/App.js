@@ -50,7 +50,7 @@ class App extends React.Component {
 		if (this.state.logOut === true) {
 			return (
 				<button className='login-btn logout-btn' onClick={this.logOutHandler}>
-					Logout
+					Log Out
 				</button>
 			);
 		} else {

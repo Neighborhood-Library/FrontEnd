@@ -55,13 +55,13 @@ class Login extends React.Component {
             required
           />
           <button type='submit'>
-            Login
+            Log In
           </button>
         </form>
 
         <hr />
         <div className="alt-login">
-          <p>Or Sign In Using</p>
+          <p>Or Log In Using</p>
           <div className="icons">
             <a href={`${process.env.REACT_APP_REQ_URL}/auth/google`}> 
               <i className="fab fa-google"></i>
