@@ -1,6 +1,6 @@
 # Neighborhood Library a.k.a MyVivlio-Frontend
 
-<!-- Need to add link to domain -->
+https://neighborhood-library-sh.netlify.app/
 
 In this app, we provide a simple solution for lending and borrowing books to and from fellow users.
 
@@ -12,11 +12,11 @@ Web only app built with React and Redux. Styled using Sass and Bootstrap. Built 
 
 ## Documentation
 
-See [Backend Documentation](https://github.com/Lambda-School-Labs/neighborhood-library-be/tree/master) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Neighborhood-Library/Back-End) for details on the backend of our project.
 
 ---
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7b5d57b0-d9c2-4437-9911-b713cad4ddeb/deploy-status)](https://app.netlify.com/sites/neighborhood-library-labspt5/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7b5d57b0-d9c2-4437-9911-b713cad4ddeb/deploy-status)](https://app.netlify.com/sites/neighborhood-library-sh/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -56,33 +56,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
