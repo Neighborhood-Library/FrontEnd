@@ -10,12 +10,15 @@ const Contact = () => {
       </div>
       <form id="contact-page">
         <h3>Send us a Message</h3>
-        <label htmlFor="inputFirst">First Name</label>
-        <input type="text" className="form-control" id="inputFirst" placeholder="Sam"></input>
-        <label htmlFor="inputLast">Last Name</label>
-        <input type="text" className="form-control" id="inputLast" placeholder="I-Am"></input>
-        <label htmlFor="inputEmail4">Email</label>
-        <input type="email" className="form-control" id="inputEmail4" placeholder="emailme@email.org"></input>
+        <hr />
+        <label htmlFor="inputFirst">First Name</label><br />
+        <input type="text" id="inputFirst"></input>
+        <label htmlFor="inputLast">Last Name</label> <br />
+        <input type="text" id="inputLast"></input>
+        <label htmlFor="inputEmail4">Email</label><br />
+        <input type="email" id="inputEmail" ></input>
+        <label for="message">Message</label>
+        <textarea name="message" rows="5"></textarea>
         <button type="submit" className="btn btn-primary">Book This</button>
       </form>
     </section>
