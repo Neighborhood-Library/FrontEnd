@@ -1,13 +1,12 @@
+/* PACKAGES */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { fetchUser, login } from './actions/index';
 import Axios from 'axios';
 
-import './scss/combined.scss';
-
-import Books from './books/Books';
-import BookForm from './components/borrowerDashboard/BookForm';
+/* PAGES */
+import Books from './pages/BookSearch';
 import { LandingPage } from './components/landingPage/LandingPage';
 import Login from './pages/Login';
 import RegisterPage from './pages/Registration';
@@ -17,6 +16,9 @@ import ChatPage from './pages/Chat';
 import Footer from './components/Footer';
 import PrivateRoute from './middleware/PrivateRoute';
 import Shelf from './pages/Shelf';
+
+/* STYLING */
+import './scss/combined.scss';
 
 require('dotenv').config();
 
@@ -121,7 +123,6 @@ class App extends React.Component {
 							)}
 						/>
 						<Route path='/register' component={RegisterPage} />
-						<Route path='/borrow' component={BookForm} />
 						<Route path='/books' render={() => <Books logOut={this.state.logOut} />} />
 						<Route path='/about' component={AboutPage} />
 						<Route path='/contact' component={ContactPage} />

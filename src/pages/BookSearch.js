@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Search from '../books./SearchComponent.js';
-import BookList from '../books/BookList.js';
-// import './books.css';
+import Search from '../components/books/SearchComponent.js';
+import BookList from '../components/books/BookList.js';
 
 class Books extends Component {
   constructor(props) {
@@ -37,12 +36,12 @@ class Books extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <Search
           handleInput={this.handleInput} handleSearch={this.handleSearch}
           searchInput={this.searchInput}/>
         <BookList books={this.state.books} logOut={this.props.logOut} />
-      </div>
+      </section>
     )
   }
 }
