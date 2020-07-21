@@ -1,11 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import axios from 'axios';
-import './books.css';
 
-import * as actions from '../actions/bookActions.js'
+// import * as actions from '../../actions/bookActions.js'
 import Book from './Book.js';
-import Warning from '../components/Warning';
+import Warning from '../Warning';
 
 
 class BookList extends React.Component {
@@ -102,7 +101,7 @@ class BookList extends React.Component {
   }
 
   render() {
-    const blankImg = `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png`
+    const blankImg = `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png`;
     return (
       <>
         {
@@ -111,7 +110,7 @@ class BookList extends React.Component {
           :
             <></>
         }
-        <div className="bookCards">
+        <div className="booksCont">
           {
             this.props.books.length === 0 ?
               <p>Search for a book</p>
@@ -121,7 +120,7 @@ class BookList extends React.Component {
                         coverArt = {book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : blankImg }
                         title = {book.volumeInfo.title}
                         author={book.volumeInfo.authors}
-                        publishedDate={book.volumeInfo.publishedDate}
+                        publishedDate={book.volumeInfo.publishedDate.slice(0,4)}
                         toLink={book.volumeInfo.infoLink}
                         addToVivlio={this.props.addToVivlio} 
                         borrowBookHandler={this.borrowBookHandler}
@@ -138,4 +137,4 @@ class BookList extends React.Component {
   }
 }
 
-export default connect(null, actions)(BookList);
+export default BookList;

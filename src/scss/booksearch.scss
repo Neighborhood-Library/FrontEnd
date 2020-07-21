@@ -1,0 +1,34 @@
+.booksCont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    column-gap: 1.7rem;
+    row-gap: 3.4rem;
+
+    .bookCard {
+        margin: 0;
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        overflow: hidden;
+
+        .bookTitle {
+            margin-bottom: 1.7rem;
+        }
+
+        .author, .bookSummary {
+            font-size: 1.4rem;
+            color: #5e5e5e;
+        }
+    }
+
+    .bookCont {
+        background-color: purple;
+    }
+
+    .coverArt {
+        margin-right: 0;
+        height: initial;
+        height: 300px;
+        margin-bottom: 1.7rem;
+    }
+}
