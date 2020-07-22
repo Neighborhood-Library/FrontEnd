@@ -1,3 +1,15 @@
+.bookHeadCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.7rem;
+    
+    .searchHolder {
+        text-align: right;
+    }
+}
+
 .booksCont {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -19,6 +31,15 @@
             font-size: 1.4rem;
             color: #5e5e5e;
         }
+
+        .bookSummary {
+            margin-bottom: 1.7rem;
+        }
+
+        .btnDivider {
+            margin: 0.5rem auto;
+            font-size: 1.3rem;
+        }
     }
 
     .bookCont {
@@ -27,7 +48,6 @@
 
     .coverArt {
         margin-right: 0;
-        height: initial;
         height: 300px;
         margin-bottom: 1.7rem;
     }

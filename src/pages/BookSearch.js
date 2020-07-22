@@ -37,9 +37,17 @@ class Books extends Component {
   render() {
     return (
       <section>
-        <Search
-          handleInput={this.handleInput} handleSearch={this.handleSearch}
-          searchInput={this.searchInput}/>
+        <div className="bookHeadCont">
+          <div>
+            <h1>Search for Books</h1>
+            <p>Discover the endless library of books provided by Google Books. Search this library in the search bar and request to borrow or lend out your book.</p>
+          </div>
+          <Search
+            handleInput={this.handleInput}
+            handleSearch={this.handleSearch}
+            searchInput={this.searchInput}
+          />
+        </div>
         <BookList books={this.state.books} logOut={this.props.logOut} />
       </section>
     )

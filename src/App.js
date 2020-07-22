@@ -26,7 +26,8 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			logOut: false
+			logOut: false,
+			warning: false
 		};
 	}
 
@@ -34,11 +35,11 @@ class App extends React.Component {
 		this.checkCookie();
 	};
 
-	componentDidUpdate = async prevProps => {
-		if (this.props !== prevProps) {
-			this.checkCookie();
-		}
-	};
+	// componentDidUpdate = async prevProps => {
+	// 	if (this.props !== prevProps) {
+	// 		this.checkCookie();
+	// 	}
+	// };
 
 	checkCookie = async () => {
 		const userData = await this.props.fetchUser();
