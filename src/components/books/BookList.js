@@ -116,7 +116,6 @@ class BookList extends React.Component {
               <p>Search for a book</p>
             :
             this.props.books.map((book, i) => {
-              const publishDate = book.volumeInfo.publishedDate.slice(0,4);
               return <Book
                         coverArt = {book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : blankImg }
                         title = {book.volumeInfo.title}
