@@ -4,21 +4,24 @@ https://neighborhood-library-sh.netlify.app/
 
 In this app, we provide a simple solution for lending and borrowing books to and from fellow users.
 
+## Environment Variables
+
+- *REACT_APP_REQ_URL*: Request URL used to access the Backend API
+
 ---
 
 ## Tech Stack Architecture
 
 Web only app built with React and Redux. Styled using Sass and Bootstrap. Built on an SQL database, and a Node Express back-end.
 
+- Axios
+- Socket.IO
+
 ## Documentation
 
 See [Backend Documentation](https://github.com/Neighborhood-Library/Back-End) for details on the backend of our project.
 
 ---
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7b5d57b0-d9c2-4437-9911-b713cad4ddeb/deploy-status)](https://app.netlify.com/sites/neighborhood-library-sh/deploys)
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
