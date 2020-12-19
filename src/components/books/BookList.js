@@ -112,15 +112,15 @@ class BookList extends React.Component {
         }
         <div className="booksCont">
           {
-            this.props.books.length === 0 ?
+            !this.props.books.items ?
               <p>Search for a book</p>
             :
-            this.props.books.map((book, i) => {
+            this.props.books.items.map((book, i) => {
               return <Book
                         coverArt = {book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : blankImg }
                         title = {book.volumeInfo.title}
                         author={book.volumeInfo.authors}
-                        publishedDate={publishDate}
+                        publishedDate={book.volumeInfo.publishDate}
                         toLink={book.volumeInfo.infoLink}
                         addToVivlio={this.props.addToVivlio} 
                         borrowBookHandler={this.borrowBookHandler}
