@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Search from '../components/books/SearchComponent.js';
 import BookList from '../components/books/BookList.js';
+import BookPagePagination from '../components/books/BookPagePagination.js';
 
 class Books extends Component {
   constructor(props) {
-    super(props);
+      super(props);
       this.state = {
         books: '',
         searchInput: '',
@@ -25,7 +26,7 @@ class Books extends Component {
     e.preventDefault()
 
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=40&startIndex=${this.state.searchPageIndex}`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=20&startIndex=${this.state.searchPageIndex}`)
       .then(data => {
         console.log(data)
         this.setState({
@@ -70,9 +71,7 @@ class Books extends Component {
         {
             this.state.books !== '' ?
             (
-              <div>
-                
-              </div>
+              <BookPagePagination books={this.state.books.totalItems} />
             ) : ''
         }
 
