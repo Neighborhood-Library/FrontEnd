@@ -37,6 +37,16 @@ label {
     }
 }
 
+#contact-page {
+    p {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid green;
+        border-radius: 5px;
+        background-color: #9bffc5;
+    }
+}
+
 
 @media (max-width: 840px) {
     .info {

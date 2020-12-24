@@ -18,7 +18,16 @@ class Contact extends React.Component {
   formValidate = e => {
     e.preventDefault();
 
-    this.setState({success: true});
+    // if form fields are blank
+    if (!this.state.name.length || !this.state.email.length || !this.state.message.length) return;
+
+    this.setState({
+      name: '',
+      email: '',
+      message: '',
+      success: true,
+
+    });
     setTimeout(() => this.setState({success: false}), 5000);
   }
 
@@ -57,7 +66,7 @@ class Contact extends React.Component {
           <button type="submit" className="btn btn-primary" onSubmit={this.formValidate}>Send Message</button>
           {
             this.state.success ?
-              <p>Successful message sending!</p> :
+              <p className="success">Your message was successfully sent!</p> :
               ''
           }
         </form>
