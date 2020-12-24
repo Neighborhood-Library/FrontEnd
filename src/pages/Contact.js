@@ -66,8 +66,7 @@ class Contact extends React.Component {
           <button type="submit" className="btn btn-primary" onSubmit={this.formValidate}>Send Message</button>
           {
             this.state.success ?
-              <p className="success">Your message was successfully sent!</p> :
-              ''
+              <p className="success">Your message was successfully sent!</p> : ''
           }
         </form>
       </section>

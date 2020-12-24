@@ -3,7 +3,11 @@
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.7rem;
+    margin-bottom: 5.0rem;
+
+    h1 {
+        margin-bottom: 1.0rem;
+    }
     
     .searchHolder {
         text-align: right;
@@ -50,5 +54,28 @@
         margin-right: 0;
         height: 300px;
         margin-bottom: 1.7rem;
+    }
+}
+
+.pagination {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    div {
+        cursor: pointer;
+        height: 37px;
+        width: 50px;
+        padding: 5px 10px;
+        margin: 0 0 10px 5px;
+        font-size: 1.8rem;
+        text-align: center;
+        border: 1px solid #cacaca;
+
+        &.active {
+            background: #444444;
+            color: #ffffff;
+        }
     }
 }

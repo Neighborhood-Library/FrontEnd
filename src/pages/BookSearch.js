@@ -11,7 +11,7 @@ class Books extends Component {
         books: '',
         searchInput: '',
         ownedBooks: [],
-        searchPageIndex: 0
+        activePageIndex: 0
       }
 
   }
@@ -22,31 +22,17 @@ class Books extends Component {
     });
   }
 
-  handleSearch = async e => {
+  handleSearch = async (e, index) => {
     e.preventDefault()
 
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=20&startIndex=${this.state.searchPageIndex}`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=20&startIndex=${this.state.activePageIndex}`)
       .then(data => {
-        console.log(data)
         this.setState({
           books: data.data
-        })
+        });
       })
       .catch(err => console.log(err))
-  }
-
-  pagination = () => {
-    console.log('pagination running');
-    const pageCount = Math.ceil(this.state.books.totalItems / 40);
-    let pagesList = [];
-
-    for (let count = 0; count <= pageCount; count++) {
-      pagesList.push(`${count}`);
-    }
-
-    console.log(pagesList.length);
-    return pagesList;
   }
 
   render() {
@@ -71,7 +57,10 @@ class Books extends Component {
         {
             this.state.books !== '' ?
             (
-              <BookPagePagination books={this.state.books.totalItems} />
+              <BookPagePagination
+                books={this.state.books.totalItems}
+                activePageIndex={this.state.activePageIndex}  
+              />
             ) : ''
         }
 

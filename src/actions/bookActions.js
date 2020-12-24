@@ -83,9 +83,9 @@ const getCurrUser = async () => {
     .then(res => {
       if (res.data.user !== undefined) {
         return res.data.user[0].id;
-      } else {
-        return;
       }
+
+      return;
     })
     .catch(err => {
       console.log(err);

@@ -23,7 +23,7 @@ class Book extends React.Component {
 					alt='Cover Art'
 					src={this.props.coverArt}
 				/>
-				<h2 className='bookTitle'>{this.props.title}</h2>
+				<h3 className='bookTitle'>{this.props.title}</h3>
 				<h4 className='author'>{this.props.author}</h4>
 				<p className='bookSummary'>{this.props.publishedDate}</p>
 				{
