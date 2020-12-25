@@ -22,17 +22,47 @@ class Books extends Component {
     });
   }
 
-  handleSearch = async (e, index) => {
-    e.preventDefault()
+  handleSearch = async e => {
+    e.preventDefault();
 
+    
+    const URL = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=20&startIndex=`;
+    let pageIndex = this.state.activePageIndex;
+    
+    // if clicking pagination
+    if (e.target.classList[0] !== 'searchHolder')  {
+      // clear active class on tabs
+      const getSibilingNodes = e.target.parentNode.childNodes;
+      console.log(getSibilingNodes);
+
+      for (let node of getSibilingNodes) {
+        console.log(node);
+        node.className = '';
+      }
+
+      // make clicked tab active
+      e.target.classList.add('active');
+
+      // set google page index to clicked page number
+      pageIndex = e.target.attributes['data-id'].value;
+    }
+    
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=20&startIndex=${this.state.activePageIndex}`)
+      .get(URL + pageIndex)
       .then(data => {
         this.setState({
           books: data.data
         });
       })
       .catch(err => console.log(err))
+  }
+
+  clearActivePageButton = target => {
+    const getSibilingNodes = target.parentNode.childNodes;
+
+    for (let node in getSibilingNodes) {
+      node.classList.remove('active');
+    }
   }
 
   render() {
@@ -59,7 +89,8 @@ class Books extends Component {
             (
               <BookPagePagination
                 books={this.state.books.totalItems}
-                activePageIndex={this.state.activePageIndex}  
+                activePageIndex={this.state.activePageIndex}
+                handleSearch={this.handleSearch}  
               />
             ) : ''
         }

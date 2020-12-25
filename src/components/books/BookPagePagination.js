@@ -18,7 +18,15 @@ const BookPagePagination = props => {
     return (
         <div className="pagination">
             {
-                pagesArr.map(num => <div key={num} className={props.activePageIndex === num ? 'active' : ''}>{num+1}</div>)
+                pagesArr.map(num => {
+                    return <div
+                        key={num}
+                        data-id={num}
+                        onClick={props.handleSearch}
+                        className={props.activePageIndex === num ? 'active' : ''}>
+                            {num+1}
+                    </div>
+                })
             }
         </div>
     )
