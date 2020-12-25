@@ -44,7 +44,7 @@ class Books extends Component {
       e.target.classList.add('active');
 
       // set google page index to clicked page number
-      pageIndex = e.target.attributes['data-id'].value;
+      pageIndex = e.target.attributes['data-id'].value * 20;
     }
     
     await axios
