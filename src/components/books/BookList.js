@@ -117,7 +117,7 @@ class BookList extends React.Component {
             :
             this.props.books.items.map((book, i) => {
               return <Book
-                        coverArt = {book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : blankImg }
+                        coverArt = {book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : blankImg }
                         title = {book.volumeInfo.title}
                         author={book.volumeInfo.authors}
                         publishedDate={book.volumeInfo.publishDate}

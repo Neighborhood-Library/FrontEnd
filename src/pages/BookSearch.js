@@ -24,19 +24,16 @@ class Books extends Component {
 
   handleSearch = async e => {
     e.preventDefault();
-
     
-    const URL = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}&maxResults=20&startIndex=`;
+    const URL = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchInput}+intitle:${this.state.searchInput}&maxResults=20&startIndex=`;
     let pageIndex = this.state.activePageIndex;
     
     // if clicking pagination
     if (e.target.classList[0] !== 'searchHolder')  {
       // clear active class on tabs
       const getSibilingNodes = e.target.parentNode.childNodes;
-      console.log(getSibilingNodes);
 
       for (let node of getSibilingNodes) {
-        console.log(node);
         node.className = '';
       }
 

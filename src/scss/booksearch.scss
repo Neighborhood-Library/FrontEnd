@@ -16,7 +16,7 @@
 
 .booksCont {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     column-gap: 1.7rem;
     row-gap: 3.4rem;
 
@@ -52,7 +52,7 @@
 
     .coverArt {
         margin-right: 0;
-        height: 300px;
+        width: 128px;
         margin-bottom: 1.7rem;
     }
 }
