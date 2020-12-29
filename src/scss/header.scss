@@ -29,8 +29,17 @@ header {
 }
 
 .nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 5em;
+	margin: 3em 1em;
 	flex-direction: column;
 	padding: 0.5em;
+
+	button {
+		cursor: pointer;
+	}
 }
 
 .bookSearch {
@@ -39,14 +48,6 @@ header {
 
 .menuOpen {
 	position: relative;
-}
-
-.nav {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 5em;
-	margin: 3em 1em;
 }
 
 .title {

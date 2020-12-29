@@ -46,6 +46,8 @@
 		width: 100%;
 		display: flex;
 		flex-flow: row wrap;
+		position: relative;
+		margin-bottom: 2rem;
 
 		.coverArt {
 			margin: 0;

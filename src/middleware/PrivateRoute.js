@@ -12,7 +12,6 @@ class PrivateRoute extends React.Component {
 
   componentDidMount = async () => {
     const URL = `${process.env.REACT_APP_REQ_URL}/auth/current_user`;
-    console.log('firing account access check, privateroute line 15');
 
     await axios
       .get(URL, { withCredentials: true })
@@ -30,7 +29,6 @@ class PrivateRoute extends React.Component {
 
   
   render() {
-    console.log('checking state auth');
     return(
       <>
         {

@@ -1,8 +1,8 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-// import * as actions from '../../actions/bookActions.js'
+import { lendBook, borrowBook } from '../../actions/bookActions.js';
 import Book from './Book.js';
 import Warning from '../Warning';
 
@@ -117,7 +117,7 @@ class BookList extends React.Component {
             :
             this.props.books.items.map((book, i) => {
               return <Book
-                        coverArt = {book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : blankImg }
+                        coverArt = {book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : blankImg }
                         title = {book.volumeInfo.title}
                         author={book.volumeInfo.authors}
                         publishedDate={book.volumeInfo.publishDate}
@@ -137,4 +137,9 @@ class BookList extends React.Component {
   }
 }
 
-export default BookList;
+const mapDispatchToProps = {
+  borrowBook,
+  lendBook
+}
+
+export default connect(null, mapDispatchToProps)(BookList);

@@ -15,10 +15,7 @@ class UserDashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-    // await this.props.checkCookie();
-    console.log('borrow dash, ln 20, shelf');
     await this.props.borrowBookDashboard();
-    console.log('lender dash, ln 20, shelf');
     await this.props.lendBookDashboard();
   };
 

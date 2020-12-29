@@ -3,7 +3,7 @@ import React from 'react';
 const BookPagePagination = props => {
 
     const setPagesArr = () => {
-        const pageCount = Math.floor(props.books / 20);
+        const pageCount = Math.floor(props.books / 20) / 2;
         let pagesList = [];
     
         for (let count = 0; count <= pageCount; count++) {    
