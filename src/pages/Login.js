@@ -36,7 +36,7 @@ class Login extends React.Component {
       <section className='login'>
         <p className='login-title'> Login to your account</p>
         <form className="submitForm" onSubmit={this.submitForm}>
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type='text'
             name='username'
@@ -45,7 +45,7 @@ class Login extends React.Component {
             value={this.state.username}
             required
           />
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type='password'
             name='password'

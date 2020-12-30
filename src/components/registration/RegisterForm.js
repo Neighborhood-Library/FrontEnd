@@ -47,7 +47,7 @@ class RegisterForm extends React.Component {
 	render() {
 		return (
 			<form className="submitForm" onSubmit={this.handleSubmit}>
-				<label for='firstName'>First Name</label>
+				<label htmlFor='firstName'>First Name</label>
 				<input
 					type='text'
 					name='firstName'
@@ -55,7 +55,7 @@ class RegisterForm extends React.Component {
 					onChange={this.handleChange}
 					required
 				/>
-				<label for='lastName'>Last Name</label>
+				<label htmlFor='lastName'>Last Name</label>
 				<input
 					type='text'
 					name='lastName'
@@ -63,7 +63,7 @@ class RegisterForm extends React.Component {
 					onChange={this.handleChange}
 					required
 				/>
-				<label for='email'>Email</label>
+				<label htmlFor='email'>Email</label>
 				<input
 					type='email'
 					name='email'
@@ -71,7 +71,7 @@ class RegisterForm extends React.Component {
 					onChange={this.handleChange}
 					required
 				/>
-				<label for='username'>Username</label>
+				<label htmlFor='username'>Username</label>
 				<input
 					type='text'
 					name='username'
@@ -79,12 +79,13 @@ class RegisterForm extends React.Component {
 					onChange={this.handleChange}
 					required
 				/>
-				<label for='password'>Password</label>
+				<label htmlFor='password'>Password</label>
 				<input
 					type={this.state.showPassword ? 'text' : 'password'}
 					name='password'
 					value={this.state.password}
 					onChange={this.handleChange}
+					autoComplete="on"
 					required
 				/>
 				<i

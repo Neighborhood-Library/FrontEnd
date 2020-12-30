@@ -71,7 +71,6 @@ class App extends React.Component {
 			.login(info)
 			.then(res => {
 				if (this.props.loggedIn) {
-					console.log('changing loggedIn status');
 					this.setState({ logOut: true });
 					this.props.history.push('/shelf');
 				} else {
