@@ -21,7 +21,7 @@ class Login extends React.Component {
     e.preventDefault();
     await this.props.logInHandler(e, this.state);
     if (this.props.loggedIn) {
-      this.props.history.push('/dashboard');
+      // this.props.history.push('/dashboard');
     } else {
       this.setState({username: "", password: ""});
     }
