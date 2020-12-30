@@ -1,6 +1,7 @@
 # Neighborhood Library a.k.a MyVivlio-Frontend
 
 https://neighborhood-library-sh.netlify.app/
+TEST USER: Ghost | PASSWORD: GHOST
 
 In this app, we provide a simple solution for lending and borrowing books to and from fellow users.
 
