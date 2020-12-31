@@ -72,7 +72,7 @@ class App extends React.Component {
 			.then(res => {
 				if (this.props.loggedIn) {
 					this.setState({ logOut: true });
-					this.props.history.push('/shelf');
+					// this.props.history.push('/shelf');
 				} else {
 					throw new Error('Wrong credentials entered');
 				}
