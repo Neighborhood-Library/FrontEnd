@@ -43,6 +43,7 @@ class Login extends React.Component {
             className='username'
             onChange={this.onChange}
             value={this.state.username}
+            autoComplete="on"
             required
           />
           <label htmlFor="password">Password</label>
@@ -52,6 +53,7 @@ class Login extends React.Component {
             className='username'
             onChange={this.onChange}
             value={this.state.password}
+            autoComplete="on"
             required
           />
           <button type='submit'>
